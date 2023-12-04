@@ -1,0 +1,438 @@
+<template>
+<div style="position: sticky;
+    top: 110px;">
+
+  <v-card
+    class="mx-auto advance-filter d-lg-block d-none"
+    max-width="344"
+    outlined
+    dense fixed
+  >
+    <p class="subtitle1 d-text-primary">{{$t('searchFilter')}}</p>
+
+    <selectComponent style="position:inherit"  class="select-box"
+      :errorMessages="estate_offer_typeErrors"
+      background="#FFFFFF"
+      :model="form.estate_offer_type_id"
+      :filled="true"
+      :label="$t('OfferType')"
+      :items="EstateOfferTypes"
+      attr="estate_offer_type_id"
+      @select="
+        (val) => {
+          form.estate_offer_type_id = val.value;
+        }
+      "
+    />
+    <selectComponent class="select-box"
+      :errorMessages="price_domain_idErrors"
+      :model="form.price_domain_id"
+      background="#FFFFFF"
+      :filled="true"
+      :label="$t('searchPrice')"
+      :items="PriceDomains"
+      attr="price_domain_id"
+      @select="
+        (val) => {
+          form.price_domain_id = val.value;
+        }
+      "
+    />
+
+    <selectComponent class="select-box"
+      :errorMessages="estate_type_idErrors"
+      :model="form.estate_type_id"
+      style="border: 0px"
+      background="#FFFFFF"
+      :filled="true"
+      :label="$t('EstateType')"
+      :items="EstateTypes"
+      attr="estate_type_id"
+      @select="
+        (val) => {
+          form.estate_type_id = val.value;
+        }
+      "
+    />
+    <selectComponent class="select-box"
+      :errorMessages="location_idErrors"
+      :model="form.location_id"
+      style="border: 0px"
+      background="#FFFFFF"
+      :filled="true"
+      :label="$t('place')"
+      :items="Locations"
+      attr="location_id"
+      @select="
+        (val) => {
+          form.location_id = val.value;
+        }
+      "
+    />
+    <!--<p class="subtitle1 d-text-primary mt-5">{{$t('advancedsearch')}}</p>
+
+    <selectComponent class="select-box"
+      background="#FFFFFF"
+      :filled="true"
+      :label="$t('internalstate')"
+      :items="interiorStatuses"
+      attr="interior_status_id"
+      @select="
+        (val) => {
+          form.interior_status_id = val.value;
+        }
+      "
+    />
+
+    <selectComponent class="select-box"
+      background="#FFFFFF"
+      :filled="true"
+      :label="$t('OwnershipType')"
+      :items="OwnershipTypes"
+      attr="ownership_type_id"
+      @select="
+        (val) => {
+          form.ownership_type_id = val.value;
+        }
+      "
+    />
+    <Switcher
+      attr="is_furnished"
+      :label="$t('IstheEstatefurnished?')"
+      @switcher="
+        (val) => {
+          form.is_furnished = val.value;
+        }
+      "
+    ></Switcher>
+    <Switcher
+      attr="on_beach"
+      :label="$t('IstheEstateoverlookingthebeach')"
+      @switcher="
+        (val) => {
+          form.on_beach = val.value;
+        }
+      "
+    ></Switcher>
+        <Switcher
+      attr="swimming_pool"
+      :label="$t('Doestheestatehaveaswimmingpool')"
+      @switcher="
+        (val) => {
+          form.swimming_pool = val.value;
+        }
+      "
+    ></Switcher>-->
+
+    <v-btn
+      large
+      depressed
+      class="d-bg-primary pa-2 mt-10 d-text-light elevation-0 subtitle1"
+      style="width: 100%; border-radius: 10px; height: 48px"
+      @click="search"
+    >
+      {{$t('search')}}
+    </v-btn>
+  </v-card>
+  <v-card
+    class="mx-auto mt-10 advance-filter-md d-block d-lg-none"
+    max-width="344"
+    outlined
+    dense fixed
+  >
+    <p class="subtitle1 d-text-primary">{{$t('searchFilter')}}</p>
+
+    <selectComponent
+      :errorMessages="estate_offer_typeErrors"
+      background="#FFFFFF"
+      :model="form.estate_offer_type_id"
+      :filled="true"
+      :label="$t('OfferType')"
+      :items="EstateOfferTypes"
+      attr="estate_offer_type_id"
+      @select="
+        (val) => {
+          form.estate_offer_type_id = val.value;
+        }
+      "
+    />
+    <selectComponent
+      :errorMessages="price_domain_idErrors"
+      :model="form.price_domain_id"
+      background="#FFFFFF"
+      :filled="true"
+      :label="$t('searchPrice')"
+      :items="PriceDomains"
+      attr="price_domain_id"
+      @select="
+        (val) => {
+          form.price_domain_id = val.value;
+        }
+      "
+    />
+
+    <selectComponent
+      :errorMessages="estate_type_idErrors"
+      :model="form.estate_type_id"
+      style="border: 0px"
+      background="#FFFFFF"
+      :filled="true"
+      :label="$t('EstateType')"
+      :items="EstateTypes"
+      attr="estate_type_id"
+      @select="
+        (val) => {
+          form.estate_type_id = val.value;
+        }
+      "
+    />
+    <selectComponent
+      :errorMessages="location_idErrors"
+      :model="form.location_id"
+      style="border: 0px"
+      background="#FFFFFF"
+      :outlined="true"
+      :label="$t('place')"
+      :items="Locations"
+      attr="location_id"
+      @select="
+        (val) => {
+          form.location_id = val.value;
+        }
+      "
+    />
+   <!-- <p class="subtitle1 d-text-primary">{{$t('advancedsearch')}}</p>
+
+    <selectComponent
+      background="#FFFFFF"
+      :outlined="true"
+      :label="$t('internalstate')"
+      :items="interiorStatuses"
+      attr="interior_status_id"
+      @select="
+        (val) => {
+          form.interior_status_id = val.value;
+        }
+      "
+    />
+
+    <selectComponent
+      background="#FFFFFF"
+      :outlined="true"
+      :label="$t('OwnershipType')"
+      :items="OwnershipTypes"
+      attr="ownership_type_id"
+      @select="
+        (val) => {
+          form.ownership_type_id = val.value;
+        }
+      "
+    />
+    <Switcher
+      attr="is_furnished"
+      :label="$t('IstheEstatefurnished?')"
+      @switcher="
+        (val) => {
+          form.is_furnished = val.value;
+        }
+      "
+    ></Switcher>
+    <Switcher
+      attr="on_beach"
+      :label="$t('IstheEstateoverlookingthebeach')"
+      @switcher="
+        (val) => {
+          form.on_beach = val.value;
+        }
+      "
+    ></Switcher>
+        <Switcher
+      attr="swimming_pool"
+      :label="$t('Doestheestatehaveaswimmingpool')"
+      @switcher="
+        (val) => {
+          form.swimming_pool = val.value;
+        }
+      "
+    ></Switcher>-->
+
+    <v-btn
+      large
+      depressed
+      class="d-bg-primary pa-2 d-text-light elevation-0 subtitle1"
+      style="width: 100%; border-radius: 10px; height: 48px"
+      @click="search"
+    >
+      {{$t('search')}}
+    </v-btn>
+  </v-card>
+  </div>
+
+</template>
+<script>
+import { mapActions, mapGetters } from "vuex";
+import { validationMixin } from "vuelidate";
+import {
+  required,
+} from "vuelidate/lib/validators";
+export default {
+   mixins: [validationMixin],
+  validations: {
+    form: {
+      location_id: { required },
+      estate_type_id: { required },
+      estate_offer_type_id: { required },
+      price_domain_id: { required:false },
+    },
+  },
+  computed: {
+    ...mapGetters(["getLocations", "getEstateTypes", "getPriceDomains"]),
+        form() {
+      return this.$store.getters.getForm;
+    },
+    estate_offer_typeErrors(){
+      const errors = [];
+      if (!this.$v.form.estate_offer_type_id.$dirty) return errors;
+      !this.$v.form.estate_offer_type_id.required && errors.push("يرجى ملئ حقل نوع العقار");
+      return errors;
+    },
+    location_idErrors() {
+      const errors = [];
+      if (!this.$v.form.location_id.$dirty) return errors;
+      !this.$v.form.location_id.required && errors.push("يرجى ملئ حقل  المكان");
+      return errors;
+    },
+    estate_type_idErrors() {
+      const errors = [];
+      if (!this.$v.form.estate_type_id.$dirty) return errors;
+      !this.$v.form.estate_type_id.required &&
+        errors.push("يرجى ملئ حقل  النوع");
+      return errors;
+    },
+    price_domain_idErrors() {
+      const errors = [];
+      if (!this.$v.form.price_domain_id.$dirty) return errors;
+      !this.$v.form.price_domain_id.required &&
+        errors.push("يرجى ملئ حقل  السعر");
+      return errors;
+    },
+
+    Locations() {
+      return this.getLocations;
+    },
+    EstateTypes() {
+      return this.getEstateTypes;
+    },
+    PriceDomains() {
+      return this.getPriceDomains;
+    },
+    EstateOfferTypes() {
+      return this.$store.getters.getEstateOfferTypes;
+    },
+    interiorStatuses() {
+      return this.$store.getters.getInteriorStatuses;
+    },
+    OwnershipTypes() {
+      return this.$store.getters.getOwnershipTypes;
+    },
+  },
+  methods: {
+    ...mapActions([
+      "fetchLocations",
+      "fetchEstateTypes",
+      "fetchPriceDomains",
+      "fetchEstateOfferTypes",
+      "fetchInteriorStatuses",
+      "fetchOwnershipTypes",
+      "sendfilterEstate"
+    ]),
+    search() {
+      debugger;
+      this.$v.form.$touch();
+      if (!this.$v.form.$invalid) {
+        let formdata = new FormData();
+        for (let f in this.form) {
+          formdata.append(f, this.form[f]);
+        }
+        this.$store.dispatch("setForm", this.form);
+        this.$router.push({query: this.form});
+        this.sendfilterEstate({
+          api: "estate/searchEstateByregionsByestatefeatures/",
+          form: formdata,
+          page: 1,
+        });
+      } else {
+        this.$toast.error("أكمل الحقول المطلوبة");
+      }
+    },
+    fillFromQuery(){
+
+      let query = this.$route.query;
+      if (query['estate_offer_type_id'] ){
+        this.form.estate_offer_type_id = query['estate_offer_type_id'];
+        this.$nextTick(() => {
+          // Trigger the selectComponent's value synchronization
+          this.$refs.selectComponent.syncValue();
+        });
+      }
+      if(query['estate_type_id']){
+        this.form.estate_type_id = query['estate_type_id'];
+        this.$nextTick(() => {
+          // Trigger the selectComponent's value synchronization
+          this.$refs.selectComponent.syncValue();
+        });
+      }
+      if(query['location_id']){
+        this.form.location_id = query['location_id'];
+        this.$nextTick(() => {
+          // Trigger the selectComponent's value synchronization
+          this.$refs.selectComponent.syncValue();
+        });
+      }
+      if(query['price_domain_id']){
+        this.form.price_domain_id = query['price_domain_id'];
+        this.$nextTick(() => {
+          // Trigger the selectComponent's value synchronization
+          this.$refs.selectComponent.syncValue();
+        });
+      }
+    }
+  },
+  mounted() {
+    this.fillFromQuery();
+    this.fetchLocations("locations");
+    this.fetchEstateTypes();
+    this.fetchPriceDomains();
+    this.fetchEstateOfferTypes("estateOfferTypes");
+    this.fetchInteriorStatuses("interiorStatuses");
+    this.fetchOwnershipTypes("ownershipTypes");
+  },
+};
+</script>
+<style scoped>
+.advance-filter {
+  width: 302px;
+
+  padding: 23px 12px 30px 12px;
+  margin-top: 54px;
+  background: #f3f3f3 !important;
+  border: 0.5px solid #bfbbbb !important;
+  border-radius: 10px !important;
+}
+.advance-filter-md {
+  width: 100%;
+  padding: 23px 12px 30px 12px;
+  background: #f3f3f3 !important;
+  border: 0.5px solid #6f6f6f !important;
+  border-radius: 10px !important;
+}
+.select-box{
+  margin-top: 10px;
+  padding-top: 5px ;
+  padding-right: 10px;
+  padding-left: 10px;
+   background-color: rgb(255, 255, 255);
+    height: 44px;
+    border-radius: 7px;
+}
+</style>

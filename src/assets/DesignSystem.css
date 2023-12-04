@@ -1,0 +1,243 @@
+.h1,
+.h2,
+.h3,
+.h4,
+.h5,
+.h6,
+.subtitle1,
+.subtitle2,
+.body1,
+.body2,
+caption {
+  font-style: normal!important;
+  color: #000000!important;
+}
+
+.h1 {
+  font-weight: 700!important;
+  font-size: 64px!important;
+  line-height: 71px!important;
+}
+.h2 {
+  font-weight: 700!important;
+  font-size: 48px!important;
+  line-height: 54px!important;
+}
+.h3 {
+  font-weight: 700!important;
+  font-size: 36px!important;
+  line-height: 45px!important;
+}
+.h4 {
+  font-weight: 700!important;
+  font-size: 32px!important;
+  line-height: 36px!important;
+}
+.h5 {
+  font-weight: 700!important;
+  font-size: 24px!important;
+  line-height: 33px !important; 
+}
+.h6 {
+  font-weight: 700!important;
+  font-size: 20px!important;
+  line-height: 138%!important;
+}
+.subtitle0{
+  font-weight: 400;
+font-size: 12.5325px;
+line-height: 130%;
+}
+.subtitle1 {
+  font-weight: 700!important;
+  font-size: 15px!important;
+  line-height: 150%!important;
+}
+.subtitle2 {
+  font-weight: 700!important;
+  font-size: 14px!important;
+  line-height: 150%!important;
+}
+.body1 {
+  font-weight: 400!important;
+  font-size: 16px!important;
+  line-height: 185%!important;
+}
+.body2 {
+  font-weight: 400!important;
+  font-size: 14px!important;
+  line-height: 185%!important;
+}
+.caption {
+  font-weight: 400!important;
+  font-size: 12px!important;
+  line-height: 130%!important;
+}
+
+/*******            background-color              *******/
+.d-bg-primary {
+  background-color: #2170b4!important;
+}
+.d-bg-secandary {
+  background-color: #d7b21d!important;
+}
+.d-bg-dark {
+  background-color: #0f0f0f!important;
+}
+.d-bg-warning {
+  background-color: #ed8a0a!important;
+}
+.d-bg-natural {
+  background-color: #4b92d4!important;
+}
+.d-bg-inactiv {
+  background-color: #effbff!important;
+}
+.d-bg-dark_gray {
+  background-color: #6f6f6f!important;
+}
+.d-bg-error {
+  background-color: #e33e5a!important;
+}
+.d-bg-success {
+  background-color: #29DE92!important;
+}
+.d-bg-light {
+  background-color: #FFFFFF  !important;
+}
+.d-bg-light_gray {
+  background-color: #E2E2E2!important;
+}
+.d-bg-light-dark-2 {
+  background-color: #F8F8F8!important;
+}
+.d-bg-dark-gray{
+  background-color: #FAFAFA;;
+}
+
+/*******            text-color              *******/
+.d-text-primary {
+  color: #2170b4!important;
+}
+.d-text-secandary {
+  color: #d7b21d!important;
+}
+.d-text-dark {
+  color: #0f0f0f!important;
+}
+.d-text-warning {
+  color: #ed8a0a!important;
+}
+.d-text-natural {
+  color: #4b92d4!important;
+}
+.d-text-inactiv {
+  color: #effbff!important;
+}
+.d-text-dark_gray {
+  color: #6f6f6f!important;
+}
+.d-text-error {
+  color: #e33e5a!important;
+}
+.d-text-success {
+  color: #29DE92!important;
+}
+.d-text-light {
+  color: #FFFFFF  !important;
+}
+.d-text-light_gray {
+  color: #E2E2E2!important;
+}
+
+/*********** links *************/
+
+.nav-link{
+  text-decoration: none!important;
+  padding: 8px 0px 25px 0px!important;
+}
+.d-border-radius{
+  border-radius: 10px!important;
+}
+
+/*************** positions ****************/
+.d-p-absolute{
+  position: absolute!important;
+}
+.d-p-relative{
+  position: relative!important;
+}
+
+
+/***************** Style Custom************************ */
+
+.nav-active {
+  right: 0px;
+}
+
+/****************** Back ground **********************/
+.d-bg-cover {
+  background-size: cover !important;
+}
+
+
+/****************** R-tech **********************/
+
+input[type="number"] {
+  -moz-appearance: textfield;
+}
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+}
+
+/* .v-select:not(.v-select--is-multi).v-text-field--single-line .v-select__selections {
+  flex-wrap: wrap !important;
+} */
+
+.v-autocomplete.v-select.v-input--is-focused input {
+min-width: 0px;
+}
+
+.pswp__button--share{
+  display: none !important;
+}
+
+.float{
+	position:fixed;
+	width:60px;
+	height:60px;
+	bottom:25px;
+	left:25px;
+	background-color:#25d366;
+	color:#FFF;
+	border-radius:50px;
+	text-align:center;
+  font-size:30px;
+	box-shadow: 2px 2px 3px #999;
+  z-index:100;
+}
+
+.my-float{
+	margin-top:18px;
+}
+
+.v-card__title{
+  word-break: normal !important;
+}
+
+.no_decoration{
+  text-decoration: none;
+}
+
+.shadow_hover :hover{
+  transition: box-shadow .3s;
+  box-shadow: 0 0 11px rgba(33,33,33,.2); 
+}
+
+.v-select__selections{
+  
+  text-align: initial;
+}
