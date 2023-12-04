@@ -5,6 +5,7 @@ import switchLang from "./components/Site/switchLang";
 import selectComponent from "./components/formComponents/select";
 import Switcher from "./components/formComponents/Switcher";
 import homeFilter from "./components/forms/homeFilter";
+import homeFilterMobile from './components/forms/homeFilterMobile';
 import officeFilter from "./components/forms/officeFilter";
 import advanceFilter from "./components/forms/advanceFilter";
 import Auth from "./components/forms/Auth";
@@ -79,5 +80,6 @@ Vue.component('Auth', Auth)
 
 Vue.component('officeFilter', officeFilter)
 Vue.component('homeFilter', homeFilter)
+Vue.component('homeFilterMobile', homeFilterMobile)
 Vue.component('SocialMedia', SocialMedia)
 export default {}

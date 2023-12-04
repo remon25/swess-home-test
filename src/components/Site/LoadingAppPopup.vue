@@ -6,7 +6,7 @@
             </button>
             <div class="title">{{ $t("DownloadMessage") }}</div>
             <a href="#">
-                <img alt="google play"width="183px" height="60px" src="images/google_play.png">
+                <img alt="google play" width="183px" height="60px" src="images/google_play.png">
             </a>
             <a href="#">
                 <img alt="app store" width="183px" height="60px" src="images/app_store.png">
