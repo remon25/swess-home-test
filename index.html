@@ -1,48 +1,119 @@
 <!DOCTYPE html>
 <!--اللغة الافتراضية للصفحة عربية واتجاه النص من اليمين لليسار-->
 <html dir="rtl" lang="ar">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/MaterialDesign-Webfont/3.8.95/css/materialdesignicons.css"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <title>HomeWork</title>
+  </head>
 
-<head>
-  <meta charset="UTF-8" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="stylesheet" href="style.css" />
-  <title>HomeWork</title>
-</head>
-
-<body class="form-v4" style="background-color:light grey;">
-  <div class="container">
-    <section id="dataInput">
-      <table>
-        <div>
+  <body class="form-v4" style="background-color: light grey">
+    <div class="container">
+      <section id="dataInput">
+        <table>
+          <div>
+            <tr>
+              <th></th>
+              <th>
+                <h1>إضافة طالب</h1>
+              </th>
+            </tr>
+            <tr>
+              <td><label for="userNameInput">اسم المستخدم:</label></td>
+              <td>
+                <input id="user_name" type="text" placeholder="Aziz_21286" />
+              </td>
+            </tr>
+            <tr>
+              <td><label for="studentNameInput">اسم الطالب:</label></td>
+              <td>
+                <input
+                  id="student_name"
+                  type="text"
+                  placeholder="مثال: عزيز اليونس"
+                />
+              </td>
+            </tr>
+            <tr>
+              <td><label for="dateOfBirthInput">تاريخ الولادة:</label></td>
+              <td>
+                <input id="birth_date" type="date" placeholder="mm/dd/yyyy" />
+              </td>
+            </tr>
+            <tr>
+              <td><label for="programNameInput">البرنامج:</label></td>
+              <td>
+                <select id="programNameInput" name="programNameInput" required>
+                  <option value="TIBA">BACT</option>
+                  <option value="BAIT">BAIT</option>
+                  <option value="TIC">TIC</option>
+                  <option value="BECT">ALS</option>
+                  <option value="BIS">BIS</option>
+                  <option value="ENG">ENG</option>
+                  <option value="ITE">ITE</option>
+                </select>
+              </td>
+            </tr>
+            <tr>
+              <td><label for="mobileInput">الموبايل</label></td>
+              <td>
+                <input
+                  id="mobile"
+                  type="tel"
+                  placeholder="+963-993058019"
+                  dir="ltr"
+                />
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <br />
+                <label for="captcha"> يرجى إدخال رمز التحقق</label>
+              </td>
+              <td>
+                <br />
+                <p id="code_value" style="text-decoration: line-through"></p>
+                <input id="code" type="text" />
+              </td>
+            </tr>
+            <tr></tr>
+            <tr>
+              <td></td>
+              <td>
+                <br /><input
+                  type="button"
+                  name="submit"
+                  value="إضافة"
+                  onclick="appendData()"
+                />
+              </td>
+            </tr>
+          </div>
+        </table>
+      </section>
+      <section id="studentsTable">
+        <table id="selectTable">
+          <tr>
+            <td></td>
+            <td></td>
+          </tr>
           <tr>
             <th></th>
             <th>
-              <h1>إضافة طالب</h1>
+              <h1>جدول بأسماء الطلاب</h1>
             </th>
           </tr>
           <tr>
-            <td><label for="userNameInput">اسم المستخدم:</label></td>
+            <td><label for="programNameSelect">البرنامج:</label></td>
             <td>
-              <input id="user_name" type="text" placeholder="Aziz_21286" />
-            </td>
-          </tr>
-          <tr>
-            <td><label for="studentNameInput">اسم الطالب:</label></td>
-            <td>
-              <input id="student_name" type="text" placeholder="مثال: عزيز اليونس" />
-            </td>
-          </tr>
-          <tr>
-            <td><label for="dateOfBirthInput">تاريخ الولادة:</label></td>
-            <td>
-              <input id="birth_date" type="date" placeholder="mm/dd/yyyy" />
-            </td>
-          </tr>
-          <tr>
-            <td><label for="programNameInput">البرنامج:</label></td>
-            <td>
-              <select id="programNameInput" name="programNameInput" required>
+              <select name="programNameSelect">
+                <option value="All">All</option>
                 <option value="TIBA">BACT</option>
                 <option value="BAIT">BAIT</option>
                 <option value="TIC">TIC</option>
@@ -54,108 +125,72 @@
             </td>
           </tr>
           <tr>
-            <td><label for="mobileInput">الموبايل</label></td>
+            <td><label for="sortBySelect">الفرز حسب:</label></td>
             <td>
-              <input id="mobile" type="tel" placeholder="+963-993058019" dir="ltr" />
+              <input type="radio" id="userId" name="sort" value="userId" />
+              <label for="userId">اسم المستخدم</label>
+              <input
+                type="radio"
+                id="studentName"
+                name="sort"
+                value="studentName"
+              />
+              <label for="userId">اسم الطالب</label>
+              <input
+                type="radio"
+                id="programId"
+                name="sort"
+                value="programId"
+              />
+              <label for="userId">البرنامج</label>
             </td>
           </tr>
-          <tr>
-            <td>
-              <br />
-              <label for="captcha"> يرجى إدخال رمز التحقق</label>
-
-            </td>
-            <td>
-              <br />
-              <p id="code_value" style="text-decoration: line-through;"></p>
-              <input id="code" type="text">
-            </td>
-          </tr>
-          <tr></tr>
           <tr>
             <td></td>
-            <td><br /><input type="button" name="submit" value="إضافة" onclick="appendData()" /></td>
+            <td>
+              <table id="displayTable">
+                <tr>
+                  <td>متسلسل</td>
+                  <td>اسم المستخدم</td>
+                  <td>اسم الطالب</td>
+                  <td>البرنامج</td>
+                </tr>
+                <tr>
+                  <td>1</td>
+                  <td>Aziz_211266</td>
+                  <td>عزيز اليونس</td>
+                  <td>BIT</td>
+                </tr>
+                <tr>
+                  <td>2</td>
+                  <td>Wasim_57327</td>
+                  <td>وسيم البرادي</td>
+                  <td>BIT</td>
+                </tr>
+                <tr>
+                  <td>3</td>
+                  <td>Mahmood_193997</td>
+                  <td>محمود فياض</td>
+                  <td>TIC</td>
+                </tr>
+              </table>
+            </td>
           </tr>
+        </table>
+      </section>
+      <section id="convertJSON">
+        <div dir="ltr">
+          <input type="button" value="Convert to JSON" onclick="toJSON()" />
         </div>
-      </table>
-    </section>
-    <section id="studentsTable">
-      <table id="selectTable">
-        <tr>
-          <td></td>
-          <td></td>
-        </tr>
-        <tr>
-          <th></th>
-          <th>
-            <h1>جدول بأسماء الطلاب</h1>
-          </th>
-        </tr>
-        <tr>
-          <td><label for="programNameSelect">البرنامج:</label></td>
-          <td>
-            <select name="programNameSelect">
-              <option value="All">All</option>
-              <option value="TIBA">BACT</option>
-              <option value="BAIT">BAIT</option>
-              <option value="TIC">TIC</option>
-              <option value="BECT">ALS</option>
-              <option value="BIS">BIS</option>
-              <option value="ENG">ENG</option>
-              <option value="ITE">ITE</option>
-            </select>
-          </td>
-        </tr>
-        <tr>
-          <td><label for="sortBySelect">الفرز حسب:</label></td>
-          <td>
-            <input type="radio" id="userId" name="sort" value="userId" />
-            <label for="userId">اسم المستخدم</label>
-            <input type="radio" id="studentName" name="sort" value="studentName" />
-            <label for="userId">اسم الطالب</label>
-            <input type="radio" id="programId" name="sort" value="programId" />
-            <label for="userId">البرنامج</label>
-          </td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>
-            <table id="displayTable">
-              <tr>
-                <td>متسلسل</td>
-                <td>اسم المستخدم</td>
-                <td>اسم الطالب</td>
-                <td>البرنامج</td>
-              </tr>
-              <tr>
-                <td>1</td>
-                <td>Aziz_211266</td>
-                <td>عزيز اليونس</td>
-                <td>BIT</td>
-              </tr>
-              <tr>
-                <td>2</td>
-                <td>Wasim_57327</td>
-                <td>وسيم البرادي</td>
-                <td>BIT</td>
-              </tr>
-              <tr>
-                <td>3</td>
-                <td>Mahmood_193997</td>
-                <td>محمود فياض</td>
-                <td>TIC</td>
-              </tr>
-            </table>
-          </td>
-        </tr>
-      </table>
-    </section>
-    <section id="convertJSON">
-      <div dir="ltr"><input type="button" value="Convert to JSON" onclick="toJSON()" /></div>
-      <textarea name="jsonData" dir="ltr" cols="50" rows="20" id="JSONtable"></textarea>
-    </section>
-  </div>
-  <script src="script.js"></script>
-</body>
-
+        <textarea
+          name="jsonData"
+          dir="ltr"
+          cols="50"
+          rows="20"
+          id="JSONtable"
+        ></textarea>
+      </section>
+    </div>
+    <script src="script.js"></script>
+  </body>
 </html>
