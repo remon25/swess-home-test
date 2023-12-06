@@ -80,7 +80,6 @@ export default {
   background-color: #2170b4;
   color: white;
   width: 100%;
-  border-radius: 10px;
   box-shadow: 0px 0px 2px 0px;
   position: relative;
   box-shadow: 0px 0px 1px 0px black;
@@ -88,13 +87,15 @@ export default {
   transition: 0.5s;
 }
 .popup-logo img {
-  width: 70px;
+  width: 60px;
   height: auto;
+  padding: 5px;
 }
-.popup-download {
+.popup-download  {
   background-color: #ffff;
   padding: 5px 10px;
   border-radius: 5px;
+  font-weight: bold;
 }
 .title {
   font-weight: 700;
