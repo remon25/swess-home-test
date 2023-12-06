@@ -1,6 +1,14 @@
 <template>
   <v-container>
     <LoadingAppPopup></LoadingAppPopup>
+    <v-row>
+      <v-col
+        cols="12"
+        class="mobile_image"
+        style="background-image: url('images/home3.jpg')"
+      >
+      </v-col>
+    </v-row>
     <v-row no-gutters class="button_container">
       <v-col cols="12" class="d-block mobile_title">
         <p>
@@ -18,7 +26,6 @@
 </template>
 
 <script>
-import homeFilterMobileVue from '@/components/forms/homeFilterMobile.vue';
 export default {
   name: "HomeMobile",
 };
@@ -26,6 +33,7 @@ export default {
 
 <style scoped>
 .button_container {
+  position: relative;
   background-color: #0075a4;
   padding: 16px;
   border-radius: 10px;
@@ -42,5 +50,9 @@ export default {
 .mobile_subtitle {
   color: #fff !important;
   font-size: 12px;
+}
+.mobile_image {
+  height: 27rem;
+  background-size: cover;
 }
 </style>
