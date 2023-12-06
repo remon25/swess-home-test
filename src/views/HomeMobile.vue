@@ -1,7 +1,7 @@
 <template>
-  <v-container>
+  <v-container class="mobile-container">
     <LoadingAppPopup></LoadingAppPopup>
-    <v-row>
+    <v-row class="mobile_image_container">
       <v-col
         cols="12"
         class="mobile_image"
@@ -32,6 +32,9 @@ export default {
 </script>
 
 <style scoped>
+.mobile-container {
+  padding: 0px;
+}
 .button_container {
   position: relative;
   background-color: #0075a4;
@@ -51,8 +54,11 @@ export default {
   color: #fff !important;
   font-size: 12px;
 }
+.mobile_image_container {
+  margin-top: -21px;
+}
 .mobile_image {
-  height: 27rem;
+  height: 23rem;
   background-size: cover;
 }
 </style>
