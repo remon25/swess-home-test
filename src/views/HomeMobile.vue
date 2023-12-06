@@ -1,6 +1,5 @@
 <template>
   <v-container class="mobile-container">
-    <LoadingAppPopup></LoadingAppPopup>
     <v-row class="mobile_image_container">
       <v-col
         cols="12"

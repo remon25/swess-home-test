@@ -5,8 +5,9 @@
       <img src="/icons/icons8-whatsapp.svg" class="my-float" />
     </a> -->
     <v-main class="height-100per">
+      <loading-app-popup></loading-app-popup>
       <Navbar></Navbar>
-      <router-view style="margin-top:110px" />
+      <router-view style="margin-top:20px" />
       <footerComponent></footerComponent>
     </v-main>
   </v-app>

@@ -244,4 +244,13 @@ header.fixed {
   top: 0;
   z-index: 10;
 }
+@media screen and  (max-width: 800px) {
+
+  header.fixed {
+    position: static !important;
+    top: 0;
+    z-index: 10;
+  }
+  
+}
 </style>
