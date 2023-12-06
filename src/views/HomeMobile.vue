@@ -55,7 +55,7 @@ export default {
   font-size: 12px;
 }
 .mobile_image_container {
-  margin-top: -21px;
+  margin: -21px 0 0 0;
 }
 .mobile_image {
   height: 23rem;
