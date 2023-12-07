@@ -51,7 +51,7 @@ export default {
   margin: -21px 0 0 0;
 }
 .mobile_image {
-  height: 17rem;
+  height: 19rem;
   background-size: cover;
 }
 </style>
