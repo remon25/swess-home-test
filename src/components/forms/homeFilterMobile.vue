@@ -6,7 +6,7 @@
 
       >
         <v-btn
-        style="padding: 1.25rem; color: #fff; background-color: hsl(207.89deg 79.17% 28.24%);"
+        style="padding: 1.25rem; color: #fff; background-color: hsl(207.89deg 79.17% 28.24%); letter-spacing: 0;"
           @click="
             tab = 'one';
             form.estate_offer_type_id = 1;
@@ -16,7 +16,7 @@
       </div>
 
       <div class="filter-button">
-        <v-btn style="padding: 1.25rem; color: #fff; background-color: hsl(207.89deg 79.17% 28.24%);"
+        <v-btn style="padding: 1.25rem; color: #fff; background-color: hsl(207.89deg 79.17% 28.24%); letter-spacing: 0;"
           @click="
             tab = 'two';
             form.estate_offer_type_id = 2;
@@ -132,7 +132,7 @@ export default {
   }
   .filter-button > button{
     width: 100%;
-    font-size: 16px;
+    font-size: 18px;
     font-weight: bold;
   }
 
