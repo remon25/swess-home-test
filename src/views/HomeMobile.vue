@@ -10,13 +10,8 @@
     </v-row>
     <v-row no-gutters class="button_container">
       <v-col cols="12" class="d-block mobile_title">
-        <p>
+        <p style="margin-top: 5px; margin-bottom: 5px;">
           {{ $t("YouCanSearchForHouse") }}
-        </p>
-      </v-col>
-      <v-col cols="12">
-        <p class="d-block mobile_subtitle">
-          {{ $t("BestWayToSearchForEstate") }}
         </p>
       </v-col>
       <homeFilterMobile></homeFilterMobile>
@@ -37,8 +32,6 @@ export default {
 .button_container {
   position: relative;
   background-color: #0075a4;
-  padding: 16px;
-  border-radius: 10px;
   text-align: center;
   justify-content: center;
 }
@@ -57,7 +50,7 @@ export default {
   margin: -21px 0 0 0;
 }
 .mobile_image {
-  height: 23rem;
+  height: 17rem;
   background-size: cover;
 }
 </style>

@@ -6,7 +6,7 @@
 
       >
         <v-btn
-        style="padding: 1.5rem 1rem; background-color: #74FAC8;"
+        style="padding: 1.25rem; background-color: #74FAC8;"
           @click="
             tab = 'one';
             form.estate_offer_type_id = 1;
@@ -16,7 +16,7 @@
       </div>
 
       <div class="filter-button">
-        <v-btn style="padding: 1.5rem 1rem; background-color: #74FAC8;"
+        <v-btn style="padding: 1.25rem; background-color: #74FAC8;"
           @click="
             tab = 'two';
             form.estate_offer_type_id = 2;

@@ -105,13 +105,13 @@
 
         <v-list-item v-for="item in menuItems" :key="item.title">
           <!--Mobile-->
-          <a :href="item.path" :class="item.path == link ? 'subtitle1' : 'body2 '" class="nav-link" @click="recreate(item.path)">
+          <a :href="item.path" :class="item.path == link ? 'subtitle1' : 'body2 '" class="nav-link" @click="recreate(item.path)" style="display: flex;">
             <v-list-item-icon>
               <v-icon>{{ item.icon }}</v-icon>
             </v-list-item-icon>
-            <v-list-title-content>{{
+            <v-list-item-content>{{
             $t(`${item.title}`)
-            }}</v-list-title-content>
+            }}</v-list-item-content>
           </a>
         </v-list-item>
         <v-divider></v-divider>
