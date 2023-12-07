@@ -34,6 +34,7 @@ export default {
   background-color: #0075a4;
   text-align: center;
   justify-content: center;
+  padding: 10px;
 }
 
 .mobile_title {
