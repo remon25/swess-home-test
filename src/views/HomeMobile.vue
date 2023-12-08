@@ -57,7 +57,7 @@ export default {
   font-size: 12px;
 }
 .mobile_image_container {
-  height: calc(100% - 110px);
+  height: calc(100% - 105px);
   margin: -21px 0 0 0;
 }
 .mobile_image {
