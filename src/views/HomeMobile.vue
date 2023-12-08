@@ -13,7 +13,7 @@
     </v-row>
     <v-row no-gutters class="button_container">
       <v-col cols="12" class="d-block mobile_title">
-        <p style="margin-top: 5px; margin-bottom: 5px; color: rgb(2 10 17);">
+        <p style="margin-top: 5px; margin-bottom: 5px; color: rgb(0 4 9)">
           {{ $t("YouCanSearchForHouse") }}
         </p>
       </v-col>
@@ -45,7 +45,7 @@ export default {
   transform: translateY(-35px);
   /* background-color: hsl(204.55deg 89.19% 56.47%); */
   background-color: #fff;
-  box-shadow: 1px 1px 16px #000
+  box-shadow: 0 5px 5px rgba(0, 0, 0, 0.27);
 }
 
 .mobile_title {
