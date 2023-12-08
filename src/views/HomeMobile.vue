@@ -13,7 +13,7 @@
     </v-row>
     <v-row no-gutters class="button_container">
       <v-col cols="12" class="d-block mobile_title">
-        <p style="margin-top: 5px; margin-bottom: 5px">
+        <p style="margin-top: 5px; margin-bottom: 5px; color: rgb(2 10 17);">
           {{ $t("YouCanSearchForHouse") }}
         </p>
       </v-col>
@@ -37,13 +37,15 @@ export default {
 .button_container {
   position: relative;
   width: 90%;
-  background-color: hsl(204.55deg 89.19% 56.47%);
   text-align: center;
   justify-content: center;
   padding: 10px;
   margin: auto;
-  border-radius: 5px;
+  border-radius: 10px;
   transform: translateY(-35px);
+  /* background-color: hsl(204.55deg 89.19% 56.47%); */
+  background-color: #fff;
+  box-shadow: 1px 1px 16px #000
 }
 
 .mobile_title {
@@ -57,7 +59,7 @@ export default {
   font-size: 12px;
 }
 .mobile_image_container {
-  height: calc(100% - 105px);
+  height: calc(100% - 114px);
   margin: -21px 0 0 0;
 }
 .mobile_image {
