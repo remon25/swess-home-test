@@ -54,10 +54,11 @@ export default {
   font-size: 12px;
 }
 .mobile_image_container {
+  height: calc(100% - 100px);
   margin: -21px 0 0 0;
 }
 .mobile_image {
-  height: 19rem;
+  height: 100%;
   background-size: cover;
 }
 </style>
