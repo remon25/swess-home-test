@@ -31,10 +31,14 @@ export default {
 }
 .button_container {
   position: relative;
+  width: 80%;
   background-color: hsl(204.55deg 89.19% 56.47%);
   text-align: center;
   justify-content: center;
   padding: 10px;
+  margin: auto;
+  border-radius: 5px;
+  transform: translateY(-35px)
 }
 
 .mobile_title {

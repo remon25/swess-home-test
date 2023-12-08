@@ -133,7 +133,6 @@ export default {
   .filter-button > button{
     width: 100%;
     font-size: 18px;
-    font-weight: bold;
   }
 
   .container{
