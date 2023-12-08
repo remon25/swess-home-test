@@ -31,7 +31,7 @@ export default {
 }
 .button_container {
   position: relative;
-  width: 80%;
+  width: 90%;
   background-color: hsl(204.55deg 89.19% 56.47%);
   text-align: center;
   justify-content: center;
