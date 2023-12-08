@@ -1,5 +1,7 @@
 <template>
   <v-container class="mobile-container">
+    <div class="mydiv" style="position: absolute; top: 0; left: 0; width: 100%;height: 100%;"></div>
+
     <v-row class="mobile_image_container">
       <v-col
         cols="12"

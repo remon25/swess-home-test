@@ -76,7 +76,7 @@ export default {
 .App-Popup {
   display: flex;
   align-items: center;
-  justify-content: space-evenly;
+  justify-content: space-around;
   background-color: #2170b4;
   color: white;
   width: 100%;
