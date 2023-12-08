@@ -4,13 +4,16 @@
       <v-col
         cols="12"
         class="mobile_image"
-        style="background-image: url('images/home3.jpg')"
+        style="
+          background-image: url('images/home3.jpg');
+          background-position: center;
+        "
       >
       </v-col>
     </v-row>
     <v-row no-gutters class="button_container">
       <v-col cols="12" class="d-block mobile_title">
-        <p style="margin-top: 5px; margin-bottom: 5px;">
+        <p style="margin-top: 5px; margin-bottom: 5px">
           {{ $t("YouCanSearchForHouse") }}
         </p>
       </v-col>
@@ -40,7 +43,7 @@ export default {
   padding: 10px;
   margin: auto;
   border-radius: 5px;
-  transform: translateY(-35px)
+  transform: translateY(-35px);
 }
 
 .mobile_title {
