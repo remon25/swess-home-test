@@ -1,7 +1,6 @@
 <template>
   <v-container class="mobile-container">
-    <div class="mydiv" style="position: absolute; top: 0; left: 0; width: 100%;height: 100%;"></div>
-
+    <home-mobile-filter-popup :popupClass="popupClass"></home-mobile-filter-popup>
     <v-row class="mobile_image_container">
       <v-col
         cols="12"
@@ -19,18 +18,38 @@
           {{ $t("YouCanSearchForHouse") }}
         </p>
       </v-col>
-      <homeFilterMobile></homeFilterMobile>
+      <homeFilterMobile @apply-class="updatePopupClass"></homeFilterMobile>
     </v-row>
   </v-container>
 </template>
-
 <script>
 export default {
   name: "HomeMobile",
+  data() {
+    return {
+      popupClass: '',
+    };
+  },
+  methods: {
+    updatePopupClass(className) {
+      this.popupClass = className;
+    },
+  },
 };
 </script>
 
+
 <style scoped>
+.main-class.poped_up{
+  display: block;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #fff;
+  z-index: 9999;
+}
 .mobile-container {
   height: calc(100vh - 170px);
   height: calc(100svh - 170px);

@@ -6,6 +6,7 @@ import selectComponent from "./components/formComponents/select";
 import Switcher from "./components/formComponents/Switcher";
 import homeFilter from "./components/forms/homeFilter";
 import homeFilterMobile from './components/forms/homeFilterMobile';
+import homeMobileFilterPopup from './components/forms/homeMobileFilterPopup';
 import officeFilter from "./components/forms/officeFilter";
 import advanceFilter from "./components/forms/advanceFilter";
 import Auth from "./components/forms/Auth";
@@ -46,6 +47,7 @@ Vue.component('breadcrumbs', breadcrumbs)
 Vue.component('OfficeCard', OfficeCard)
 Vue.component('ArticalCard', ArticalCard)
 Vue.component('LoadingAppPopup', LoadingAppPopup)
+Vue.component('homeMobileFilterPopup', homeMobileFilterPopup)
 
 
 
