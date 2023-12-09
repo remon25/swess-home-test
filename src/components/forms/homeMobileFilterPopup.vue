@@ -3,6 +3,25 @@
   <div class="main-class" :class="popupClass">
     <v-container :class="$i18n.locale == 'ar' ? 'filter-rtl' : 'filter-ltr'">
       <v-col
+        cols="12"
+        class="d-flex justify-center"
+        style="padding: 0; margin-bottom: 5px"
+      >
+        <v-btn
+          style="
+            position: absolute;
+            left: 10px;
+            height: 30px;
+            min-width: 38px;
+            padding: 0;
+            background-color: #e3e3e3;
+            box-shadow: none;
+          "
+          ><img src="images/close.svg" style="width: 24px" alt="close"
+        /></v-btn>
+        <img src="images/logo.jpeg" alt="logo" style="width: 65px" />
+      </v-col>
+      <v-col
         cols="12 d-flex justify-center"
         style="
           border-radius: 10px;
@@ -56,7 +75,7 @@
             style="
               font-size: small;
               width: 100%;
-              height: 44px;
+              height: 36px;
               border-radius: 10px;
             "
             class="d-border-radius elevation-0"
@@ -195,7 +214,7 @@
           <v-btn
             large
             depressed
-            class="d-bg-primary ma-3 pa-2 d-text-light elevation-0 subtitle1"
+            class="d-bg-primary search ma-3 pa-2 d-text-light elevation-0 subtitle1"
             style="width: 107px; border-radius: 10px; height: 48px"
             @click="search"
           >
@@ -206,7 +225,7 @@
     </v-container>
   </div>
 </template>
-  <script>
+<script>
 import { mapActions, mapGetters } from "vuex";
 
 import { validationMixin } from "vuelidate";
@@ -330,6 +349,8 @@ export default {
 .filter-box {
   position: absolute;
   top: 133px;
+  left: 0;
+  right: 0;
   max-width: unset !important;
   padding: 24px 32px 24px 64px;
   box-shadow: 0px 24px 50px rgba(0, 0, 0, 0.1) !important;
@@ -341,13 +362,27 @@ export default {
   display: flex;
   justify-content: center;
 }
+.filter-button > button {
+  letter-spacing: 0px;
+  font-size: 18px !important;
+}
 .d-bg-inactiv {
   background-color: #fff !important;
   border-radius: 10px;
 }
 .d-bg-primary {
-  background-color: #effbff !important;
+  background-color: rgba(15, 76, 129, 0.2) !important;
   color: rgb(15, 76, 129) !important;
+  font-weight: bold !important;
+}
+.d-bg-primary.search {
+  background-color: rgba(15, 76, 129, 0.8) !important;
+  color: #fff !important;
+  font-weight: bold !important;
+  letter-spacing: 0;
+}
+.v-application {
+  line-height: 1 !important;
 }
 </style>
   
