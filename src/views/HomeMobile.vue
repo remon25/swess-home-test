@@ -28,21 +28,21 @@
         @change-tab="updateTab"
       ></homeFilterMobile>
     </v-row>
-      <v-col cols="12">
-        <OurServices style="overflow: visible; max-width: 50px;"></OurServices>
-      </v-col>
-      <v-col cols="12">
-        <ReachWhatever></ReachWhatever>
-      </v-col>
-      <v-col cols="12" id="articals">
-        <Articals></Articals>
-      </v-col>
-      <footerComponent></footerComponent>
+    <v-col cols="12">
+      <OurServices style="overflow: visible; margin-top: 50px"></OurServices>
+    </v-col>
+    <v-col cols="12">
+      <ReachWhatever></ReachWhatever>
+    </v-col>
+    <v-col cols="12" id="articals">
+      <Articals></Articals>
+    </v-col>
+    <footerComponent></footerComponent>
   </v-container>
 </template>
 <script>
 import { mapActions, mapGetters } from "vuex";
-  import i18n from "@/i18n";
+import i18n from "@/i18n";
 export default {
   name: "HomeMobile",
   data() {
@@ -50,12 +50,12 @@ export default {
       popupClass: "",
       selectedTab: "one",
       form: {
-          location_id: '',
-          estate_type_id: '',
-          estate_offer_type_id: 1,
-          price_domain_id: '',
-          is_simple: true,
-        },
+        location_id: "",
+        estate_type_id: "",
+        estate_offer_type_id: 1,
+        price_domain_id: "",
+        is_simple: true,
+      },
     };
   },
   methods: {
@@ -71,12 +71,12 @@ export default {
     },
   },
   mounted() {
-      document.title = i18n.t("homepage");
-      this.initForm(this.form)
-      this.$store.dispatch('getArticals', {
-        api: "article/userGetAll"
-      })
-    },
+    document.title = i18n.t("homepage");
+    this.initForm(this.form);
+    this.$store.dispatch("getArticals", {
+      api: "article/userGetAll",
+    });
+  },
 };
 </script>
 
