@@ -254,7 +254,7 @@ export default {
   },
   props: {
     tab: {
-      default: "two",
+      default: "one",
     },
     popupClass: String,
   },
