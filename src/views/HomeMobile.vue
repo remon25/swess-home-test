@@ -38,7 +38,10 @@ export default {
   methods: {
     updatePopupClass(className) {
       this.popupClass = className;
-      document.body.classList.add(className);
+      if (className == "poped_up") {
+        document.body.classList.add("poped_up");
+        
+      }
     },
   },
 };

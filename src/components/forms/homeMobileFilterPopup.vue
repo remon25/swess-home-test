@@ -20,7 +20,7 @@
           "
           ><img src="images/close.svg" style="width: 24px" alt="close"
         /></v-btn>
-        <img src="images/logo.jpeg" alt="logo" style="width: 65px" />
+        <img src="images/logo.jpeg" alt="logo" style="width: 75px" />
       </v-col>
 
       <v-col
