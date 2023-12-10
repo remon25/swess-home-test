@@ -28,7 +28,6 @@
         @change-tab="updateTab"
       ></homeFilterMobile>
     </v-row>
-    <v-row>
       <v-col cols="12">
         <OurServices style="overflow: visible"></OurServices>
       </v-col>
@@ -39,8 +38,6 @@
         <Articals></Articals>
       </v-col>
       <footerComponent></footerComponent>
-
-    </v-row>
   </v-container>
 </template>
 <script>
