@@ -333,7 +333,7 @@ export default {
   left: 0;
   width: 100%;
   height: 100vh;
-  height: 100svh;
+  height: 100dvh;
   background-color: #fff;
 }
 .filter-rtl {
