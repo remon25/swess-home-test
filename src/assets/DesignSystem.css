@@ -12,8 +12,11 @@ caption {
   font-style: normal!important;
   color: #000000!important;
 }
-body.poped_up{
-  overflow-y: hidden !important;
+@media screen and (max-width: 800px) {
+  body.poped_up{
+    overflow-y: hidden !important;
+  }
+  
 }
 
 .h1 {
