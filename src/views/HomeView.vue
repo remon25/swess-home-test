@@ -1,6 +1,6 @@
 <template>
-  <div v-if="!isSmallViewport"><homeDesktop /></div>
-  <div v-else><homeMobile /></div>
+  <div v-if="!isSmallViewport"><homeDesktop style="margin-top:110px" /></div>
+  <div v-else><homeMobile style="margin-top:20px" /></div>
 </template>
 
 

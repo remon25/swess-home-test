@@ -7,7 +7,7 @@
     <v-main class="height-100per">
       <loading-app-popup></loading-app-popup>
       <Navbar></Navbar>
-      <router-view style="margin-top:20px" />
+      <router-view />
       <footerComponent></footerComponent>
     </v-main>
   </v-app>
