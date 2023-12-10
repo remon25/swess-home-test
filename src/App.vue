@@ -8,7 +8,6 @@
       <loading-app-popup></loading-app-popup>
       <Navbar></Navbar>
       <router-view />
-      <footerComponent></footerComponent>
     </v-main>
   </v-app>
 </template>
