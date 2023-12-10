@@ -297,6 +297,7 @@ export default {
   methods: {
     ...mapActions(["fetchLocations", "fetchEstateTypes", "fetchPriceDomains"]),
     search() {
+      document.body.classList.remove("poped_up");
       this.$v.form.$touch();
       if (!this.$v.form.$invalid) {
         let formdata = new FormData();
