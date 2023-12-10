@@ -2,6 +2,7 @@
   <v-container class="mobile-container">
     <home-mobile-filter-popup
       :popupClass="popupClass"
+      @close-popup="updatePopupClass('')"
     ></home-mobile-filter-popup>
     <v-row class="mobile_image_container">
       <v-col
@@ -46,13 +47,6 @@ export default {
 <style scoped>
 .main-class.poped_up {
   display: block;
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100vh;
-  height: 100svh;
-  background-color: #fff;
   z-index: 9999;
 }
 .mobile-container {

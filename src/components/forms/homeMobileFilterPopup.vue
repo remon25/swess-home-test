@@ -8,6 +8,7 @@
         style="padding: 0; margin-bottom: 5px"
       >
         <v-btn
+        @click="closePopup"
           style="
             position: absolute;
             left: 10px;
@@ -21,6 +22,7 @@
         /></v-btn>
         <img src="images/logo.jpeg" alt="logo" style="width: 65px" />
       </v-col>
+
       <v-col
         cols="12 d-flex justify-center"
         style="
@@ -312,6 +314,9 @@ export default {
         this.$toast.error("أكمل الحقول المطلوبة");
       }
     },
+    closePopup() {
+      this.$emit('close-popup');
+    },
   },
   mounted() {
     this.fetchLocations("locations");
@@ -323,6 +328,13 @@ export default {
   <style scoped>
 .main-class {
   display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  height: 100svh;
+  background-color: #fff;
 }
 .filter-rtl {
   position: relative;
@@ -376,7 +388,7 @@ export default {
   font-weight: bold !important;
 }
 .d-bg-primary.search {
-  background-color: rgba(15, 76, 129, 0.8) !important;
+  background-color: rgba(15, 76, 129, 0.95) !important;
   color: #fff !important;
   font-weight: bold !important;
   letter-spacing: 0;
