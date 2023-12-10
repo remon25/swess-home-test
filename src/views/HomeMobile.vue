@@ -29,7 +29,7 @@
       ></homeFilterMobile>
     </v-row>
       <v-col cols="12">
-        <OurServices style="overflow: visible"></OurServices>
+        <OurServices style="overflow: visible; max-width: 50px;"></OurServices>
       </v-col>
       <v-col cols="12">
         <ReachWhatever></ReachWhatever>
@@ -87,8 +87,8 @@ export default {
   z-index: 9999;
 }
 .mobile-container {
-  height: calc(100vh - 210px);
-  height: calc(100svh - 210px);
+  height: calc(100vh - 215px);
+  height: calc(100svh - 215px);
   padding: 0px;
 }
 .button_container {
