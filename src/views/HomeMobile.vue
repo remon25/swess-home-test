@@ -87,8 +87,8 @@ export default {
   z-index: 9999;
 }
 .mobile-container {
-  height: calc(100vh - 215px);
-  height: calc(100svh - 215px);
+  height: calc(100vh - 220px);
+  height: calc(100svh - 220px);
   padding: 0px;
 }
 .button_container {
