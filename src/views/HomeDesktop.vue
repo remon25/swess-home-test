@@ -41,6 +41,8 @@
       <v-col cols="12" id="articals">
         <Articals></Articals>
       </v-col>
+      <footerComponent></footerComponent>
+
     </div>
   </template>
   
