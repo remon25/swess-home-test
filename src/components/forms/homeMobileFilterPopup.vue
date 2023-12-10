@@ -30,6 +30,8 @@
           background-color: #ffff;
           padding: 3px;
           border: 1px solid #ccc;
+          margin-top: 50px;
+          margin-bottom: 50px;
         "
       >
         <div
@@ -360,8 +362,6 @@ export default {
 }
 
 .filter-box {
-  position: absolute;
-  top: 133px;
   left: 0;
   right: 0;
   max-width: unset !important;
