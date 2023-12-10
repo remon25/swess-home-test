@@ -88,7 +88,7 @@ export default {
 }
 .mobile-container {
   height: calc(100vh - 170px);
-  height: calc(100svh - 170px);
+  height: calc(100dvh - 170px);
   padding: 0px;
 }
 .button_container {
