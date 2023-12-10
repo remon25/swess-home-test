@@ -3,6 +3,8 @@
     <home-mobile-filter-popup
       :popupClass="popupClass"
       @close-popup="updatePopupClass('')"
+      :tab="selectedTab"
+      @updateTab="updateTab"
     ></home-mobile-filter-popup>
     <v-row class="mobile_image_container">
       <v-col
@@ -23,6 +25,7 @@
       </v-col>
       <homeFilterMobile
         @apply-class="updatePopupClass"
+        @change-tab="updateTab"
       ></homeFilterMobile>
     </v-row>
   </v-container>
@@ -33,6 +36,7 @@ export default {
   data() {
     return {
       popupClass: "",
+      selectedTab: "one",
     };
   },
   methods: {
@@ -42,6 +46,9 @@ export default {
         document.body.classList.add("poped_up");
         
       }
+    },
+    updateTab(newTab) {
+      this.selectedTab = newTab; // Update the selected tab
     },
   },
 };

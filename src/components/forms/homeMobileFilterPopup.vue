@@ -254,7 +254,7 @@ export default {
   },
   props: {
     tab: {
-      default: "one",
+      default: "two",
     },
     popupClass: String,
   },
@@ -320,6 +320,9 @@ export default {
     closePopup() {
       this.$emit("close-popup");
       document.body.classList.remove("poped_up");
+    },
+    updateTab(newTab) {
+      this.$emit('updateTab', newTab); // Emit the selected tab
     },
   },
   mounted() {

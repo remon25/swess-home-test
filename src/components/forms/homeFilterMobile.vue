@@ -9,7 +9,7 @@
             background-color: hsl(207.89deg 79.17% 28.24%);
             letter-spacing: 0;
           "
-           @click="handleButtonClick('poped_up')"
+          @click="() => { handleButtonClick('poped_up'); handleButtonTab('one'); }"
          
           >{{ $t("sale") }}</v-btn
         >
@@ -23,7 +23,7 @@
             background-color: hsl(207.89deg 79.17% 28.24%);
             letter-spacing: 0;
           "
-         @click="handleButtonClick('poped_up')"
+         @click="() => { handleButtonClick('poped_up'); handleButtonTab('two'); }"
           >{{ $t("rent") }}</v-btn
         >
       </div>
@@ -35,6 +35,9 @@ export default {
   methods: {
     handleButtonClick(className) {
       this.$emit('apply-class', className);
+    },
+    handleButtonTab(tab) {
+      this.$emit('change-tab', tab); // Emit the selected tab
     },
   },
 };
