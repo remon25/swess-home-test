@@ -20,7 +20,9 @@
           {{ $t("YouCanSearchForHouse") }}
         </p>
       </v-col>
-      <homeFilterMobile @apply-class="updatePopupClass"></homeFilterMobile>
+      <homeFilterMobile
+        @apply-class="updatePopupClass"
+      ></homeFilterMobile>
     </v-row>
   </v-container>
 </template>
