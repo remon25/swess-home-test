@@ -28,29 +28,57 @@
         @change-tab="updateTab"
       ></homeFilterMobile>
     </v-row>
+    <v-row>
+      <v-col cols="12">
+        <OurServices style="overflow: visible"></OurServices>
+      </v-col>
+      <v-col cols="12">
+        <ReachWhatever></ReachWhatever>
+      </v-col>
+      <v-col cols="12" id="articals">
+        <Articals></Articals>
+      </v-col>
+      <footerComponent></footerComponent>
+    </v-row>
   </v-container>
 </template>
 <script>
+import { mapActions, mapGetters } from "vuex";
+  import i18n from "@/i18n";
 export default {
   name: "HomeMobile",
   data() {
     return {
       popupClass: "",
       selectedTab: "one",
+      form: {
+          location_id: '',
+          estate_type_id: '',
+          estate_offer_type_id: 1,
+          price_domain_id: '',
+          is_simple: true,
+        },
     };
   },
   methods: {
+    ...mapActions(["initForm"]),
     updatePopupClass(className) {
       this.popupClass = className;
       if (className == "poped_up") {
         document.body.classList.add("poped_up");
-        
       }
     },
     updateTab(newTab) {
       this.selectedTab = newTab; // Update the selected tab
     },
   },
+  mounted() {
+      document.title = i18n.t("homepage");
+      this.initForm(this.form)
+      this.$store.dispatch('getArticals', {
+        api: "article/userGetAll"
+      })
+    },
 };
 </script>
 
