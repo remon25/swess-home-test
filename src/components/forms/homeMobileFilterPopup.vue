@@ -8,7 +8,7 @@
         style="padding: 0; margin-bottom: 5px"
       >
         <v-btn
-        @click="closePopup"
+          @click="closePopup"
           style="
             position: absolute;
             left: 10px;
@@ -315,7 +315,8 @@ export default {
       }
     },
     closePopup() {
-      this.$emit('close-popup');
+      this.$emit("close-popup");
+      document.body.classList.remove("poped_up");
     },
   },
   mounted() {
@@ -333,7 +334,7 @@ export default {
   left: 0;
   width: 100%;
   height: 100vh;
-  height: 100dvh;
+  height: 100svh;
   background-color: #fff;
 }
 .filter-rtl {

@@ -38,6 +38,7 @@ export default {
   methods: {
     updatePopupClass(className) {
       this.popupClass = className;
+      document.body.classList.add(className);
     },
   },
 };

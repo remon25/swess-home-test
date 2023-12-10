@@ -12,6 +12,9 @@ caption {
   font-style: normal!important;
   color: #000000!important;
 }
+body.poped_up{
+  overflow-y: hidden !important;
+}
 
 .h1 {
   font-weight: 700!important;
