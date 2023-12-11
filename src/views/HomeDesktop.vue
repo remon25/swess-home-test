@@ -33,7 +33,7 @@
         <!--  <RentalOffices></RentalOffices>-->
       </v-col>
       <v-col cols="12">
-        <OurServices style="overflow: visible"></OurServices>
+        <OurServices style="overflow: visible; margin-top: 50px;"></OurServices>
       </v-col>
       <v-col cols="12">
         <ReachWhatever></ReachWhatever>

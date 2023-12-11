@@ -22,7 +22,7 @@
           <a :href="'/artical/' + item[0].id" class="no_decoration">
             <v-card class="mx-auto elevation-0" max-width="300">
               <div class="hover">
-                <v-img class="d-border-radius " :src="`${img_baseUrl}${item[0].images.data[0].url}`" height="369px"
+                <v-img class="d-border-radius " src="images/service-one.webp" height="369px"
                   width="300px"></v-img>
               </div>
               <v-row class="mt-5">
@@ -96,7 +96,7 @@
               </v-row>
               <div class="hover">
 
-                <v-img class="d-border-radius" :src="`${img_baseUrl}${item[1].images.data[0].url}`" height="369px"
+            <v-img class="d-border-radius" src="images/service-two.webp" height="369px"
                   width="300px"></v-img>
               </div>
             </v-card>
@@ -109,7 +109,7 @@
             <v-card class="mx-auto elevation-0" max-width="300">
               <div class="hover">
 
-                <v-img class="d-border-radius" :src="`${img_baseUrl}${item[2].images.data[0].url}`" height="369px"
+                <v-img class="d-border-radius" src="images/service-three.webp" height="369px"
                   width="300px"></v-img>
               </div>
               <v-row class="mt-5">
