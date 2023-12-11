@@ -4,7 +4,7 @@
       <a :href="'/artical/' + item.id" class="no_decoration">
         <div class="hover">
 
-          <v-img class="d-border-radius" :src="`${img_baseUrl}${item.images.data[0].url}`"
+          <v-img eager class="d-border-radius" :src="`${img_baseUrl}${item.images.data[0].url}`"
             style="width: 412px; height: 412px"></v-img>
         </div>
         <v-row class="mt-5">
