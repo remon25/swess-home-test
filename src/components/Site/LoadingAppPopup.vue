@@ -6,11 +6,11 @@
         :class="$i18n.locale == 'ar' ? 'right-icon' : 'left-icon'"
         @click="closePopup()"
       >
-        <img alt="close" width="20" src="images/close-icon.png" />
+    <img alt="close" width="20" src="/images/close-icon.png" />
       </button>
       <!-- <div class="title">{{ $t("DownloadMessage") }}</div> -->
       <div class="popup-logo">
-        <img src="images/log-j.png" alt="logo" />
+        <img src="/images/log-j.png" alt="logo" />
       </div>
       <div class="popup-text">
         {{ $t("DownloadMessage") }}
