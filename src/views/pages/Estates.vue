@@ -122,7 +122,6 @@ export default {
       }
       document.getElementById('app').scrollIntoView({ behavior: 'smooth' });
     },
-    
   },
   computed: {
     ...mapGetters(["getEstates", "getStatus"]),
