@@ -433,8 +433,8 @@ export default {
     display: none !important;
   }
   .contract-box {
-    background: linear-gradient(180deg, #d7b21d 0%, #bd9d1c 100%);
-    box-shadow: 0px 7px 7px rgba(0, 0, 0, 0.1);
+    background: none;
+    box-shadow: none;
     width: 100%;
     border-radius: 0px 0px 10px 10px !important;
     height: 47px;
@@ -445,6 +445,9 @@ export default {
   .img-card {
     border-radius: 10px 10px 0px 0px !important;
     height: 290px !important;
+  }
+  .contract-free{
+    background: none !important;
   }
 }
 
