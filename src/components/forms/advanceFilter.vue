@@ -139,34 +139,36 @@
       </v-btn>
     </v-card>
 
-    <StickyElement
-      stickMode="['element-start', 'element-end']"
-      visibleOnDirection="['up','down']"
+    <v-card
+      ref="advanceFilterMdCard"
+      class="mx-auto mt-10 advance-filter-md d-block"
+      max-width="100%"
+      outlined
+      dense
+      fixed
+      :style="{
+        position: isAdvanceFilterMdFixed ? 'fixed' : 'relative',
+        top: isAdvanceFilterMdFixed ? '0px' : '80px',
+        marginTop: isAdvanceFilterMdFixed ? '0px !important' : '40px',
+      }"
     >
-      <v-card
-        class="mx-auto mt-10 advance-filter-md d-block"
-        max-width="100%"
-        outlined
-        dense
-        fixed
-      >
-        <selectComponent
-          class="select-mobile"
-          :errorMessages="location_idErrors"
-          :model="form.location_id"
-          style="border: 0px; height: 50px"
-          background="#FFFFFF"
-          :outlined="true"
-          :label="$t('place')"
-          :items="Locations"
-          attr="location_id"
-          @select="
-            (val) => {
-              form.location_id = val.value;
-            }
-          "
-        />
-        <!-- <p class="subtitle1 d-text-primary">{{$t('advancedsearch')}}</p>
+      <selectComponent
+        class="select-mobile"
+        :errorMessages="location_idErrors"
+        :model="form.location_id"
+        style="border: 0px; height: 50px"
+        background="#FFFFFF"
+        :outlined="true"
+        :label="$t('place')"
+        :items="Locations"
+        attr="location_id"
+        @select="
+          (val) => {
+            form.location_id = val.value;
+          }
+        "
+      />
+      <!-- <p class="subtitle1 d-text-primary">{{$t('advancedsearch')}}</p>
 
     <selectComponent
       background="#FFFFFF"
@@ -221,39 +223,39 @@
       "
     ></Switcher>-->
 
+      <v-btn
+        large
+        depressed
+        class="d-bg-primary pa-2 d-text-light elevation-0 subtitle1"
+        style="width: 100%; border-radius: 5px; height: 40px; font-size: 12px"
+        @click="search"
+      >
+        {{ $t("search") }}
+      </v-btn>
+      <router-link to="/advanced-search">
         <v-btn
+          icon
           large
           depressed
           class="d-bg-primary pa-2 d-text-light elevation-0 subtitle1"
-          style="width: 100%; border-radius: 5px; height: 40px; font-size: 12px"
-          @click="search"
+          style="width: 100%; border-radius: 5px; height: 40px"
         >
-          {{ $t("search") }}
+          <v-icon small>mdi-tune</v-icon>
+          <div style="font-size: 12px">{{ $t("advancedsearch") }}</div>
         </v-btn>
-        <router-link to="/advanced-search">
-          <v-btn
-            icon
-            large
-            depressed
-            class="d-bg-primary pa-2 d-text-light elevation-0 subtitle1"
-            style="width: 100%; border-radius: 5px; height: 40px"
-          >
-            <v-icon small>mdi-tune</v-icon>
-            <div style="font-size: 12px">{{ $t("advancedsearch") }}</div>
-          </v-btn>
-        </router-link>
-      </v-card>
-    </StickyElement>
+      </router-link>
+    </v-card>
   </div>
 </template>
 <script>
 import { mapActions, mapGetters } from "vuex";
 import { validationMixin } from "vuelidate";
 import { required } from "vuelidate/lib/validators";
-import StickyElement from "vue-sticky-element";
 export default {
-  components: {
-    StickyElement,
+  data() {
+    return {
+      isAdvanceFilterMdFixed: false,
+    };
   },
   mixins: [validationMixin],
   validations: {
@@ -376,8 +378,9 @@ export default {
         });
       }
     },
-    handleButtonClick(className) {
-      this.$emit("apply-class", className);
+    handleScroll() {
+      const scrollY = window.scrollY || window.pageYOffset;
+      this.isAdvanceFilterMdFixed = scrollY >= 178;
     },
   },
   mounted() {
@@ -388,6 +391,11 @@ export default {
     this.fetchEstateOfferTypes("estateOfferTypes");
     this.fetchInteriorStatuses("interiorStatuses");
     this.fetchOwnershipTypes("ownershipTypes");
+    window.addEventListener("scroll", this.handleScroll);
+  },
+  beforeDestroy() {
+    // Remove the scroll event listener to prevent memory leaks
+    window.removeEventListener("scroll", this.handleScroll);
   },
 };
 </script>
@@ -397,8 +405,7 @@ export default {
   top: 110px;
 }
 .advance-filter {
-  width: 302px;
-
+  width: 100%;
   padding: 23px 12px 30px 12px;
   margin-top: 54px;
   background: #f3f3f3 !important;
@@ -412,7 +419,7 @@ export default {
   width: 100%;
   padding: 15px 12px;
   border-radius: 5px !important;
-  top: 80px;
+  z-index: 5555;
 }
 .select-mobile {
   grid-area: input;
