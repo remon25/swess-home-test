@@ -419,7 +419,7 @@ export default {
   width: 100%;
   padding: 15px 12px;
   border-radius: 5px !important;
-  z-index: 5555;
+  z-index: 5;
 }
 .select-mobile {
   grid-area: input;
