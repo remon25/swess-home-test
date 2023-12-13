@@ -66,6 +66,8 @@
           </div>
           <p class="h5 d-text-dark_gray title-price price-small">
             {{ price.replace(/(\d)(?=(\d{3})+(?!\d))/g, "$1,") + " ل.س" }}
+            <br />
+            {{ location }}
           </p>
         </v-col>
         <v-col class="cols d-p-relative" cols="12" sm="12" md="5">
@@ -414,6 +416,9 @@ export default {
   }
   .price-lg {
     display: none;
+  }
+  .subtitle1{
+    display: none !important;
   }
   .contract-box {
     background: linear-gradient(180deg, #d7b21d 0%, #bd9d1c 100%);
