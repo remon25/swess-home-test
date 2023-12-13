@@ -146,6 +146,7 @@
       fixed
     >
       <selectComponent
+      class="select-mobile"
         :errorMessages="location_idErrors"
         :model="form.location_id"
         style="border: 0px; height: 50px"
@@ -392,11 +393,14 @@ export default {
 }
 .advance-filter-md {
   display: grid !important;
-  column-gap: 10px;
-  grid-template-columns: 7fr 1fr 3fr;
+  column-gap: 5px;
+  grid-template-areas: "input input" "search advanced"; 
   width: 100%;
   padding: 15px 12px;
   border-radius: 5px !important;
+}
+.select-mobile {
+  grid-area: input;
 }
 .select-box {
   margin-top: 10px;
@@ -417,7 +421,7 @@ export default {
     display: none !important;
   }
   .subtitle1 {
-    font-size: 12px !important;
+    font-size: 10px !important;
     letter-spacing: 0px;
   }
 }

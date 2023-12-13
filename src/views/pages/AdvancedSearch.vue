@@ -335,12 +335,9 @@
     top: 0;
     left: 0;
     width: 100%;
-    height: 100vh;
-    height: 100svh;
     background-color: #fff;
     z-index: 999;
     margin-top: 0 !important;
-    overflow-y: hidden;
   }
   .filter-rtl {
     position: relative;
