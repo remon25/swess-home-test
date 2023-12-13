@@ -276,7 +276,7 @@
             <v-icon @click="report(id)">mdi-close</v-icon>
           </div>
           <div class="date-img">
-            <p class="subtitle0">
+            <p class="subtitle0" style="direction: ltr;">
               <v-icon class="d-text-primary">mdi-calendar-month</v-icon>
               <!-- {{ formatDate(date) }} -->
               <span>{{ formatDate(date) }}</span>
@@ -503,6 +503,7 @@ export default {
     display: flex;
     justify-content: flex-end;
     margin-bottom: 16px;
+    margin-inline-end: 10px;
   }
   .star {
     display: none !important;
