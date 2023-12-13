@@ -263,7 +263,7 @@
               >
                 <v-img
                   lazy-src="/images/logo.jpeg"
-                  class="d-border-radius"
+                  class="d-border-radius office-img"
                   :src="`${img_baseUrl}${logo}`"
                   width="58px"
                   height="58px"
@@ -503,9 +503,12 @@ export default {
     width: calc(100% / 3);
     box-shadow: none;
     display: flex;
-    justify-content: flex-end;
+    justify-content: center;
     margin-bottom: 16px;
-    margin-inline-end: 5px;
+  }
+  .office-img{
+    width:70px !important;
+    height: 50px !important;
   }
   .star {
     display: none !important;
