@@ -433,6 +433,9 @@ export default {
   height: 44px;
   border-radius: 7px;
 }
+.d-bg-primary{
+  background-color: rgb(15, 76, 129) !important;
+}
 @media screen and (min-width: 801px) {
   .advance-filter-md {
     display: none !important;
