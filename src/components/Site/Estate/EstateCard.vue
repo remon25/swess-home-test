@@ -64,6 +64,9 @@
               <v-icon @click="report(id)">mdi-close</v-icon>
             </div>
           </div>
+          <p class="h5 d-text-dark_gray title-price price-small">
+            {{ price.replace(/(\d)(?=(\d{3})+(?!\d))/g, "$1,") + " ل.س" }}
+          </p>
         </v-col>
         <v-col class="cols d-p-relative" cols="12" sm="12" md="5">
           <div
@@ -74,7 +77,7 @@
               :to="'/estate/' + id"
               style="text-decoration: none"
             >
-              <p class="h5 d-text-dark_gray title-price">
+              <p class="h5 d-text-dark_gray title-price price-lg">
                 {{ price.replace(/(\d)(?=(\d{3})+(?!\d))/g, "$1,") + " ل.س" }}
               </p>
               <div class="d-block">
@@ -386,6 +389,12 @@ export default {
   border-radius: 10.4437px !important;
   border: 0px !important;
 }
+.price-small {
+  margin-top: 0;
+  background-color: rgb(19 95 160) !important;
+  text-align: center;
+  color: #fff !important;
+}
 
 @media (min-width: 960px) {
   .close-small {
@@ -394,10 +403,16 @@ export default {
   .card-estate {
     height: 337px;
   }
+  .price-small {
+    display: none;
+  }
 }
 
 @media (max-width: 960px) {
   .close-lg {
+    display: none;
+  }
+  .price-lg {
     display: none;
   }
   .contract-box {
