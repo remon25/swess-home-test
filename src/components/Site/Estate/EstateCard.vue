@@ -503,7 +503,7 @@ export default {
     display: flex;
     justify-content: flex-end;
     margin-bottom: 16px;
-    margin-inline-end: 10px;
+    margin-inline-end: 5px;
   }
   .star {
     display: none !important;
