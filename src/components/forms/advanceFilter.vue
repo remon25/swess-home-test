@@ -1,5 +1,5 @@
 <template>
-  <div style="position: sticky; top: 110px">
+  <div class="main-filter-class">
     <v-card
       class="mx-auto advance-filter d-lg-block"
       max-width="344"
@@ -138,30 +138,35 @@
         {{ $t("search") }}
       </v-btn>
     </v-card>
-    <v-card
-      class="mx-auto mt-10 advance-filter-md d-block"
-      max-width="100%"
-      outlined
-      dense
-      fixed
+
+    <StickyElement
+      stickMode="['element-start', 'element-end']"
+      visibleOnDirection="['up','down']"
     >
-      <selectComponent
-      class="select-mobile"
-        :errorMessages="location_idErrors"
-        :model="form.location_id"
-        style="border: 0px; height: 50px"
-        background="#FFFFFF"
-        :outlined="true"
-        :label="$t('place')"
-        :items="Locations"
-        attr="location_id"
-        @select="
-          (val) => {
-            form.location_id = val.value;
-          }
-        "
-      />
-      <!-- <p class="subtitle1 d-text-primary">{{$t('advancedsearch')}}</p>
+      <v-card
+        class="mx-auto mt-10 advance-filter-md d-block"
+        max-width="100%"
+        outlined
+        dense
+        fixed
+      >
+        <selectComponent
+          class="select-mobile"
+          :errorMessages="location_idErrors"
+          :model="form.location_id"
+          style="border: 0px; height: 50px"
+          background="#FFFFFF"
+          :outlined="true"
+          :label="$t('place')"
+          :items="Locations"
+          attr="location_id"
+          @select="
+            (val) => {
+              form.location_id = val.value;
+            }
+          "
+        />
+        <!-- <p class="subtitle1 d-text-primary">{{$t('advancedsearch')}}</p>
 
     <selectComponent
       background="#FFFFFF"
@@ -216,36 +221,40 @@
       "
     ></Switcher>-->
 
-      <v-btn
-        large
-        depressed
-        class="d-bg-primary pa-2 d-text-light elevation-0 subtitle1"
-        style="width: 100%; border-radius: 5px; height: 40px; font-size: 12px"
-        @click="search"
-      >
-        {{ $t("search") }}
-      </v-btn>
-  <router-link to="/advanced-search">
         <v-btn
-        icon
-        large
-        depressed
-        class="d-bg-primary pa-2 d-text-light elevation-0 subtitle1"
-        style="width: 100%; border-radius: 5px; height: 40px"
-      >
-        <v-icon small>mdi-tune</v-icon>
-        <div style="font-size: 12px">{{ $t("advancedsearch") }}</div>
-      </v-btn>
-      </router-link>
-      
-    </v-card>
+          large
+          depressed
+          class="d-bg-primary pa-2 d-text-light elevation-0 subtitle1"
+          style="width: 100%; border-radius: 5px; height: 40px; font-size: 12px"
+          @click="search"
+        >
+          {{ $t("search") }}
+        </v-btn>
+        <router-link to="/advanced-search">
+          <v-btn
+            icon
+            large
+            depressed
+            class="d-bg-primary pa-2 d-text-light elevation-0 subtitle1"
+            style="width: 100%; border-radius: 5px; height: 40px"
+          >
+            <v-icon small>mdi-tune</v-icon>
+            <div style="font-size: 12px">{{ $t("advancedsearch") }}</div>
+          </v-btn>
+        </router-link>
+      </v-card>
+    </StickyElement>
   </div>
 </template>
 <script>
 import { mapActions, mapGetters } from "vuex";
 import { validationMixin } from "vuelidate";
 import { required } from "vuelidate/lib/validators";
+import StickyElement from "vue-sticky-element";
 export default {
+  components: {
+    StickyElement,
+  },
   mixins: [validationMixin],
   validations: {
     form: {
@@ -366,8 +375,9 @@ export default {
           this.$refs.selectComponent.syncValue();
         });
       }
-    },handleButtonClick(className) {
-      this.$emit('apply-class', className);
+    },
+    handleButtonClick(className) {
+      this.$emit("apply-class", className);
     },
   },
   mounted() {
@@ -382,6 +392,10 @@ export default {
 };
 </script>
 <style scoped>
+.main-filter-class {
+  position: sticky;
+  top: 110px;
+}
 .advance-filter {
   width: 302px;
 
@@ -394,10 +408,11 @@ export default {
 .advance-filter-md {
   display: grid !important;
   column-gap: 5px;
-  grid-template-areas: "input input" "search advanced"; 
+  grid-template-areas: "input input" "search advanced";
   width: 100%;
   padding: 15px 12px;
   border-radius: 5px !important;
+  top: 80px;
 }
 .select-mobile {
   grid-area: input;
@@ -417,6 +432,10 @@ export default {
   }
 }
 @media screen and (max-width: 800px) {
+  .main-filter-class {
+    position: relative !important;
+    top: -80px !important;
+  }
   .advance-filter {
     display: none !important;
   }

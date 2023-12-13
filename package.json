@@ -25,6 +25,7 @@
     "vue-moment": "^4.1.0",
     "vue-pswipe": "^0.15.3",
     "vue-router": "^3.5.1",
+    "vue-sticky-element": "^1.7.0",
     "vue-tel-input-vuetify": "^1.5.3",
     "vue-toastification": "^1.7.14",
     "vuelidate": "^0.7.7",
