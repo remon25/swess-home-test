@@ -340,6 +340,7 @@
     background-color: #fff;
     z-index: 999;
     margin-top: 0 !important;
+    overflow-y: hidden;
   }
   .filter-rtl {
     position: relative;
