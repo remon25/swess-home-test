@@ -64,22 +64,32 @@
               <v-icon @click="report(id)">mdi-close</v-icon>
             </div>
           </div>
-          <p class="h5 d-text-dark_gray title-price price-small">
-            {{ price.replace(/(\d)(?=(\d{3})+(?!\d))/g, "$1,") + " ل.س" }}
-            <br />
-            <span
-              style="
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                font-size: 15px;
-                direction: ltr;
-              "
+          <router-link
+            target="_blank"
+            :to="'/estate/' + id"
+            style="text-decoration: none"
+          >
+            <p
+              class="h5 d-text-dark_gray title-price price-small"
+              style="direction: rtl"
             >
-              {{ location }}
-              <v-icon color="#fff" small>mdi-map-marker</v-icon>
-            </span>
-          </p>
+              {{ price.replace(/(\d)(?=(\d{3})+(?!\d))/g, "$1,") }}
+              <span style="font-size: 20px">ل.س</span>
+              <br />
+              <span
+                style="
+                  display: flex;
+                  align-items: center;
+                  justify-content: center;
+                  font-size: 15px;
+                  direction: ltr;
+                "
+              >
+                {{ location }}
+                <v-icon color="#fff" small>mdi-map-marker</v-icon>
+              </span>
+            </p>
+          </router-link>
         </v-col>
         <v-col class="cols d-p-relative" cols="12" sm="12" md="5">
           <div
@@ -96,9 +106,9 @@
               <div class="d-block">
                 <p class="subtitle1 d-inline">{{ location }}</p>
               </div>
-              <div class="subtitle0 mt-2 d-text-dark_gray">
+              <div class="subtitle0 mt-2 d-text-dark_gray inf_holder">
                 <div v-if="internalstate">
-                  <span style="display: inline-block">
+                  <span style="display: inline-block" class="star">
                     <img src="/icons/star.svg" class="mx-2" alt="star" />
                   </span>
                   <span style="display: inline-block">
@@ -120,7 +130,7 @@
                 </div>
 
                 <div v-if="area">
-                  <span style="display: inline-block">
+                  <span style="display: inline-block" class="star">
                     <img
                       style="vertical-align: middle"
                       src="/icons/star.svg"
@@ -143,7 +153,7 @@
                 </div>
 
                 <div v-if="ownership_type">
-                  <span style="display: inline-block">
+                  <span style="display: inline-block" class="star">
                     <img
                       style="vertical-align: middle"
                       src="/icons/star.svg"
@@ -224,7 +234,7 @@
             "
           >
             <div
-              class="float-left mx-2"
+              class="float-left mx-2 save"
               @click="save(id)"
               style="cursor: pointer"
             >
@@ -236,7 +246,7 @@
               >
               <p class="subtitle0 d-inline">{{ $t("save") }}</p>
             </div>
-            <p class="subtitle0 float-left mx-2">
+            <p class="subtitle0 float-left mx-2 call">
               <a
                 style="text-decoration: none; color: inherit"
                 :href="'tel:' + phone"
@@ -246,7 +256,7 @@
               </a>
             </p>
 
-            <div class="d-p-absolute logo">
+            <div class="d-p-absolute logo office">
               <router-link
                 :to="'/office/' + office.id"
                 style="text-decoration: none"
@@ -429,8 +439,12 @@ export default {
   .price-lg {
     display: none;
   }
+
   .subtitle1 {
     display: none !important;
+  }
+  .inf_holder {
+    margin-top: 40px !important;
   }
   .contract-box {
     background: none;
@@ -446,8 +460,52 @@ export default {
     border-radius: 10px 10px 0px 0px !important;
     height: 290px !important;
   }
-  .contract-free{
+  .contract-free {
     background: none !important;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .save {
+    margin-bottom: 16px;
+    width: calc(100% / 3);
+    background-color: rgb(19 95 160 / 15%) !important;
+    padding: 10px;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: rgb(19 95 160) !important;
+  }
+  .save > p {
+    margin-bottom: 0 !important;
+  }
+  .call {
+    width: calc(100% / 3);
+    background-color: rgb(19 95 160 / 15%) !important;
+    padding: 10px;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: rgb(19 95 160) !important;
+    margin-bottom: 16px;
+    transition: background-color 0.2s ease;
+  }
+  .save:hover,
+  .call:hover {
+    background-color: rgb(19 95 160 / 25%) !important;
+  }
+  .office {
+    position: static !important;
+    width: calc(100% / 3);
+    box-shadow: none;
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: 16px;
+  }
+  .star {
+    display: none !important;
   }
 }
 
@@ -481,7 +539,8 @@ export default {
 .date-img {
   position: absolute;
   top: 10px;
-  left: 20px;
+  left: 25px;
+  margin-bottom: 32px;
 }
 
 .contract-selver {
