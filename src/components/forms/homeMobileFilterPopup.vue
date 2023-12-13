@@ -258,7 +258,7 @@ export default {
     },
     popupClass: String,
   },
-  data: () => ({}),
+  data: () => ({ api: "login" }),
   computed: {
     ...mapGetters(["getLocations", "getEstateTypes", "getPriceDomains"]),
     location_idErrors() {
@@ -322,7 +322,7 @@ export default {
       document.body.classList.remove("poped_up");
     },
     updateTab(newTab) {
-      this.$emit('updateTab', newTab); // Emit the selected tab
+      this.$emit("updateTab", newTab); // Emit the selected tab
     },
   },
   mounted() {

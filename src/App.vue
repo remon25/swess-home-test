@@ -7,7 +7,7 @@
     <v-main class="height-100per">
       <loading-app-popup></loading-app-popup>
       <Navbar></Navbar>
-      <router-view style="margin-top:110px" />
+      <router-view :style="routerViewStyle" />
     </v-main>
   </v-app>
 </template>
@@ -18,11 +18,33 @@ import { mapGetters, mapActions } from "vuex";
 export default {
   name: "App",
 
-  data: () => ({}),
+  data() {
+    return {
+      routerViewStyle: {},
+    };
+  },
+  created() {
+    // Set initial style based on window width
+    this.setRouterViewStyle();
+
+    // Listen for window resize events to update the style
+    window.addEventListener("resize", this.setRouterViewStyle);
+  },
+  beforeDestroy() {
+    // Remove the event listener when the component is destroyed
+    window.removeEventListener("resize", this.setRouterViewStyle);
+  },
+  methods: {
+    setRouterViewStyle() {
+      // Set the style based on the window width
+      this.routerViewStyle = {
+        marginTop: window.innerWidth <= 800 ? "20px" : "110px",
+      };
+    },
+  },
 };
 
-document.addEventListener('contextmenu', event => event.preventDefault());
-
+document.addEventListener("contextmenu", (event) => event.preventDefault());
 </script>
 <style>
 @font-face {
@@ -35,8 +57,7 @@ document.addEventListener('contextmenu', event => event.preventDefault());
 * {
   font-family: "Almarai", Helvetica, Arial;
 }
-.height-100per{
+.height-100per {
   height: 100%;
 }
-
 </style>

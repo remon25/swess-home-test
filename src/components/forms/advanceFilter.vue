@@ -1,75 +1,79 @@
 <template>
-<div style="position: sticky;
-    top: 110px;">
+  <div style="position: sticky; top: 110px">
+    <v-card
+      class="mx-auto advance-filter d-lg-block"
+      max-width="344"
+      outlined
+      dense
+      fixed
+    >
+      <p class="subtitle1 d-text-primary">{{ $t("searchFilter") }}</p>
 
-  <v-card
-    class="mx-auto advance-filter d-lg-block d-none"
-    max-width="344"
-    outlined
-    dense fixed
-  >
-    <p class="subtitle1 d-text-primary">{{$t('searchFilter')}}</p>
+      <selectComponent
+        style="position: inherit"
+        class="select-box"
+        :errorMessages="estate_offer_typeErrors"
+        background="#FFFFFF"
+        :model="form.estate_offer_type_id"
+        :filled="true"
+        :label="$t('OfferType')"
+        :items="EstateOfferTypes"
+        attr="estate_offer_type_id"
+        @select="
+          (val) => {
+            form.estate_offer_type_id = val.value;
+          }
+        "
+      />
+      <selectComponent
+        class="select-box"
+        :errorMessages="price_domain_idErrors"
+        :model="form.price_domain_id"
+        background="#FFFFFF"
+        :filled="true"
+        :label="$t('searchPrice')"
+        :items="PriceDomains"
+        attr="price_domain_id"
+        @select="
+          (val) => {
+            form.price_domain_id = val.value;
+          }
+        "
+      />
 
-    <selectComponent style="position:inherit"  class="select-box"
-      :errorMessages="estate_offer_typeErrors"
-      background="#FFFFFF"
-      :model="form.estate_offer_type_id"
-      :filled="true"
-      :label="$t('OfferType')"
-      :items="EstateOfferTypes"
-      attr="estate_offer_type_id"
-      @select="
-        (val) => {
-          form.estate_offer_type_id = val.value;
-        }
-      "
-    />
-    <selectComponent class="select-box"
-      :errorMessages="price_domain_idErrors"
-      :model="form.price_domain_id"
-      background="#FFFFFF"
-      :filled="true"
-      :label="$t('searchPrice')"
-      :items="PriceDomains"
-      attr="price_domain_id"
-      @select="
-        (val) => {
-          form.price_domain_id = val.value;
-        }
-      "
-    />
-
-    <selectComponent class="select-box"
-      :errorMessages="estate_type_idErrors"
-      :model="form.estate_type_id"
-      style="border: 0px"
-      background="#FFFFFF"
-      :filled="true"
-      :label="$t('EstateType')"
-      :items="EstateTypes"
-      attr="estate_type_id"
-      @select="
-        (val) => {
-          form.estate_type_id = val.value;
-        }
-      "
-    />
-    <selectComponent class="select-box"
-      :errorMessages="location_idErrors"
-      :model="form.location_id"
-      style="border: 0px"
-      background="#FFFFFF"
-      :filled="true"
-      :label="$t('place')"
-      :items="Locations"
-      attr="location_id"
-      @select="
-        (val) => {
-          form.location_id = val.value;
-        }
-      "
-    />
-    <!--<p class="subtitle1 d-text-primary mt-5">{{$t('advancedsearch')}}</p>
+      <selectComponent
+        class="select-box"
+        :errorMessages="estate_type_idErrors"
+        :model="form.estate_type_id"
+        style="border: 0px"
+        background="#FFFFFF"
+        :filled="true"
+        :label="$t('EstateType')"
+        :items="EstateTypes"
+        attr="estate_type_id"
+        @select="
+          (val) => {
+            form.estate_type_id = val.value;
+          }
+        "
+      />
+      <selectComponent
+        class="select-box"
+        :errorMessages="location_idErrors"
+        :model="form.location_id"
+        style="border: 0px"
+        background="#FFFFFF"
+        :filled="true"
+        :label="$t('place')"
+        :items="Locations"
+        attr="location_id"
+        @select="
+          (val) => {
+            form.location_id = val.value;
+          }
+        "
+      />
+      <!--<p class="subtitle1 d-text-primary mt-5">{{$t('advancedsearch')}}</p>
 
     <selectComponent class="select-box"
       background="#FFFFFF"
@@ -124,84 +128,39 @@
       "
     ></Switcher>-->
 
-    <v-btn
-      large
-      depressed
-      class="d-bg-primary pa-2 mt-10 d-text-light elevation-0 subtitle1"
-      style="width: 100%; border-radius: 10px; height: 48px"
-      @click="search"
+      <v-btn
+        large
+        depressed
+        class="d-bg-primary pa-2 mt-10 d-text-light elevation-0 subtitle1"
+        style="width: 100%; border-radius: 10px; height: 48px"
+        @click="search"
+      >
+        {{ $t("search") }}
+      </v-btn>
+    </v-card>
+    <v-card
+      class="mx-auto mt-10 advance-filter-md d-block"
+      max-width="100%"
+      outlined
+      dense
+      fixed
     >
-      {{$t('search')}}
-    </v-btn>
-  </v-card>
-  <v-card
-    class="mx-auto mt-10 advance-filter-md d-block d-lg-none"
-    max-width="344"
-    outlined
-    dense fixed
-  >
-    <p class="subtitle1 d-text-primary">{{$t('searchFilter')}}</p>
-
-    <selectComponent
-      :errorMessages="estate_offer_typeErrors"
-      background="#FFFFFF"
-      :model="form.estate_offer_type_id"
-      :filled="true"
-      :label="$t('OfferType')"
-      :items="EstateOfferTypes"
-      attr="estate_offer_type_id"
-      @select="
-        (val) => {
-          form.estate_offer_type_id = val.value;
-        }
-      "
-    />
-    <selectComponent
-      :errorMessages="price_domain_idErrors"
-      :model="form.price_domain_id"
-      background="#FFFFFF"
-      :filled="true"
-      :label="$t('searchPrice')"
-      :items="PriceDomains"
-      attr="price_domain_id"
-      @select="
-        (val) => {
-          form.price_domain_id = val.value;
-        }
-      "
-    />
-
-    <selectComponent
-      :errorMessages="estate_type_idErrors"
-      :model="form.estate_type_id"
-      style="border: 0px"
-      background="#FFFFFF"
-      :filled="true"
-      :label="$t('EstateType')"
-      :items="EstateTypes"
-      attr="estate_type_id"
-      @select="
-        (val) => {
-          form.estate_type_id = val.value;
-        }
-      "
-    />
-    <selectComponent
-      :errorMessages="location_idErrors"
-      :model="form.location_id"
-      style="border: 0px"
-      background="#FFFFFF"
-      :outlined="true"
-      :label="$t('place')"
-      :items="Locations"
-      attr="location_id"
-      @select="
-        (val) => {
-          form.location_id = val.value;
-        }
-      "
-    />
-   <!-- <p class="subtitle1 d-text-primary">{{$t('advancedsearch')}}</p>
+      <selectComponent
+        :errorMessages="location_idErrors"
+        :model="form.location_id"
+        style="border: 0px; height: 50px"
+        background="#FFFFFF"
+        :outlined="true"
+        :label="$t('place')"
+        :items="Locations"
+        attr="location_id"
+        @select="
+          (val) => {
+            form.location_id = val.value;
+          }
+        "
+      />
+      <!-- <p class="subtitle1 d-text-primary">{{$t('advancedsearch')}}</p>
 
     <selectComponent
       background="#FFFFFF"
@@ -256,44 +215,55 @@
       "
     ></Switcher>-->
 
-    <v-btn
-      large
-      depressed
-      class="d-bg-primary pa-2 d-text-light elevation-0 subtitle1"
-      style="width: 100%; border-radius: 10px; height: 48px"
-      @click="search"
-    >
-      {{$t('search')}}
-    </v-btn>
-  </v-card>
+      <v-btn
+        large
+        depressed
+        class="d-bg-primary pa-2 d-text-light elevation-0 subtitle1"
+        style="width: 100%; border-radius: 5px; height: 40px; font-size: 12px"
+        @click="search"
+      >
+        {{ $t("search") }}
+      </v-btn>
+  <router-link to="/advanced-search">
+        <v-btn
+        icon
+        large
+        depressed
+        class="d-bg-primary pa-2 d-text-light elevation-0 subtitle1"
+        style="width: 100%; border-radius: 5px; height: 40px"
+      >
+        <v-icon small>mdi-tune</v-icon>
+        <div style="font-size: 12px">{{ $t("advancedsearch") }}</div>
+      </v-btn>
+      </router-link>
+      
+    </v-card>
   </div>
-
 </template>
 <script>
 import { mapActions, mapGetters } from "vuex";
 import { validationMixin } from "vuelidate";
-import {
-  required,
-} from "vuelidate/lib/validators";
+import { required } from "vuelidate/lib/validators";
 export default {
-   mixins: [validationMixin],
+  mixins: [validationMixin],
   validations: {
     form: {
       location_id: { required },
       estate_type_id: { required },
       estate_offer_type_id: { required },
-      price_domain_id: { required:false },
+      price_domain_id: { required: false },
     },
   },
   computed: {
     ...mapGetters(["getLocations", "getEstateTypes", "getPriceDomains"]),
-        form() {
+    form() {
       return this.$store.getters.getForm;
     },
-    estate_offer_typeErrors(){
+    estate_offer_typeErrors() {
       const errors = [];
       if (!this.$v.form.estate_offer_type_id.$dirty) return errors;
-      !this.$v.form.estate_offer_type_id.required && errors.push("يرجى ملئ حقل نوع العقار");
+      !this.$v.form.estate_offer_type_id.required &&
+        errors.push("يرجى ملئ حقل نوع العقار");
       return errors;
     },
     location_idErrors() {
@@ -344,7 +314,7 @@ export default {
       "fetchEstateOfferTypes",
       "fetchInteriorStatuses",
       "fetchOwnershipTypes",
-      "sendfilterEstate"
+      "sendfilterEstate",
     ]),
     search() {
       debugger;
@@ -355,7 +325,7 @@ export default {
           formdata.append(f, this.form[f]);
         }
         this.$store.dispatch("setForm", this.form);
-        this.$router.push({query: this.form});
+        this.$router.push({ query: this.form });
         this.sendfilterEstate({
           api: "estate/searchEstateByregionsByestatefeatures/",
           form: formdata,
@@ -365,38 +335,39 @@ export default {
         this.$toast.error("أكمل الحقول المطلوبة");
       }
     },
-    fillFromQuery(){
-
+    fillFromQuery() {
       let query = this.$route.query;
-      if (query['estate_offer_type_id'] ){
-        this.form.estate_offer_type_id = query['estate_offer_type_id'];
+      if (query["estate_offer_type_id"]) {
+        this.form.estate_offer_type_id = query["estate_offer_type_id"];
         this.$nextTick(() => {
           // Trigger the selectComponent's value synchronization
           this.$refs.selectComponent.syncValue();
         });
       }
-      if(query['estate_type_id']){
-        this.form.estate_type_id = query['estate_type_id'];
+      if (query["estate_type_id"]) {
+        this.form.estate_type_id = query["estate_type_id"];
         this.$nextTick(() => {
           // Trigger the selectComponent's value synchronization
           this.$refs.selectComponent.syncValue();
         });
       }
-      if(query['location_id']){
-        this.form.location_id = query['location_id'];
+      if (query["location_id"]) {
+        this.form.location_id = query["location_id"];
         this.$nextTick(() => {
           // Trigger the selectComponent's value synchronization
           this.$refs.selectComponent.syncValue();
         });
       }
-      if(query['price_domain_id']){
-        this.form.price_domain_id = query['price_domain_id'];
+      if (query["price_domain_id"]) {
+        this.form.price_domain_id = query["price_domain_id"];
         this.$nextTick(() => {
           // Trigger the selectComponent's value synchronization
           this.$refs.selectComponent.syncValue();
         });
       }
-    }
+    },handleButtonClick(className) {
+      this.$emit('apply-class', className);
+    },
   },
   mounted() {
     this.fillFromQuery();
@@ -420,19 +391,34 @@ export default {
   border-radius: 10px !important;
 }
 .advance-filter-md {
+  display: grid !important;
+  column-gap: 10px;
+  grid-template-columns: 7fr 1fr 3fr;
   width: 100%;
-  padding: 23px 12px 30px 12px;
-  background: #f3f3f3 !important;
-  border: 0.5px solid #6f6f6f !important;
-  border-radius: 10px !important;
+  padding: 15px 12px;
+  border-radius: 5px !important;
 }
-.select-box{
+.select-box {
   margin-top: 10px;
-  padding-top: 5px ;
+  padding-top: 5px;
   padding-right: 10px;
   padding-left: 10px;
-   background-color: rgb(255, 255, 255);
-    height: 44px;
-    border-radius: 7px;
+  background-color: rgb(255, 255, 255);
+  height: 44px;
+  border-radius: 7px;
+}
+@media screen and (min-width: 801px) {
+  .advance-filter-md {
+    display: none !important;
+  }
+}
+@media screen and (max-width: 800px) {
+  .advance-filter {
+    display: none !important;
+  }
+  .subtitle1 {
+    font-size: 12px !important;
+    letter-spacing: 0px;
+  }
 }
 </style>
