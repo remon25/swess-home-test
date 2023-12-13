@@ -454,6 +454,8 @@ export default {
     height: 47px;
     position: absolute;
     bottom: 0px;
+    padding-right: 0px !important;
+    padding-left: 0px !important;
   }
 
   .img-card {
