@@ -91,7 +91,7 @@
 
     <!-- <v-system-bar color="deep-purple darken-3"></v-system-bar> -->
 
-    <v-navigation-drawer v-if="sidebar" :right="lang == 'ar'" v-model="sidebar" app>
+    <v-navigation-drawer v-if="sidebar" :right="lang == 'ar'" v-model="sidebar" app style="z-index: 11;">
       <v-list dense>
         <v-list-item>
           <router-link to="/" style="cursor: pointer" aria-label="go to home page">
