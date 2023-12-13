@@ -67,7 +67,18 @@
           <p class="h5 d-text-dark_gray title-price price-small">
             {{ price.replace(/(\d)(?=(\d{3})+(?!\d))/g, "$1,") + " ل.س" }}
             <br />
-            {{ location }}
+            <span
+              style="
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                font-size: 15px;
+                direction: ltr;
+              "
+            >
+              {{ location }}
+              <v-icon color="#fff" small>mdi-map-marker</v-icon>
+            </span>
           </p>
         </v-col>
         <v-col class="cols d-p-relative" cols="12" sm="12" md="5">
@@ -246,6 +257,7 @@
                   :src="`${img_baseUrl}${logo}`"
                   width="58px"
                   height="58px"
+                  contain
                 ></v-img>
               </router-link>
             </div>
@@ -417,7 +429,7 @@ export default {
   .price-lg {
     display: none;
   }
-  .subtitle1{
+  .subtitle1 {
     display: none !important;
   }
   .contract-box {
