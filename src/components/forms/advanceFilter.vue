@@ -380,7 +380,7 @@ export default {
     },
     handleScroll() {
       const scrollY = window.scrollY || window.pageYOffset;
-      this.isAdvanceFilterMdFixed = scrollY >= 168;
+      this.isAdvanceFilterMdFixed = scrollY >= 160;
     },
   },
   mounted() {
