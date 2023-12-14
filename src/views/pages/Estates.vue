@@ -1,5 +1,5 @@
 <template>
-  <div class="d-bg-dark-gray">
+<div class="estates-main" style="background-color: #F1F1E6;">
     <!-- 
     <breadcrumbs :items="links"></breadcrumbs>
     -->
@@ -146,4 +146,10 @@ export default {
 };
 </script>
 <style scoped>
+@media screen and (max-width: 800px) {
+  .estates-main {
+    margin-top: 0px !important;
+  }
+  
+}
 </style>

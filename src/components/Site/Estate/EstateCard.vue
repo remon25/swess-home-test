@@ -277,7 +277,7 @@
           </div>
           <div class="date-img">
             <p class="subtitle0" style="direction: ltr;">
-              <v-icon class="d-text-primary">mdi-calendar-month</v-icon>
+              <v-icon class="d-text-primary" color="#262637">mdi-calendar-month</v-icon>
               <!-- {{ formatDate(date) }} -->
               <span>{{ formatDate(date) }}</span>
             </p>
@@ -415,7 +415,7 @@ export default {
 }
 .price-small {
   margin-top: 0;
-  background-color: rgb(19 95 160) !important;
+  background-color: #009DAC !important;
   text-align: center;
   color: #fff !important;
 }
