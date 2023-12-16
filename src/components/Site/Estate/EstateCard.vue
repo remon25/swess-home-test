@@ -434,6 +434,10 @@ export default {
 .area i,.ownership_type i{
   color: #262637 !important;
 }
+.save,.call{
+  color: #262637 !important;
+nt-weight: 400 !important;
+}
 
 @media (min-width: 960px) {
   .close-small {
