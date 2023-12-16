@@ -228,6 +228,7 @@
         depressed
         class="d-bg-primary pa-2 d-text-light elevation-0 subtitle1 search-md"
         style="
+        font-family: 'Effra';
           width: 100%;
           border-radius: 5px;
           height: 40px;
@@ -407,7 +408,7 @@ export default {
 * {
   font-family: "Effra" !important;
 }
-.search-md > span {
+button.search-md > span {
   font-family: 'Effra' !important;
 }
 .main-filter-class {
