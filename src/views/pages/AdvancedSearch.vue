@@ -15,10 +15,11 @@
               height: 30px;
               min-width: 38px;
               padding: 0;
-              background-color: #e3e3e3;
+              background-color: transparent;
+              color: #262637;
               box-shadow: none;
             "
-            > <v-icon>mdi-chevron-left</v-icon>
+            > <v-icon large>mdi-arrow-left</v-icon>
         </v-btn>
           <img src="images/logo.jpeg" alt="logo" style="width: 75px" />
         </v-col>

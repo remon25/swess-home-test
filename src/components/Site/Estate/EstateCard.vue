@@ -86,7 +86,7 @@
                 "
               >
                 {{ location }}
-                <v-icon color="#fff" small>mdi-map-marker</v-icon>
+                <v-icon color="#53535f" small>mdi-map-marker</v-icon>
               </span>
             </p>
           </router-link>
@@ -107,7 +107,7 @@
                 <p class="subtitle1 d-inline">{{ location }}</p>
               </div>
               <div class="subtitle0 mt-2 d-text-dark_gray inf_holder">
-                <div v-if="internalstate">
+                <div v-if="internalstate" class="internal_state">
                   <span style="display: inline-block" class="star">
                     <img src="/icons/star.svg" class="mx-2" alt="star" />
                   </span>
@@ -129,7 +129,7 @@
                   </span>
                 </div>
 
-                <div v-if="area">
+                <div v-if="area" class="area">
                   <span style="display: inline-block" class="star">
                     <img
                       style="vertical-align: middle"
@@ -152,7 +152,7 @@
                   </span>
                 </div>
 
-                <div v-if="ownership_type">
+        <div v-if="ownership_type" class="ownership_type">
                   <span style="display: inline-block" class="star">
                     <img
                       style="vertical-align: middle"
@@ -275,9 +275,11 @@
           <div class="d-p-absolute report close-lg">
             <v-icon @click="report(id)">mdi-close</v-icon>
           </div>
-          <div class="date-img">
-            <p class="subtitle0" style="direction: ltr;">
-          <v-icon class="d-text-primary" color="#262637 !important">mdi-calendar-month</v-icon>
+      <div class="date-img">
+            <p class="subtitle0" style="direction: ltr">
+              <v-icon class="d-text-primary"
+                >mdi-calendar-month</v-icon
+              >
               <!-- {{ formatDate(date) }} -->
               <span>{{ formatDate(date) }}</span>
             </p>
@@ -381,6 +383,9 @@ export default {
 };
 </script>
 <style scoped>
+* {
+  font-family: "Effra", sans-serif;
+}
 .cols {
   padding: 0px 0px 12px 0px !important;
 }
@@ -415,9 +420,19 @@ export default {
 }
 .price-small {
   margin-top: 0;
-  background-color: #009DAC !important;
+  background-color: #f4f4f5 !important;
   text-align: center;
-  color: #fff !important;
+  color: #53535f !important;
+}
+.area,.ownership_type {
+  margin-bottom: 5px;
+  font-size: 16px !important;
+  font-weight: 400 !important;
+  color: #262637 !important;
+}
+
+.area i,.ownership_type i{
+  color: #262637 !important;
 }
 
 @media (min-width: 960px) {
@@ -444,7 +459,7 @@ export default {
     display: none !important;
   }
   .inf_holder {
-    margin-top: 40px !important;
+    margin-top: 60px !important;
   }
   .contract-box {
     background: none;
@@ -462,6 +477,9 @@ export default {
     border-radius: 10px 10px 0px 0px !important;
     height: 290px !important;
   }
+  .internal_state {
+    display: none;
+  }
   .contract-free {
     background: none !important;
     display: flex;
@@ -471,27 +489,31 @@ export default {
   .save {
     margin-bottom: 16px;
     width: calc(100% / 3);
-    background-color: rgb(19 95 160 / 15%) !important;
     padding: 10px;
     border-radius: 10px;
     display: flex;
     justify-content: center;
     align-items: center;
-    color: rgb(19 95 160) !important;
+    font-size: 16px !important;
+    font-weight: 400 !important;
+    background-color: #f4f4f5 !important;
+    color: #262637 !important;
   }
   .save > p {
     margin-bottom: 0 !important;
   }
   .call {
     width: calc(100% / 3);
-    background-color: rgb(19 95 160 / 15%) !important;
     padding: 10px;
     border-radius: 10px;
     display: flex;
     justify-content: center;
     align-items: center;
-    color: rgb(19 95 160) !important;
     margin-bottom: 16px;
+    font-size: 16px !important;
+    font-weight: 400 !important;
+    background-color: #f4f4f5 !important;
+    color: #262637 !important;
     transition: background-color 0.2s ease;
   }
   .save:hover,
@@ -506,8 +528,8 @@ export default {
     justify-content: center;
     margin-bottom: 16px;
   }
-  .office-img{
-    width:70px !important;
+  .office-img {
+    width: 70px !important;
     height: 50px !important;
   }
   .star {
@@ -547,6 +569,11 @@ export default {
   top: 10px;
   left: 25px;
   margin-bottom: 32px;
+  color: #53535f !important;
+  font-size: 14px  !important;
+}
+.date-img i{
+  color: #53535f !important;
 }
 
 .contract-selver {

@@ -53,6 +53,12 @@ document.addEventListener("contextmenu", (event) => event.preventDefault());
     url("assets/Almarai/Almarai-Regular.ttf") format("truetype");
   font-display: swap;
 }
+@font-face {
+  font-family: "Effra";
+  src: local("Effra"),
+url("assets/Effra/Effra\ Medium.ttf") format("truetype");
+  font-display: swap;
+}
 
 * {
   font-family: "Almarai", Helvetica, Arial;

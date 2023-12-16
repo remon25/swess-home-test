@@ -1,5 +1,5 @@
 <template>
-<div class="estates-main" style="background-color: #F1F1E6;">
+<div class="estates-main" style="background-color: #e9e9eb;">
     <!-- 
     <breadcrumbs :items="links"></breadcrumbs>
     -->
@@ -146,6 +146,9 @@ export default {
 };
 </script>
 <style scoped>
+*{
+  font-family: 'Effra', sans-serif;
+}
 @media screen and (max-width: 800px) {
   .estates-main {
     margin-top: 0px !important;

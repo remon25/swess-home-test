@@ -226,8 +226,12 @@
       <v-btn
         large
         depressed
-        class="d-bg-primary pa-2 d-text-light elevation-0 subtitle1"
-        style="width: 100%; border-radius: 5px; height: 40px; font-size: 12px"
+        class="d-bg-primary pa-2 d-text-light elevation-0 subtitle1 search-md"
+        style="
+          width: 100%;
+          border-radius: 5px;
+          height: 40px;
+        "
         @click="search"
       >
         {{ $t("search") }}
@@ -241,7 +245,7 @@
           style="width: 100%; border-radius: 5px; height: 40px"
         >
           <v-icon small>mdi-tune</v-icon>
-          <div style="font-size: 12px">{{ $t("advancedsearch") }}</div>
+          <div>{{ $t("advancedsearch") }}</div>
         </v-btn>
       </router-link>
     </v-card>
@@ -400,6 +404,12 @@ export default {
 };
 </script>
 <style scoped>
+* {
+  font-family: "Effra" !important;
+}
+.search-md > span {
+  font-family: 'Effra' !important;
+}
 .main-filter-class {
   position: sticky;
   top: 110px;
@@ -421,6 +431,10 @@ export default {
   border-radius: 5px !important;
   z-index: 5;
 }
+.advance-filter-md button {
+  font-size: 16px !important;
+  font-weight: 400 !important;
+}
 .select-mobile {
   grid-area: input;
 }
@@ -433,7 +447,7 @@ export default {
   height: 44px;
   border-radius: 7px;
 }
-.d-bg-primary{
+.d-bg-primary {
   background-color: rgb(15, 76, 129) !important;
 }
 @media screen and (min-width: 801px) {
