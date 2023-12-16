@@ -426,7 +426,7 @@ export default {
 }
 .area,.ownership_type {
   margin-bottom: 5px;
-  font-size: 16px !important;
+  font-size: 14px !important;
   font-weight: 400 !important;
   color: #262637 !important;
 }
@@ -436,7 +436,7 @@ export default {
 }
 .save,.call{
   color: #262637 !important;
-nt-weight: 400 !important;
+  font-weight: 400 !important;
 }
 
 @media (min-width: 960px) {
