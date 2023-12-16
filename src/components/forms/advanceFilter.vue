@@ -147,9 +147,10 @@
       dense
       fixed
       :style="{
-        position: isAdvanceFilterMdFixed ? 'fixed' : 'relative',
-        top: isAdvanceFilterMdFixed ? '0px' : '80px',
+        position: isAdvanceFilterMdFixed ? 'fixed' : 'absolute',
+        top: isAdvanceFilterMdFixed ? '0px' : '0px',
         marginTop: isAdvanceFilterMdFixed ? '0px !important' : '40px',
+    marginBottom: isAdvanceFilterMdFixed ? '40px !important' : '0px',
       }"
     >
       <selectComponent

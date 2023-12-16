@@ -64,4 +64,5 @@ new Vue({
   toastnotification,
   i18n,
   render: (h) => h(App),
+  
 }).$mount("#app");
