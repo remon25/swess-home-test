@@ -500,7 +500,7 @@ export default {
     align-items: center;
     font-size: 16px !important;
     font-weight: 400 !important;
-    background-color: #f4f4f5 !important;
+    background-color: #e9e9eb !important;
     color: #262637 !important;
   }
   .save > p {
@@ -516,7 +516,7 @@ export default {
     margin-bottom: 16px;
     font-size: 16px !important;
     font-weight: 400 !important;
-    background-color: #f4f4f5 !important;
+    background-color: #e9e9eb !important;
     color: #262637 !important;
     transition: background-color 0.2s ease;
   }
