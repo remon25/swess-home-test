@@ -6,7 +6,7 @@
         :class="$i18n.locale == 'ar' ? 'right-icon' : 'left-icon'"
         @click="closePopup()"
       >
-    <img alt="close" width="20" src="/images/close-icon.png" />
+        <img alt="close" width="20" src="/images/close-icon.png" />
       </button>
       <!-- <div class="title">{{ $t("DownloadMessage") }}</div> -->
       <div class="popup-logo">
@@ -33,8 +33,9 @@ export default {
     showPopup() {
       window.addEventListener("load", function () {
         var Popup = document.getElementById("AppPopup");
-        Popup.classList.remove("App-Popup-dis");
-        Popup.classList.add("App-Popup");
+
+        if (Popup) Popup.classList.remove("App-Popup-dis");
+        if (Popup) Popup.classList.add("App-Popup");
       });
     },
     getDownloadLink() {
@@ -91,7 +92,7 @@ export default {
   height: auto;
   padding: 5px;
 }
-.popup-download  {
+.popup-download {
   background-color: #ffff;
   padding: 5px 10px;
   border-radius: 5px;

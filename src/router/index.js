@@ -3,8 +3,9 @@ import VueRouter from 'vue-router'
 import HomeView from '../views/HomeView.vue'
 import auth from "./auth-route";
 
-
 Vue.use(VueRouter)
+
+
 
 const routes = [
   {

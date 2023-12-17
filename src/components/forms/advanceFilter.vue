@@ -150,7 +150,7 @@
         position: isAdvanceFilterMdFixed ? 'fixed' : 'absolute',
         top: isAdvanceFilterMdFixed ? '0px' : '0px',
         marginTop: isAdvanceFilterMdFixed ? '0px !important' : '40px',
-    marginBottom: isAdvanceFilterMdFixed ? '40px !important' : '0px',
+        marginBottom: isAdvanceFilterMdFixed ? '40px !important' : '0px',
       }"
     >
       <selectComponent
@@ -229,7 +229,7 @@
         depressed
         class="d-bg-primary pa-2 d-text-light elevation-0 subtitle1 search-md"
         style="
-        font-family: 'Effra';
+          font-family: 'Effra';
           width: 100%;
           border-radius: 5px;
           height: 40px;
@@ -386,7 +386,14 @@ export default {
     },
     handleScroll() {
       const scrollY = window.scrollY || window.pageYOffset;
-      this.isAdvanceFilterMdFixed = scrollY >= 140;
+      if (
+        document.getElementById('AppPopup').offsetHeight > 0
+      ) {
+        this.isAdvanceFilterMdFixed = scrollY >= 210.1875;
+        console.log("heloo");
+      } else {
+        this.isAdvanceFilterMdFixed = scrollY >= 140;
+      }
     },
   },
   mounted() {
@@ -398,6 +405,7 @@ export default {
     this.fetchInteriorStatuses("interiorStatuses");
     this.fetchOwnershipTypes("ownershipTypes");
     window.addEventListener("scroll", this.handleScroll);
+    window.addEventListener("load", this.handleScroll);
   },
   beforeDestroy() {
     // Remove the scroll event listener to prevent memory leaks
@@ -410,7 +418,7 @@ export default {
   font-family: "Effra" !important;
 }
 button.search-md > span {
-  font-family: 'Effra' !important;
+  font-family: "Effra" !important;
 }
 .main-filter-class {
   position: sticky;
