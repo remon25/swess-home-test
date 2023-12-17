@@ -221,7 +221,7 @@ export default {
     margin-top: 85px;
   }
   .result_title h2 {
-    font-size: 18px;
+    font-size: 16px;
     line-height: 1.7;
     color: #262637;
   }
