@@ -389,7 +389,7 @@ export default {
       if (
         document.getElementById('AppPopup').offsetHeight > 0
       ) {
-        this.isAdvanceFilterMdFixed = scrollY >= 210.1875;
+        this.isAdvanceFilterMdFixed = scrollY >= 211;
         console.log("heloo");
       } else {
         this.isAdvanceFilterMdFixed = scrollY >= 140;
