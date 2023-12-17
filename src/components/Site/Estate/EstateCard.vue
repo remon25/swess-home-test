@@ -74,7 +74,7 @@
               style="direction: rtl"
             >
               {{ price.replace(/(\d)(?=(\d{3})+(?!\d))/g, "$1,") }}
-              <span style="font-size: 20px">ل.س</span>
+              <span style="font-size: 20px">{{ $t("currency") }}</span>
               <br />
               <span
                 style="
@@ -101,7 +101,7 @@
               style="text-decoration: none"
             >
               <p class="h5 d-text-dark_gray title-price price-lg">
-                {{ price.replace(/(\d)(?=(\d{3})+(?!\d))/g, "$1,") + " ل.س" }}
+                {{ price.replace(/(\d)(?=(\d{3})+(?!\d))/g, "$1,")}} <span>{{ $t("currency") }}</span>
               </p>
               <div class="d-block">
                 <p class="subtitle1 d-inline">{{ location }}</p>

@@ -70,6 +70,7 @@
   "lastname(nickname)": "الاسم الثاني(الكنية)",
   "type": "النوع",
   "price": "السعر",
+  "currency": "ل.س",
   "place": "المكان",
   "searchPlace": "ادخل المكان",
   "searchHouse": "ادخل النوع",

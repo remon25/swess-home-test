@@ -227,12 +227,12 @@
       <v-btn
         large
         depressed
+        id="search-medium"
         class="d-bg-primary pa-2 d-text-light elevation-0 subtitle1 search-md"
         style="
           width: 100%;
           border-radius: 5px;
-          height: 40px;
-        "
+          height: 40px;"
         @click="search"
       >
         {{ $t("search") }}
@@ -389,7 +389,6 @@ export default {
         document.getElementById('AppPopup').offsetHeight > 0
       ) {
         this.isAdvanceFilterMdFixed = scrollY >= 211;
-        console.log("heloo");
       } else {
         this.isAdvanceFilterMdFixed = scrollY >= 140;
       }
@@ -416,9 +415,7 @@ export default {
 * {
   font-family: "Droid","Effra" !important
 }
-button.search-md > span {
-  font-family: "Effra" !important;
-}
+
 .main-filter-class {
   position: sticky;
   top: 110px;
@@ -442,7 +439,7 @@ button.search-md > span {
 }
 .advance-filter-md button {
   font-size: 16px !important;
-  font-weight: 400 !important;
+  font-weight: 300 !important;
 }
 .select-mobile {
   grid-area: input;
@@ -457,7 +454,7 @@ button.search-md > span {
   border-radius: 7px;
 }
 .d-bg-primary {
-  background-color: rgb(15, 76, 129) !important;
+  background-color: #2170b4 !important;
 }
 @media screen and (min-width: 801px) {
   .advance-filter-md {

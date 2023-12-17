@@ -10,9 +10,11 @@
         </v-col>
         <v-col cols="12" md="9" sm="12" v-if="!isload" class="estates_result">
           <div v-if="Estates.data && Estates.data.length !== 0">
-            <div class="m-4 p-4">
+            <div class="m-4 p-4 result_title">
               <h2 class="ml-4 mr-4 pt-4" v-if="!(Status == 202)">
-                {{ $t("201") }}<br />{{ $t("201_2") }}
+                <span><v-icon color="#100f0f">mdi-home-search</v-icon></span>
+                {{ $t("201") }}<br />
+                {{ $t("201_2") }}
               </h2>
               <h2 class="ml-4 mr-4 pt-4" v-if="!(Status == 201)">
                 {{ $t("202") }}<br />{{ $t("202_2") }}
@@ -116,6 +118,18 @@
         </v-col>
       </v-row>
     </div>
+    <router-link :to="'/office/' + 50069" style="text-decoration: none">
+      <div
+        class="add"
+        style="display: flex; justify-content: center; padding: 25px"
+      >
+        <img
+          style="width: 220px; height: 100px"
+          src="/images/download.jpg"
+          alt="add"
+        />
+      </div>
+    </router-link>
   </div>
 </template>
 
@@ -205,6 +219,11 @@ export default {
   }
   .estates_result {
     margin-top: 85px;
+  }
+  .result_title h2 {
+    font-size: 18px;
+    line-height: 1.7;
+    color: #262637;
   }
 }
 </style>

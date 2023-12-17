@@ -72,4 +72,8 @@ url("assets/Droid\ Kufi/Droid.ttf") format("truetype");
 .height-100per {
   height: 100%;
 }
+#search-medium span{
+  font-family: "Droid","Effra" !important
+
+}
 </style>

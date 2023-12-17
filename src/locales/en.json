@@ -71,6 +71,7 @@
   "lastname(nickname)": "lastname(nickname)",
   "type": "type",
   "price": "price",
+  "currency": "SYP",
   "place": "place",
   "searchPlace": "insert place",
   "searchHouse": "insert type",
