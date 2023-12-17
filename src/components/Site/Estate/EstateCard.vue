@@ -384,7 +384,7 @@ export default {
 </script>
 <style scoped>
 * {
-  font-family: "Effra", sans-serif;
+  font-family: "Droid", "Effra" !important
 }
 .cols {
   padding: 0px 0px 12px 0px !important;

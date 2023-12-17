@@ -8,7 +8,7 @@
         <v-col cols="12" md="3" sm="12">
           <advanceFilter />
         </v-col>
-    <v-col cols="12" md="9" sm="12" v-if="!isload" class="estates_result">
+        <v-col cols="12" md="9" sm="12" v-if="!isload" class="estates_result">
           <div v-if="Estates.data && Estates.data.length !== 0">
             <div class="m-4 p-4">
               <h2 class="ml-4 mr-4 pt-4" v-if="!(Status == 202)">
@@ -196,15 +196,14 @@ export default {
 </script>
 <style scoped>
 * {
-  font-family: "Effra", sans-serif;
+  font-family: "Droid", "Effra" !important;
 }
 @media screen and (max-width: 800px) {
   .estates-main {
     margin-top: 0px !important;
     padding-top: 80px !important;
-    
   }
-  .estates_result{
+  .estates_result {
     margin-top: 85px;
   }
 }

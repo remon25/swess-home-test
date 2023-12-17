@@ -59,6 +59,12 @@ document.addEventListener("contextmenu", (event) => event.preventDefault());
 url("assets/Effra/Effra\ Medium.ttf") format("truetype");
   font-display: swap;
 }
+@font-face {
+  font-family: "Droid";
+  src: local("Effra"),
+url("assets/Droid\ Kufi/Droid.ttf") format("truetype");
+  font-display: swap;
+}
 
 * {
   font-family: "Almarai", Helvetica, Arial;

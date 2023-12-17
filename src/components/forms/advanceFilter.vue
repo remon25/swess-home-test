@@ -415,7 +415,7 @@ export default {
 </script>
 <style scoped>
 * {
-  font-family: "Effra" !important;
+  font-family: "Droid", "Effra" !important
 }
 button.search-md > span {
   font-family: "Effra" !important;
