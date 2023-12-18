@@ -21,27 +21,58 @@
               </h2>
             </div>
 
-            <EstateCard
-              class="my-10 pl-3 pr-3 my-estate-card"
-              v-for="(item, i) in Estates.data"
-              :key="i"
-              :area="item.area"
-              :area_unit="item.area_unit"
-              :ownership_type="item.ownership_type"
-              :internalstate="item.interior_status"
-              :images="item.images"
-              :office="item.office"
-              :price="item.price"
-              :is_saved="item.is_saved"
-              :location="item.location.locations[0].name"
-              :description="item.description"
-              :date="item.created_at"
-              :phone="item.office.mobile"
-              :logo="item.office.logo"
-              :contract="item.contract_id"
-              :id="item.id"
-            >
-            </EstateCard>
+            <div v-for="(item, i) in Estates.data" :key="i">
+              <!-- Display EstateCard component -->
+              <EstateCard
+                class="my-10 pl-3 pr-3 my-estate-card"
+                :area="item.area"
+                :area_unit="item.area_unit"
+                :ownership_type="item.ownership_type"
+                :internalstate="item.interior_status"
+                :images="item.images"
+                :office="item.office"
+                :price="item.price"
+                :is_saved="item.is_saved"
+                :location="item.location.locations[0].name"
+                :description="item.description"
+                :date="item.created_at"
+                :phone="item.office.mobile"
+                :logo="item.office.logo"
+                :contract="item.contract_id"
+                :id="item.id"
+              >
+              </EstateCard>
+
+              <div
+                v-if="
+                  ++totalCards % 5 === 0 &&
+                  totalCards % 10 !== 0 &&
+                  i !== Estates.data.length - 1
+                "
+                class="additional-div"
+              >
+                <!-- Content of the additional div -->
+                <router-link
+                  :to="'/office/' + 50069"
+                  style="text-decoration: none"
+                >
+                  <div
+                    class="add"
+                    style="
+                      display: flex;
+                      justify-content: center;
+                      padding: 25px;
+                    "
+                  >
+                    <img
+                      style="width: 220px; height: 100px"
+                      src="/images/download.jpg"
+                      alt="add"
+                    />
+                  </div>
+                </router-link>
+              </div>
+            </div>
 
             <div class="text-center">
               <v-pagination
@@ -140,6 +171,7 @@ import i18n from "@/i18n";
 export default {
   name: "Estates",
   data: () => ({
+    totalCards: 0,
     noform: true,
     current_page: 1,
     links: [
