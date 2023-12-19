@@ -101,7 +101,8 @@
               style="text-decoration: none"
             >
               <p class="h5 d-text-dark_gray title-price price-lg">
-                {{ price.replace(/(\d)(?=(\d{3})+(?!\d))/g, "$1,")}} <span>{{ $t("currency") }}</span>
+                {{ price.replace(/(\d)(?=(\d{3})+(?!\d))/g, "$1,") }}
+                <span>{{ $t("currency") }}</span>
               </p>
               <div class="d-block">
                 <p class="subtitle1 d-inline">{{ location }}</p>
@@ -152,7 +153,7 @@
                   </span>
                 </div>
 
-        <div v-if="ownership_type" class="ownership_type">
+                <div v-if="ownership_type" class="ownership_type">
                   <span style="display: inline-block" class="star">
                     <img
                       style="vertical-align: middle"
@@ -275,11 +276,9 @@
           <div class="d-p-absolute report close-lg">
             <v-icon @click="report(id)">mdi-close</v-icon>
           </div>
-      <div class="date-img">
+          <div class="date-img">
             <p class="subtitle0" style="direction: ltr">
-              <v-icon class="d-text-primary"
-                >mdi-calendar-month</v-icon
-              >
+              <v-icon class="d-text-primary">mdi-calendar-month</v-icon>
               <!-- {{ formatDate(date) }} -->
               <span>{{ formatDate(date) }}</span>
             </p>
@@ -384,7 +383,7 @@ export default {
 </script>
 <style scoped>
 * {
-  font-family: "Droid", "Effra" !important
+  font-family: "Droid", "Effra" !important;
 }
 .cols {
   padding: 0px 0px 12px 0px !important;
@@ -414,7 +413,7 @@ export default {
 .card-estate {
   max-width: 972px;
   background: #ffffff;
-  box-shadow: 0px 7px 7px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 3px 3px -3px rgba(0, 0, 0, 0.3);
   border-radius: 10.4437px !important;
   border: 0px !important;
 }
@@ -423,18 +422,23 @@ export default {
   background-color: #f4f4f5 !important;
   text-align: center;
   color: #53535f !important;
+  font-size: 25px !important;
+  font-weight: 400 !important;
 }
-.area,.ownership_type {
+.area,
+.ownership_type {
   margin-bottom: 5px;
   font-size: 14px !important;
   font-weight: 400 !important;
   color: #262637 !important;
 }
 
-.area i,.ownership_type i{
+.area i,
+.ownership_type i {
   color: #262637 !important;
 }
-.save,.call{
+.save,
+.call {
   color: #262637 !important;
   font-weight: 400 !important;
 }
@@ -574,9 +578,9 @@ export default {
   left: 25px;
   margin-bottom: 32px;
   color: #53535f !important;
-  font-size: 14px  !important;
+  font-size: 14px !important;
 }
-.date-img i{
+.date-img i {
   color: #53535f !important;
 }
 

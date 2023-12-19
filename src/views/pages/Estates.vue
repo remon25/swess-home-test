@@ -44,7 +44,9 @@
               </EstateCard>
 
               <div
-                v-if="shouldShowAdditionalDiv && i !== Estates.data.length - 1"
+                v-if="
+                  shouldShowAdditionalDiv(i) && i !== Estates.data.length - 1
+                "
                 class="additional-div"
               >
                 <!-- Content of the additional div -->
@@ -167,7 +169,6 @@ import i18n from "@/i18n";
 export default {
   name: "Estates",
   data: () => ({
-    totalCards:0,
     noform: true,
     current_page: 1,
     links: [
@@ -213,9 +214,15 @@ export default {
       }
       document.getElementById("app").scrollIntoView({ behavior: "smooth" });
     },
-    updateTotalCards() {
-      this.totalCards++;
-      this.$forceUpdate();
+    shouldShowAdditionalDiv(index) {
+      const currentPage = this.current_page;
+      const itemsPerPage = 10; // Number of items per page
+
+      // Calculate the index of the current item relative to the current page
+      const relativeIndex = index % itemsPerPage;
+
+      // Check if the relative index is divisible by 5 and not divisible by 10
+      return relativeIndex === 4 && relativeIndex !== 9;
     },
   },
   computed: {
@@ -229,12 +236,11 @@ export default {
     Estates() {
       return this.getEstates;
     },
+    totalCards() {
+      return this.Estates.length; // Calculate the total cards dynamically based on the Estates array length
+    },
     Status() {
       return this.getStatus;
-    },
-    shouldShowAdditionalDiv() {
-      this.updateTotalCards(); // Increment totalCards here
-      return this.totalCards % 5 === 0 && this.totalCards % 10 !== 0;
     },
   },
   mounted() {

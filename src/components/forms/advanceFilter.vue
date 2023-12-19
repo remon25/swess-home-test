@@ -229,10 +229,7 @@
         depressed
         id="search-medium"
         class="d-bg-primary pa-2 d-text-light elevation-0 subtitle1 search-md"
-        style="
-          width: 100%;
-          border-radius: 5px;
-          height: 40px;"
+        style="width: 100%; border-radius: 5px; height: 40px"
         @click="search"
       >
         {{ $t("search") }}
@@ -385,9 +382,7 @@ export default {
     },
     handleScroll() {
       const scrollY = window.scrollY || window.pageYOffset;
-      if (
-        document.getElementById('AppPopup').offsetHeight > 0
-      ) {
+      if (document.getElementById("AppPopup").offsetHeight > 0) {
         this.isAdvanceFilterMdFixed = scrollY >= 211;
       } else {
         this.isAdvanceFilterMdFixed = scrollY >= 140;
@@ -413,7 +408,7 @@ export default {
 </script>
 <style scoped>
 * {
-  font-family: "Droid","Effra" !important
+  font-family: "Droid", "Effra" !important;
 }
 
 .main-filter-class {
@@ -440,6 +435,7 @@ export default {
 .advance-filter-md button {
   font-size: 16px !important;
   font-weight: 300 !important;
+  text-transform: capitalize !important ;
 }
 .select-mobile {
   grid-area: input;
