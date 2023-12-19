@@ -231,7 +231,7 @@
     </v-container>
   </div>
 </template>
-  <script>
+<script>
 import { mapActions, mapGetters } from "vuex";
 
 import { validationMixin } from "vuelidate";
@@ -260,7 +260,17 @@ export default {
     },
     popupClass: String,
   },
-  data: () => ({ api: "login" }),
+  data: () => ({
+    api: "login",
+    selectedTab: "one",
+    form: {
+      location_id: "",
+      estate_type_id: "",
+      estate_offer_type_id: 1,
+      price_domain_id: "",
+      is_simple: true,
+    },
+  }),
   computed: {
     ...mapGetters(["getLocations", "getEstateTypes", "getPriceDomains"]),
     location_idErrors() {
@@ -297,9 +307,12 @@ export default {
     },
   },
   methods: {
-    ...mapActions(["initForm"]),
-    ...mapActions(["fetchLocations", "fetchEstateTypes", "fetchPriceDomains"]),
-
+    ...mapActions([
+      "fetchLocations",
+      "fetchEstateTypes",
+      "fetchPriceDomains",
+      "initForm",
+    ]),
     search() {
       document.body.classList.remove("poped_up");
       this.$v.form.$touch();
@@ -311,15 +324,19 @@ export default {
         this.$router.push({ query: this.form });
         this.$store.dispatch("setForm", this.form);
         /*
-            this.sendfilterEstate({
-              api:'estate/search/',
-              form:formdata,
-              page:0
-            })*/
+          this.sendfilterEstate({
+            api:'estate/search/',
+            form:formdata,
+            page:0
+          })*/
         this.$router.push("estates");
       } else {
         this.$toast.error("أكمل الحقول المطلوبة");
       }
+    },
+    closePopup() {
+      this.$emit("close-popup");
+      document.body.classList.remove("poped_up");
     },
     updateTab(newTab) {
       this.$emit("updateTab", newTab); // Emit the selected tab
@@ -327,6 +344,7 @@ export default {
   },
   mounted() {
     this.fetchLocations("locations");
+    this.initForm(this.form);
     this.fetchEstateTypes();
     this.fetchPriceDomains();
   },
@@ -350,7 +368,6 @@ export default {
 
 .filter-ltr {
   position: relative;
-  left: 163px;
 }
 
 @media (max-width: 960px) {
