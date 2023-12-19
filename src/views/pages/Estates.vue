@@ -167,7 +167,6 @@ import i18n from "@/i18n";
 export default {
   name: "Estates",
   data: () => ({
-    totalCards: 0,
     noform: true,
     current_page: 1,
     links: [
