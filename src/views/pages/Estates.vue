@@ -44,11 +44,7 @@
               </EstateCard>
 
               <div
-                v-if="
-                  ++totalCards % 5 === 0 &&
-                  totalCards % 10 !== 0 &&
-                  i !== Estates.data.length - 1
-                "
+                v-if="shouldShowAdditionalDiv(i) && i !== Estates.data.length - 1"
                 class="additional-div"
               >
                 <!-- Content of the additional div -->
@@ -216,6 +212,11 @@ export default {
         });
       }
       document.getElementById("app").scrollIntoView({ behavior: "smooth" });
+    },
+    shouldShowAdditionalDiv(index) {
+      // created a method to check the condition
+      this.totalCards++; // increment totalCards here
+      return this.totalCards % 5 === 0 && this.totalCards % 10 !== 0;
     },
   },
   computed: {
