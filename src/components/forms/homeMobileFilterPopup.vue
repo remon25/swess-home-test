@@ -352,6 +352,9 @@ export default {
   position: relative;
   left: 163px;
 }
+.v-input  .v-label{
+  height: 22px !important;
+}
 
 @media (max-width: 960px) {
   .filter-rtl {
@@ -401,6 +404,7 @@ export default {
 .v-application {
   line-height: 1 !important;
 }
+
 </style>
   
   

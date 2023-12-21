@@ -567,7 +567,7 @@ export default {
   left: 28px;
   height: 33px;
   color: white;
-  background: rgb(9 48 82) !important;
+  background: #262637 !important;
   border-radius: 10px;
   opacity: 0.85;
 }

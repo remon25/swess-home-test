@@ -418,6 +418,9 @@ export default {
 .v-application {
   line-height: 1 !important;
 }
+.v-input .v-label{
+  height: 22px !important;
+}
 </style>
     
     

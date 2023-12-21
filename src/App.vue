@@ -73,7 +73,12 @@ url("assets/Droid\ Kufi/Droid.ttf") format("truetype");
   height: 100%;
 }
 #search-medium span{
-  font-family: "Droid","Effra" !important
+  font-family: "Droid","Effra" !important;
 
+
+
+}
+.v-input  .v-label{
+  height: 22px !important;
 }
 </style>
