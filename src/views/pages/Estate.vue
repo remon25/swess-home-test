@@ -609,8 +609,9 @@
               }}
             </p>
           </div>
-          <div class="date-info">
-            <p class="subtitle0 pt-1">
+          <div class="date-office-info">
+            <div class="date-info">
+              <p class="subtitle0 pt-1">
               <v-icon class="d-text-primary" style="color: #424448 !important"
                 >mdi-calendar-month</v-icon
               >
@@ -619,15 +620,17 @@
                 formatDate(item.created_at)
               }}</span>
             </p>
-          </div>
-        </div>
-        <div class="info-two">
+            </div>
+            <div class="info-two">
           <img
             width="75px"
             height="75px"
             :src="img_baseUrl + item.office.logo"
             v-pswp="img_baseUrl + item.office.logo"
           />
+        </div>
+           
+          </div>
         </div>
       </div>
     </div>
@@ -784,6 +787,7 @@ export default {
   left: 24px;
 }
 .info-one {
+  width: 100%;
   margin-right: 10px;
   margin-left: 10px;
 }
@@ -822,11 +826,11 @@ html[dir="ltr"] .estate-address-text {
   color: #184d7c !important;
 }
 
-.info-two {
-  align-self: end;
-  flex: 1;
+
+.date-office-info{
+  width: 100%;
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
 }
 
 @media screen and (max-width: 960px) {
@@ -879,13 +883,15 @@ html[dir="ltr"] .estate-address-text {
 .index-img {
   position: absolute;
   bottom: 10px;
-  right: 28px;
-  height: 33px;
-  color: white;
-  background: #6f6f6f;
-  border-radius: 10px;
+  right: 10px;
+  height: 30px;
+  background: #fcfcfc;
+  border-radius: 5px;
 }
+.index-img p,.index-img i{
+  color: #262637 !important;
 
+}
 .pswp__button--share {
   display: none !important;
 }
@@ -909,5 +915,33 @@ html[dir="ltr"] .estate-address-text {
   .estate-main-class {
     margin-top: 100px !important;
   }
+}
+
+@media screen and (max-width:515px){
+  .estate-address-text p,
+.estate-address-text span ,.estate-address-map h3{
+  font-size: 13px !important;
+}
+
+
+}
+@media screen and (max-width:440px){
+.estate-address{
+  flex-direction: column !important;
+  align-items: flex-start !important;
+
+}
+html[dir="ltr"] .estate-address {
+  flex-direction: column !important;
+  align-items: flex-end !important;
+}
+.estate-address-text{
+  border: none !important;
+}
+
+.price-info .h5{
+  font-size:19px !important; ;
+}
+
 }
 </style>
