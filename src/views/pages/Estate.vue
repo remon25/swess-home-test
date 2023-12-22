@@ -538,21 +538,98 @@
       </v-dialog>
     </div>
     <div class="estate-small-screen">
-      <v-carousel hide-delimiters show-arrows="hover">
-        <!-- Dynamically populate the carousel with images from estate-large-screen -->
-        <v-carousel-item
-          v-for="(image, index) in estateImages"
-          :key="index"
-          eager
+      <div class="d-p-relative">
+        <v-carousel
+          hide-delimiters
+          show-arrows="hover"
+          style="height: 400px"
+          @change="currentindex = estateImages[$event].index"
         >
-          <v-img
-            :src="`${img_baseUrl}${image.url}`"
-            cover
-            style="width: 100%; height: calc(100svh - 100px);"
+          <!-- Dynamically populate the carousel with images from estate-large-screen -->
+          <v-carousel-item
+            v-for="(image, index) in estateImages"
+            :key="index"
             eager
+          >
+            <v-img
+              :src="`${img_baseUrl}${image.url}`"
+              cover
+              style="width: 100%; height: calc(100svh - 100px)"
+              eager
+            />
+          </v-carousel-item>
+        </v-carousel>
+        <div class="index-img">
+          <p class="body1 d-text-light px-4">
+            {{ currentindex + "/" + estateImages.length }}
+            <v-icon class="d-text-light" small
+              >mdi-image-multiple-outline</v-icon
+            >
+          </p>
+        </div>
+      </div>
+      <div class="main-inf d-flex">
+        <div class="info-one">
+          <div class="estate-address d-flex align-center">
+            <div class="estate-address-text d-flex align-center">
+              <div class="address-one">
+                <p style="margin-bottom: 0">
+                  {{
+                    item.location.name + "," + item.location.locations[0].name
+                  }}
+                </p>
+              </div>
+              <span class="align-self-start"> - </span>
+              <div class="address-two">
+                <v-row v-if="item.nearby_places">
+                  <v-col
+                    v-for="(place, i) in item.nearby_places.split('|')"
+                    :key="i"
+                  >
+                    <p style="margin-bottom: 0">
+                      {{ place }}
+                    </p>
+                  </v-col>
+                </v-row>
+              </div>
+            </div>
+            <div class="d-flex estate-address-map">
+              <v-icon>mdi-map-marker-outline</v-icon>
+              <h3 style="font-weight: 400 !important">{{ $t("map") }}</h3>
+            </div>
+          </div>
+          <div class="price-info">
+            <p style="text-transform: capitalize; margin-bottom: 3px">
+              {{ $t("price") }}
+            </p>
+            <p class="h5" style="color: #262637">
+              {{
+                item.price.replace(/(\d)(?=(\d{3})+(?!\d))/g, "$1,") +
+                ($i18n.locale == "ar" ? " ل.س" : " SYP")
+              }}
+            </p>
+          </div>
+          <div class="date-info">
+            <p class="subtitle0 pt-1">
+              <v-icon class="d-text-primary" style="color: #424448 !important"
+                >mdi-calendar-month</v-icon
+              >
+              <!-- {{ formatDate(item.created_at) }} -->
+              <span style="color: #424448">{{
+                formatDate(item.created_at)
+              }}</span>
+            </p>
+          </div>
+        </div>
+        <div class="info-two">
+          <img
+            width="75px"
+            height="75px"
+            :src="img_baseUrl + item.office.logo"
+            v-pswp="img_baseUrl + item.office.logo"
           />
-        </v-carousel-item>
-      </v-carousel>
+        </div>
+      </div>
     </div>
   </div>
 </template>
@@ -576,6 +653,7 @@ export default {
   data: () => ({
     img_url_meta: "",
     img_baseUrl,
+    currentindex: 1,
     page: 1,
     perPage: 4,
     is_saved: "",
@@ -695,11 +773,53 @@ export default {
   },
 };
 </script>
+
 <style scoped>
+* {
+  font-family: "Droid", "Effra" !important;
+}
 .save {
   position: absolute;
   top: 19px;
   left: 24px;
+}
+.info-one {
+  margin-right: 10px;
+  margin-left: 10px;
+}
+.estate-address {
+  direction: rtl !important;
+  margin-bottom: 20px;
+}
+html[dir="ltr"] .estate-address-map {
+  direction: ltr !important;
+}
+html[dir="ltr"] .estate-address {
+  flex-direction: row-reverse !important;
+}
+html[dir="ltr"] .estate-address-text {
+  border-left: none !important;
+  border-right: 1px solid #ebe6e6 !important;
+}
+.estate-address-text {
+  margin-top: 20px;
+  border-left: 1px solid #ebe6e6 !important;
+}
+.estate-address-text p,
+.estate-address-text span {
+  font-size: 16px !important;
+  font-weight: 600 !important;
+  padding: 0px 5px;
+}
+.estate-address-map {
+  align-items: center;
+  margin-top: 16px;
+  color: #184d7c;
+  cursor: pointer;
+}
+
+.estate-address-map i {
+  color: #184d7c !important;
 }
 
 @media screen and (max-width: 960px) {
@@ -719,7 +839,6 @@ export default {
   box-shadow: 0px 10px 21px 5px rgba(0, 0, 0, 0.1);
   padding-right: 32px;
   padding-left: 32px;
-
   position: sticky;
   top: 120px;
 }
@@ -763,17 +882,30 @@ export default {
 .pswp__button--share {
   display: none !important;
 }
+
+
 @media screen and (min-width: 990px) {
   .estate-small-screen {
     display: none !important;
   }
 }
+
 @media screen and (max-width: 990px) {
-  .estate-main-class{
+  .estate-main-class {
     margin-top: 0 !important;
   }
   .estate-large-screen {
     display: none !important;
   }
+
+
 }
+
+@media screen and (min-width: 800px) {
+  .estate-main-class {
+    margin-top: 100px !important;
+  }
+}
+
+
 </style>
