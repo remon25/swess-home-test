@@ -822,6 +822,13 @@ html[dir="ltr"] .estate-address-text {
   color: #184d7c !important;
 }
 
+.info-two {
+  align-self: end;
+  flex: 1;
+  display: flex;
+  justify-content: center;
+}
+
 @media screen and (max-width: 960px) {
   .img {
     border-radius: 10px !important;
@@ -883,7 +890,6 @@ html[dir="ltr"] .estate-address-text {
   display: none !important;
 }
 
-
 @media screen and (min-width: 990px) {
   .estate-small-screen {
     display: none !important;
@@ -897,8 +903,6 @@ html[dir="ltr"] .estate-address-text {
   .estate-large-screen {
     display: none !important;
   }
-
-
 }
 
 @media screen and (min-width: 800px) {
@@ -906,6 +910,4 @@ html[dir="ltr"] .estate-address-text {
     margin-top: 100px !important;
   }
 }
-
-
 </style>
