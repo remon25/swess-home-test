@@ -579,57 +579,50 @@
                   }}
                 </p>
               </div>
-              <span class="align-self-start"> - </span>
-              <div class="address-two">
-                <v-row v-if="item.nearby_places">
-                  <v-col
-                    v-for="(place, i) in item.nearby_places.split('|')"
-                    :key="i"
-                  >
-                    <p style="margin-bottom: 0">
-                      {{ place }}
-                    </p>
-                  </v-col>
-                </v-row>
-              </div>
             </div>
             <div class="d-flex estate-address-map">
               <v-icon>mdi-map-marker-outline</v-icon>
               <h3 style="font-weight: 400 !important">{{ $t("map") }}</h3>
             </div>
           </div>
-          <div class="price-info">
-            <p style="text-transform: capitalize; margin-bottom: 3px">
-              {{ $t("price") }}
-            </p>
-            <p class="h5" style="color: #262637">
-              {{
-                item.price.replace(/(\d)(?=(\d{3})+(?!\d))/g, "$1,") +
-                ($i18n.locale == "ar" ? " ل.س" : " SYP")
-              }}
-            </p>
-          </div>
-          <div class="date-office-info">
-            <div class="date-info">
-              <p class="subtitle0 pt-1">
-              <v-icon class="d-text-primary" style="color: #424448 !important"
-                >mdi-calendar-month</v-icon
-              >
-              <!-- {{ formatDate(item.created_at) }} -->
-              <span style="color: #424448">{{
-                formatDate(item.created_at)
-              }}</span>
-            </p>
+
+          <div class="date-price-info">
+            <div>
+              <div class="price-info">
+                <p style="text-transform: capitalize; margin-bottom: 0">
+                  {{ $t("price") }}
+                </p>
+                <p class="h5" style="color: #262637">
+                  {{
+                    item.price.replace(/(\d)(?=(\d{3})+(?!\d))/g, "$1,") +
+                    ($i18n.locale == "ar" ? " ل.س" : " SYP")
+                  }}
+                </p>
+              </div>
+              <div class="date-info">
+                <p class="subtitle0 pt-1">
+                  <v-icon
+                    class="d-text-primary"
+                    style="color: #424448 !important"
+                    >mdi-calendar-month</v-icon
+                  >
+                  <!-- {{ formatDate(item.created_at) }} -->
+                  <span style="color: #424448">{{
+                    formatDate(item.created_at)
+                  }}</span>
+                </p>
+              </div>
             </div>
-            <div class="info-two">
-          <img
-            width="75px"
-            height="75px"
-            :src="img_baseUrl + item.office.logo"
-            v-pswp="img_baseUrl + item.office.logo"
-          />
-        </div>
-           
+            <div>
+              <div class="info-two">
+                <img
+                  width="75px"
+                  height="75px"
+                  :src="img_baseUrl + item.office.logo"
+                  v-pswp="img_baseUrl + item.office.logo"
+                />
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -809,9 +802,8 @@ html[dir="ltr"] .estate-address-text {
   margin-top: 20px;
   border-left: 1px solid #ebe6e6 !important;
 }
-.estate-address-text p,
-.estate-address-text span {
-  font-size: 16px !important;
+.estate-address-text p {
+  font-size: 1.17em !important;
   font-weight: 600 !important;
   padding: 0px 5px;
 }
@@ -826,8 +818,7 @@ html[dir="ltr"] .estate-address-text {
   color: #184d7c !important;
 }
 
-
-.date-office-info{
+.date-price-info {
   width: 100%;
   display: flex;
   justify-content: space-between;
@@ -888,9 +879,9 @@ html[dir="ltr"] .estate-address-text {
   background: #fcfcfc;
   border-radius: 5px;
 }
-.index-img p,.index-img i{
+.index-img p,
+.index-img i {
   color: #262637 !important;
-
 }
 .pswp__button--share {
   display: none !important;
@@ -917,31 +908,35 @@ html[dir="ltr"] .estate-address-text {
   }
 }
 
-@media screen and (max-width:515px){
+/* @media screen and (max-width:515px){
   .estate-address-text p,
 .estate-address-text span ,.estate-address-map h3{
   font-size: 13px !important;
 }
 
 
-}
-@media screen and (max-width:440px){
-.estate-address{
-  flex-direction: column !important;
-  align-items: flex-start !important;
+} */
 
-}
-html[dir="ltr"] .estate-address {
-  flex-direction: column !important;
-  align-items: flex-end !important;
-}
-.estate-address-text{
-  border: none !important;
-}
+@media screen and (max-width: 440px) {
+  .estate-address {
+    flex-direction: column !important;
+    align-items: flex-start !important;
+  }
+  html[dir="ltr"] .estate-address {
+    flex-direction: column !important;
+    align-items: flex-end !important;
+  }
+  .estate-address-text {
+    border-left: none !important;
+    border-right: none !important;
+  }
+  html[dir="ltr"] .estate-address-text {
+    border-left: none !important;
+    border-right: none !important;
+  }
 
-.price-info .h5{
-  font-size:19px !important; ;
-}
-
+  .price-info .h5 {
+    font-size: 19px !important;
+  }
 }
 </style>
