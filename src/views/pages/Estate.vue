@@ -1009,7 +1009,7 @@ p.estate-details-title {
 
 @media screen and (max-width: 440px) {
   .all-estate-inf {
-    padding: 0 8px;
+    padding: 0 15px;
   }
   .estate-address-text p,
   .estate-address-text span,
