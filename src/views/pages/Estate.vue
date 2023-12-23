@@ -568,60 +568,122 @@
           </p>
         </div>
       </div>
-      <div class="main-inf d-flex">
-        <div class="info-one">
-          <div class="estate-address d-flex align-center">
-            <div class="estate-address-text d-flex align-center">
-              <div class="address-one">
-                <p style="margin-bottom: 0">
-                  {{
-                    item.location.name + "," + item.location.locations[0].name
-                  }}
-                </p>
+      <div class="all-estate-inf">
+        <div class="main-inf d-flex">
+          <div class="info-one">
+            <div class="estate-address d-flex align-center">
+              <div class="estate-address-text d-flex align-center">
+                <div class="address-one">
+                  <p style="margin-bottom: 0">
+                    {{
+                      item.location.name + "," + item.location.locations[0].name
+                    }}
+                  </p>
+                </div>
+              </div>
+              <div class="d-flex estate-address-map">
+                <v-icon>mdi-map-marker-outline</v-icon>
+                <h3 style="font-weight: 400 !important">{{ $t("map") }}</h3>
               </div>
             </div>
-            <div class="d-flex estate-address-map">
-              <v-icon>mdi-map-marker-outline</v-icon>
-              <h3 style="font-weight: 400 !important">{{ $t("map") }}</h3>
+
+            <div class="date-price-info">
+              <div>
+                <div class="price-info">
+                  <p style="text-transform: capitalize; margin-bottom: 0">
+                    {{ $t("price") }}
+                  </p>
+                  <p class="h5" style="color: #262637">
+                    {{
+                      item.price.replace(/(\d)(?=(\d{3})+(?!\d))/g, "$1,") +
+                      ($i18n.locale == "ar" ? " ل.س" : " SYP")
+                    }}
+                  </p>
+                </div>
+                <div class="date-info">
+                  <p class="subtitle0 pt-1">
+                    <v-icon
+                      class="d-text-primary"
+                      style="color: #424448 !important"
+                      >mdi-calendar-month</v-icon
+                    >
+                    <!-- {{ formatDate(item.created_at) }} -->
+                    <span style="color: #424448">{{
+                      formatDate(item.created_at)
+                    }}</span>
+                  </p>
+                </div>
+              </div>
+              <div>
+                <div class="info-two">
+                  <img
+                    width="75px"
+                    height="75px"
+                    :src="img_baseUrl + item.office.logo"
+                    v-pswp="img_baseUrl + item.office.logo"
+                  />
+                </div>
+              </div>
             </div>
           </div>
-
-          <div class="date-price-info">
-            <div>
-              <div class="price-info">
-                <p style="text-transform: capitalize; margin-bottom: 0">
-                  {{ $t("price") }}
-                </p>
-                <p class="h5" style="color: #262637">
-                  {{
-                    item.price.replace(/(\d)(?=(\d{3})+(?!\d))/g, "$1,") +
-                    ($i18n.locale == "ar" ? " ل.س" : " SYP")
-                  }}
-                </p>
-              </div>
-              <div class="date-info">
-                <p class="subtitle0 pt-1">
-                  <v-icon
-                    class="d-text-primary"
-                    style="color: #424448 !important"
-                    >mdi-calendar-month</v-icon
-                  >
-                  <!-- {{ formatDate(item.created_at) }} -->
-                  <span style="color: #424448">{{
-                    formatDate(item.created_at)
-                  }}</span>
-                </p>
-              </div>
+        </div>
+        <div class="estate-details">
+          <div class="estate-details-detail estate-type">
+            <p class="estate-details-title">{{ $t("EstateType") }}</p>
+            <div
+              class="estate-details-inf d-flex align-start"
+              style="column-gap: 0.35rem"
+            >
+              <v-icon>mdi-home-city-outline</v-icon>
+              <p>
+                {{
+                  $i18n.locale == "ar"
+                    ? item.estate_type.name_ar.split("|")[1]
+                    : item.estate_type.name_en.split("|")[1]
+                }}
+              </p>
             </div>
-            <div>
-              <div class="info-two">
-                <img
-                  width="75px"
-                  height="75px"
-                  :src="img_baseUrl + item.office.logo"
-                  v-pswp="img_baseUrl + item.office.logo"
-                />
-              </div>
+          </div>
+          <div class="estate-details-detail estate-type">
+            <p class="estate-details-title">{{ $t("internalstate") }}</p>
+            <div class="estate-details-inf d-flex align-start">
+              <v-icon>mdi-bed-double-outline</v-icon>
+              <p>
+                {{
+                  $i18n.locale == "ar"
+                    ? item.interior_status.name_ar
+                    : item.interior_status.name_en
+                }}
+              </p>
+            </div>
+          </div>
+          <div class="estate-details-detail estate-type">
+            <p class="estate-details-title">{{ $t("Space") }}</p>
+
+            <div class="estate-details-inf d-flex align-start">
+              <v-icon class="mx-2">mdi-ruler-square</v-icon>
+              <p style="display: inline-block">
+                {{ item.area }}
+                {{
+                  $i18n.locale == "ar"
+                    ? item.area_unit.name_ar
+                    : item.area_unit.name_en
+                }}
+              </p>
+            </div>
+          </div>
+          <div class="estate-details-detail estate-type">
+            <p class="estate-details-title">{{ $t("OwnershipType") }}</p>
+
+            <div class="estate-details-inf d-flex align-start">
+              <v-icon class="mx-2">mdi-domain</v-icon>
+              <p>
+                {{
+                  $i18n.locale == "ar"
+                    ? item.ownership_type.name_ar
+                    : item.ownership_type.name_en
+                }}
+              </p>
             </div>
           </div>
         </div>
@@ -779,10 +841,11 @@ export default {
   top: 19px;
   left: 24px;
 }
+.all-estate-inf {
+  padding: 0 20px;
+}
 .info-one {
   width: 100%;
-  margin-right: 10px;
-  margin-left: 10px;
 }
 .estate-address {
   direction: rtl !important;
@@ -822,6 +885,33 @@ html[dir="ltr"] .estate-address-text {
   width: 100%;
   display: flex;
   justify-content: space-between;
+}
+
+.estate-details {
+  display: grid;
+  grid-template-columns: repeat(4, auto);
+  row-gap: 1rem;
+  margin-top: 20px;
+  border-top: 1px solid #ebe6e6;
+  border-bottom: 1px solid #ebe6e6;
+}
+.estate-type {
+  margin: 15px 0;
+}
+p.estate-details-title {
+  font-size: 12px !important;
+  color: #6c6d7f !important;
+  margin-bottom: 5px !important;
+}
+.estate-details-inf p {
+  color: #030c16 !important;
+  font-size: 14px !important;
+}
+.estate-details-inf i {
+  color: #030c16 !important;
+  margin-right: 0 !important;
+  margin-left: 0 !important;
+  margin-inline-end: 8px !important;
 }
 
 @media screen and (max-width: 960px) {
@@ -908,16 +998,24 @@ html[dir="ltr"] .estate-address-text {
   }
 }
 
-/* @media screen and (max-width:515px){
-  .estate-address-text p,
-.estate-address-text span ,.estate-address-map h3{
-  font-size: 13px !important;
+@media screen and (max-width: 600px) {
+  .estate-details {
+    grid-template-columns: auto auto !important;
+  }
+  .estate-details-inf p {
+    font-size: 13px !important;
+  }
 }
 
-
-} */
-
 @media screen and (max-width: 440px) {
+  .all-estate-inf {
+    padding: 0 8px;
+  }
+  .estate-address-text p,
+  .estate-address-text span,
+  .estate-address-map h3 {
+    font-size: 16px !important;
+  }
   .estate-address {
     flex-direction: column !important;
     align-items: flex-start !important;
