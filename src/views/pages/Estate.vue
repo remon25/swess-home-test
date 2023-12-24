@@ -581,10 +581,13 @@
                   </p>
                 </div>
               </div>
-              <div class="d-flex estate-address-map">
+              <a href="#estate-map" style="text-decoration: none">
+                <div href="#estate-map" class="d-flex estate-address-map">
                 <v-icon>mdi-map-marker-outline</v-icon>
                 <h3 style="font-weight: 400 !important">{{ $t("map") }}</h3>
               </div>
+              </a>
+              
             </div>
 
             <div class="date-price-info">
@@ -728,6 +731,23 @@
             {{ item.description }}.
           </p>
         </div>
+        <div id="estate-map" style="width: 100%; height: 325px">
+                  <iframe
+                    :src="
+                      'https://maps.google.com/maps?q=' +
+                      item.location.locations[0].latitude +
+                      ',' +
+                      item.location.locations[0].longitude +
+                      '&hl=es&z=14&amp;output=embed'
+                    "
+                    width="100%"
+                    height="325"
+                    style="border: 0"
+                    allowfullscreen=""
+                    loading="lazy"
+                    referrerpolicy="no-referrer-when-downgrade"
+                  ></iframe>
+                </div>
       </div>
     </div>
   </div>
