@@ -745,7 +745,6 @@
               <div class="estate-map-nearpy d-text-light pa-3">
                 {{ place }}
               </div>
-              <div>{{item.nearby_places}}</div>
             </v-col>
           </v-row>
           <iframe
