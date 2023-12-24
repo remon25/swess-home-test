@@ -735,17 +735,15 @@
           <p class="estate-map-title" style="padding-top: 19px">
             {{ $t("Address") }}
           </p>
-          <v-row v-if="item.nearby_places">
-            <v-col
-              cols="6"
-              md="4"
+          <v-row v-if="item.nearby_places" style="column-gap: 2rem;margin: 0;">
+            <div
               v-for="(place, i) in item.nearby_places.split('|')"
               :key="i"
             >
               <div class="estate-map-nearpy d-text-light pa-3">
                 {{ place }}
               </div>
-            </v-col>
+            </div>
           </v-row>
           <iframe
             :src="
