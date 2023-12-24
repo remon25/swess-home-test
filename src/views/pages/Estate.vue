@@ -687,6 +687,47 @@
             </div>
           </div>
         </div>
+        <div class="estate-description">
+          <div class="estate-description-features">
+            <p class="h6">{{ $t("EstateFeatures") }}</p>
+            <v-col
+              class="estate-feature"
+              cols="12"
+              v-if="item.estate_offer_type"
+              ><v-icon size="small"> mdi-checkbox-blank-circle</v-icon>
+              <p>
+                {{ $t("OfferType") + " : " }}
+
+                <span>{{
+                  $i18n.locale == "ar"
+                    ? item.estate_offer_type.name_ar
+                    : item.estate_offer_type.name_en
+                }}</span>
+              </p>
+            </v-col>
+            <v-col class="estate-feature" cols="12" v-if="item.estate_type"
+              ><v-icon size="small">mdi-checkbox-blank-circle</v-icon>
+              <p>
+                {{ $t("EstateType") + " : " }}
+                <span>{{
+                  $i18n.locale == "ar"
+                    ? item.estate_type.name_ar.split("|")[1]
+                    : item.estate_type.name_en.split("|")[1]
+                }}</span>
+              </p>
+            </v-col>
+            <v-col class="estate-feature" cols="12" v-if="item.floor"
+              ><v-icon size="small">mdi-checkbox-blank-circle</v-icon>
+              <p>
+                {{ $t("floor") + " : " }} <span>{{ item.floor }}</span>
+              </p>
+            </v-col>
+          </div>
+          <p class="estate-description-title">{{ $t("Details") }}</p>
+          <p class="estate-description-text" style="direction: rtl;">
+            {{ item.description }}.
+          </p>
+        </div>
       </div>
     </div>
   </div>
@@ -913,7 +954,30 @@ p.estate-details-title {
   margin-left: 0 !important;
   margin-inline-end: 8px !important;
 }
-
+.estate-feature {
+  display: flex;
+  align-items: baseline;
+  column-gap: 0.5rem;
+}
+.estate-description-features > p {
+  color: #030c16 !important;
+}
+.estate-description {
+  margin-top: 20px;
+}
+.estate-feature p {
+  font-size: 20px !important;
+}
+.estate-feature i,
+.estate-feature span {
+  color: #030c16 !important;
+  font-weight: bold;
+}
+.estate-description-title {
+  font-size: 20px !important;
+  font-weight: 700;
+  color: #030c16;
+}
 @media screen and (max-width: 960px) {
   .img {
     border-radius: 10px !important;
