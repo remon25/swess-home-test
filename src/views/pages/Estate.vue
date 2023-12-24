@@ -727,7 +727,7 @@
             </v-col>
           </div>
           <p class="estate-description-title">{{ $t("Details") }}</p>
-          <p class="estate-description-text" style="direction: rtl">
+          <p class="estate-description-text" style="direction: rtl; text-align: justify">
             {{ item.description }}.
           </p>
         </div>
