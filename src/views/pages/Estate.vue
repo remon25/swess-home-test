@@ -724,7 +724,7 @@
             </v-col>
           </div>
           <p class="estate-description-title">{{ $t("Details") }}</p>
-          <p class="estate-description-text" style="direction: rtl;">
+          <p class="estate-description-text" style="direction: rtl">
             {{ item.description }}.
           </p>
         </div>
@@ -966,9 +966,12 @@ p.estate-details-title {
   margin-top: 20px;
 }
 .estate-feature p {
+  color: #404141 !important;
   font-size: 18px !important;
 }
-.estate-feature i,
+.estate-feature i {
+  color: #082746 !important;
+}
 .estate-feature span {
   color: #030c16 !important;
   font-weight: bold;
