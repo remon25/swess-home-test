@@ -958,6 +958,7 @@ p.estate-details-title {
   display: flex;
   align-items: baseline;
   column-gap: 0.5rem;
+  padding: 8px 0 !important;
 }
 .estate-description-features > p {
   color: #030c16 !important;
