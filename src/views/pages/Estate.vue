@@ -968,10 +968,10 @@ p.estate-details-title {
 }
 .estate-feature p {
   color: #404141 !important;
-  font-size: 18px !important;
+  font-size: 17px !important;
 }
 .estate-feature i {
-  color: #082746 !important;
+  color: #3b3b3b !important;
 }
 .estate-feature span {
   color: #030c16 !important;
