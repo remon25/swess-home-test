@@ -616,12 +616,14 @@
               </div>
               <div>
                 <div class="info-two">
-                  <img
-                    width="75px"
-                    height="75px"
-                    :src="img_baseUrl + item.office.logo"
-                    v-pswp="img_baseUrl + item.office.logo"
-                  />
+                  <router-link :to="'/office/' + item.office.id">
+                    <img
+                      width="75px"
+                      height="75px"
+                      :src="img_baseUrl + item.office.logo"
+                      v-pswp="img_baseUrl + item.office.logo"
+                    />
+                  </router-link>
                 </div>
               </div>
             </div>
@@ -735,11 +737,8 @@
           <p class="estate-map-title" style="padding-top: 19px">
             {{ $t("Address") }}
           </p>
-          <v-row v-if="item.nearby_places" style="column-gap: 2rem;margin: 0;">
-            <div
-              v-for="(place, i) in item.nearby_places.split('|')"
-              :key="i"
-            >
+          <v-row v-if="item.nearby_places" style="gap: 1.2rem; margin: 0">
+            <div v-for="(place, i) in item.nearby_places.split('|')" :key="i">
               <div class="estate-map-nearpy d-text-light pa-3">
                 {{ place }}
               </div>
@@ -764,14 +763,19 @@
         <div class="estate-office">
           <div class="estate-office-container">
             <h3>{{ $t("real_estate_office") }}</h3>
-            <img
-              width="115px"
-              height="115px"
-              :src="img_baseUrl + item.office.logo"
-              v-pswp="img_baseUrl + item.office.logo"
-            />
+
+            <router-link :to="'/office/' + item.office.id">
+              <img
+                width="115px"
+                height="115px"
+                :src="img_baseUrl + item.office.logo"
+                v-pswp="img_baseUrl + item.office.logo"
+              />
+            </router-link>
             <div class="estate-office-details">
-              <p style="font-weight: bold; text-align: center">{{ item.office.name }}</p>
+              <p style="font-weight: bold; text-align: center">
+                {{ item.office.name }}
+              </p>
               <p>
                 {{ item.office.location.name }} -
                 {{ item.office.location.locations[0].name }}
@@ -1160,7 +1164,7 @@ p.estate-details-title {
 
 @media screen and (max-width: 440px) {
   .all-estate-inf {
-    padding: 0 15px;
+    padding: 0 20px;
   }
   .estate-address-text p,
   .estate-address-text span,
@@ -1186,6 +1190,13 @@ p.estate-details-title {
 
   .price-info .h5 {
     font-size: 19px !important;
+  }
+}
+
+@media screen and (max-width: 300px) {
+  .estate-details {
+    grid-template-columns: 1fr !important;
+    row-gap: 0 !important;
   }
 }
 </style>
