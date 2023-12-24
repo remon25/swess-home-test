@@ -966,7 +966,7 @@ p.estate-details-title {
   margin-top: 20px;
 }
 .estate-feature p {
-  font-size: 20px !important;
+  font-size: 18px !important;
 }
 .estate-feature i,
 .estate-feature span {
