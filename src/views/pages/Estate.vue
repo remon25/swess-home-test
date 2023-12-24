@@ -581,11 +581,13 @@
                   </p>
                 </div>
               </div>
-                <v-btn v-scroll-to="'#estate-map'"   class="d-flex estate-address-map">
+              <div
+                class="d-flex estate-address-map"
+                @click="scrollToMap"
+              >
                 <v-icon>mdi-map-marker-outline</v-icon>
                 <h3 style="font-weight: 400 !important">{{ $t("map") }}</h3>
-              </v-btn>
-              
+            </div>
             </div>
 
             <div class="date-price-info">
@@ -730,22 +732,25 @@
           </p>
         </div>
         <div id="estate-map" style="width: 100%; height: 325px">
-                  <iframe
-                    :src="
-                      'https://maps.google.com/maps?q=' +
-                      item.location.locations[0].latitude +
-                      ',' +
-                      item.location.locations[0].longitude +
-                      '&hl=es&z=14&amp;output=embed'
-                    "
-                    width="100%"
-                    height="325"
-                    style="border: 0"
-                    allowfullscreen=""
-                    loading="lazy"
-                    referrerpolicy="no-referrer-when-downgrade"
-                  ></iframe>
-                </div>
+          <p class="estate-map-title" style="padding-top: 19px">
+            {{ $t("Address") }}
+          </p>
+          <iframe
+            :src="
+              'https://maps.google.com/maps?q=' +
+              item.location.locations[0].latitude +
+              ',' +
+              item.location.locations[0].longitude +
+              '&hl=es&z=14&amp;output=embed'
+            "
+            width="100%"
+            height="325"
+            style="border: 0"
+            allowfullscreen=""
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+          ></iframe>
+        </div>
       </div>
     </div>
   </div>
@@ -869,6 +874,9 @@ export default {
         this.$router.push("/login");
       }
     },
+    scrollToMap() {
+       document.getElementById("estate-map").scrollIntoView()
+    }
   },
   mounted() {
     document.title = i18n.t("EstatePage");
@@ -995,7 +1003,8 @@ p.estate-details-title {
   color: #030c16 !important;
   font-weight: bold;
 }
-.estate-description-title {
+.estate-description-title,
+.estate-map-title {
   font-size: 20px !important;
   font-weight: 700;
   color: #030c16;

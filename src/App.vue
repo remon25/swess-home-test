@@ -69,6 +69,9 @@ url("assets/Droid\ Kufi/Droid.ttf") format("truetype");
 * {
   font-family: "Almarai", Helvetica, Arial;
 }
+html{
+  scroll-behavior: smooth;
+}
 .height-100per {
   height: 100%;
 }
