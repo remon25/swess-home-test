@@ -581,13 +581,10 @@
                   </p>
                 </div>
               </div>
-              <div
-                class="d-flex estate-address-map"
-                @click="scrollToMap"
-              >
+              <div class="d-flex estate-address-map" @click="scrollToMap">
                 <v-icon>mdi-map-marker-outline</v-icon>
                 <h3 style="font-weight: 400 !important">{{ $t("map") }}</h3>
-            </div>
+              </div>
             </div>
 
             <div class="date-price-info">
@@ -727,14 +724,29 @@
             </v-col>
           </div>
           <p class="estate-description-title">{{ $t("Details") }}</p>
-          <p class="estate-description-text" style="direction: rtl; text-align: justify">
+          <p
+            class="estate-description-text"
+            style="direction: rtl; text-align: justify"
+          >
             {{ item.description }}.
           </p>
         </div>
-        <div id="estate-map" style="width: 100%; height: 325px">
+        <div id="estate-map" style="width: 100%">
           <p class="estate-map-title" style="padding-top: 19px">
             {{ $t("Address") }}
           </p>
+          <v-row v-if="item.nearby_places">
+            <v-col
+              cols="6"
+              md="4"
+              v-for="(place, i) in item.nearby_places.split('|')"
+              :key="i"
+            >
+              <div class="estate-map-nearpy d-text-light pa-3">
+                {{ place }}
+              </div>
+            </v-col>
+          </v-row>
           <iframe
             :src="
               'https://maps.google.com/maps?q=' +
@@ -745,11 +757,29 @@
             "
             width="100%"
             height="325"
-            style="border: 0"
+            style="border: 0; margin-top: 20px"
             allowfullscreen=""
             loading="lazy"
             referrerpolicy="no-referrer-when-downgrade"
           ></iframe>
+        </div>
+        <div class="estate-office">
+          <div class="estate-office-container">
+            <h3>{{ $t("real_estate_office") }}</h3>
+            <img
+              width="115px"
+              height="115px"
+              :src="img_baseUrl + item.office.logo"
+              v-pswp="img_baseUrl + item.office.logo"
+            />
+            <div class="estate-office-details">
+              <p style="font-weight: bold; text-align: center">{{ item.office.name }}</p>
+              <p>
+                {{ item.office.location.name }} -
+                {{ item.office.location.locations[0].name }}
+              </p>
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -875,8 +905,8 @@ export default {
       }
     },
     scrollToMap() {
-       document.getElementById("estate-map").scrollIntoView()
-    }
+      document.getElementById("estate-map").scrollIntoView();
+    },
   },
   mounted() {
     document.title = i18n.t("EstatePage");
@@ -991,6 +1021,7 @@ p.estate-details-title {
 }
 .estate-description {
   margin-top: 20px;
+  border-bottom: 1px solid #ebe6e6;
 }
 .estate-feature p {
   color: #404141 !important;
@@ -1007,6 +1038,33 @@ p.estate-details-title {
 .estate-map-title {
   font-size: 20px !important;
   font-weight: 700;
+  color: #030c16;
+}
+.estate-map-nearpy {
+  color: #262637 !important;
+  background-color: #f7f5f5;
+  box-shadow: 0 3px 3px -3px rgba(0, 0, 0, 0.3);
+  padding: 10px !important;
+  font-size: 13px;
+  width: fit-content;
+  border-radius: 8px;
+}
+
+.estate-office {
+  margin-top: 20px;
+}
+.estate-office-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  row-gap: 2rem;
+  padding: 15px;
+  border: 1.5px solid #ebe6e6;
+  border-radius: 5px;
+}
+.estate-office-container h3 {
+  font-size: 20px;
   color: #030c16;
 }
 @media screen and (max-width: 960px) {
