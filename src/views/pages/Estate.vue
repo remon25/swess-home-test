@@ -539,24 +539,28 @@
     </div>
     <div class="estate-small-screen">
       <div class="d-p-relative">
+        
         <v-carousel
           hide-delimiters
           show-arrows="hover"
           style="height: 400px"
           @change="currentindex = estateImages[$event].index"
         >
+
           <!-- Dynamically populate the carousel with images from estate-large-screen -->
           <v-carousel-item
             v-for="(image, index) in estateImages"
             :key="index"
             eager
-          >
+            >
             <v-img
               :src="`${img_baseUrl}${image.url}`"
+              v-pswp="img_baseUrl + estateImages[0].url"
               cover
               style="width: 100%; height: calc(100svh - 100px)"
               eager
             />
+            
           </v-carousel-item>
         </v-carousel>
         <div class="index-img">
@@ -780,6 +784,23 @@
                 {{ item.office.location.name }} -
                 {{ item.office.location.locations[0].name }}
               </p>
+            </div>
+            <div class="estate-office-contact">
+              <a
+                :href="'tel:' + item.office.mobile"
+                style="text-decoration: none"
+              >
+                <v-icon>mdi-phone</v-icon>
+                {{ $t("call") }}
+              </a>
+
+              <a
+                :href="'https://wa.me/' + item.office.mobile"
+                style="text-decoration: none"
+              >
+                <v-icon>mdi-whatsapp</v-icon>
+                {{ $t("whatsapp") }}
+              </a>
             </div>
           </div>
         </div>
@@ -1068,6 +1089,24 @@ p.estate-details-title {
 .estate-office-container h3 {
   font-size: 20px;
   color: #030c16;
+}
+.estate-office-contact {
+  display: flex;
+  column-gap: 2rem;
+  width: 100%;
+  justify-content: center;
+}
+.estate-office-contact a {
+  display: flex;
+  justify-content: center;
+  column-gap: 0.5rem;
+  flex: 1;
+  padding: 7px 10px;
+  color: #262637;
+  background-color: rgba(38, 38, 55, 0.08);
+  font-weight: 600;
+  text-decoration: none;
+  border-radius: 15px;
 }
 @media screen and (max-width: 960px) {
   .img {
