@@ -581,12 +581,10 @@
                   </p>
                 </div>
               </div>
-              <a href="#estate-map" style="text-decoration: none">
-                <div href="#estate-map" class="d-flex estate-address-map">
+                <v-btn v-scroll-to="'#estate-map'"   class="d-flex estate-address-map">
                 <v-icon>mdi-map-marker-outline</v-icon>
                 <h3 style="font-weight: 400 !important">{{ $t("map") }}</h3>
-              </div>
-              </a>
+              </v-btn>
               
             </div>
 
