@@ -848,6 +848,7 @@ import i18n from "@/i18n";
 export default {
   name: "Estate",
   components: {},
+  
   metaInfo() {
     return {
       meta: [
@@ -1105,6 +1106,7 @@ p.estate-details-title {
 .estate-feature span {
   color: #030c16 !important;
   font-weight: bold;
+  font-size: 16px !important;
 }
 .estate-description-title,
 .estate-map-title {
@@ -1133,7 +1135,7 @@ p.estate-details-title {
   row-gap: 2rem;
   padding: 15px;
   border: 1px solid #c7c7c7;
-  border-radius: 5px;
+  border-radius: 10px;
 }
 .estate-office-container h3 {
   font-size: 20px;
