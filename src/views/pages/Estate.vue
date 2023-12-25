@@ -166,9 +166,8 @@
                     {{ $t("Address") }}
                   </p>
                   <p class="body2">
-                    {{
-                      item.location.name + "," + item.location.locations[0].name
-                    }}
+                    {{ item.office.location.name }} -
+                    {{ item.office.location.locations[0].name }}
                   </p>
                 </div>
                 <router-link
@@ -543,11 +542,15 @@
       </v-dialog>
     </div>
     <div class="estate-small-screen">
-      <div class="go-back d-flex align-center justify-space-between" style="direction: ltr;">
+      <div
+        class="go-back d-flex align-center justify-space-between"
+        style="direction: ltr"
+      >
         <div
           class="d-flex align-center"
           style="column-gap: 0.4rem"
-          @click="goBack" :disabled="isBackDisabled"
+          @click="goBack"
+          :disabled="isBackDisabled"
         >
           <v-icon style="color: #000433">mdi-arrow-left</v-icon>
           <h5 style="font-weight: 300; color: #123f65">
@@ -848,7 +851,7 @@ import i18n from "@/i18n";
 export default {
   name: "Estate",
   components: {},
-  
+
   metaInfo() {
     return {
       meta: [
@@ -920,7 +923,7 @@ export default {
     isBackDisabled() {
       // Disable the button if there is no step to go back
       return this.$route.matched.length <= 1;
-    }
+    },
   },
   methods: {
     updateMetaImage() {
@@ -971,7 +974,7 @@ export default {
         this.$router.go(-1);
       } else {
         // Handle the case where there is no previous step in history
-        console.warn('No previous step in history');
+        console.warn("No previous step in history");
       }
     },
   },
