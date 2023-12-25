@@ -457,7 +457,12 @@
                   ></iframe>
                 </div>
 
-                <p class="h4 d-text-primary mt-10">عقارات مشابهة</p>
+                <p
+                  v-if="!(visibleItem.length == 0)"
+                  class="h4 d-text-primary mt-10"
+                >
+                  عقارات مشابهة
+                </p>
                 <div v-if="!(visibleItem.length == 0)">
                   <EstateCard
                     class="my-10"
@@ -539,20 +544,18 @@
     </div>
     <div class="estate-small-screen">
       <div class="d-p-relative">
-        
         <v-carousel
           hide-delimiters
           show-arrows="hover"
           style="height: 400px"
           @change="currentindex = estateImages[$event].index"
         >
-
           <!-- Dynamically populate the carousel with images from estate-large-screen -->
           <v-carousel-item
             v-for="(image, index) in estateImages"
             :key="index"
             eager
-            >
+          >
             <v-img
               :src="`${img_baseUrl}${image.url}`"
               v-pswp="img_baseUrl + estateImages[0].url"
@@ -560,7 +563,6 @@
               style="width: 100%; height: calc(100svh - 100px)"
               eager
             />
-            
           </v-carousel-item>
         </v-carousel>
         <div class="index-img">
@@ -940,9 +942,11 @@ export default {
     /*this.$store.dispatch('SimilarEstates',{
       api:"getEstateSimilarEstates?estate_id=" + this.$route.params.id
     })*/
+    /*
     this.$store.dispatch("SimilarEstates", {
       api: "getEstateSimilarEstates?estate_id=" + this.$route.params.id,
     });
+    */
   },
   updated() {
     this.updateMetaImage();
@@ -1083,7 +1087,7 @@ p.estate-details-title {
   align-items: center;
   row-gap: 2rem;
   padding: 15px;
-  border: 1.5px solid #ebe6e6;
+  border: 1px solid #c7c7c7;
   border-radius: 5px;
 }
 .estate-office-container h3 {

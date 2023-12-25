@@ -8,6 +8,7 @@
       <loading-app-popup></loading-app-popup>
       <Navbar></Navbar>
       <router-view :style="routerViewStyle" />
+      <footerComponent></footerComponent>
     </v-main>
   </v-app>
 </template>

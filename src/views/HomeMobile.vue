@@ -1,33 +1,35 @@
 <template>
-  <v-container class="mobile-container">
-    <home-mobile-filter-popup
-      :popupClass="popupClass"
-      @close-popup="updatePopupClass('')"
-      :tab="selectedTab"
-      @updateTab="updateTab"
-    ></home-mobile-filter-popup>
-    <v-row class="mobile_image_container">
-      <v-col
-        cols="12"
-        class="mobile_image"
-        style="
-          background-image: url('images/home3.jpg');
-          background-position: center;
-        "
-      >
-      </v-col>
-    </v-row>
-    <v-row no-gutters class="button_container">
-      <v-col cols="12" class="d-block mobile_title">
-        <p style="margin-top: 5px; margin-bottom: 5px; color: rgb(0 4 9)">
-          {{ $t("YouCanSearchForHouse") }}
-        </p>
-      </v-col>
-      <homeFilterMobile
-        @apply-class="updatePopupClass"
-        @change-tab="updateTab"
-      ></homeFilterMobile>
-    </v-row>
+  <div>
+    <div class="mobile-container">
+      <home-mobile-filter-popup
+        :popupClass="popupClass"
+        @close-popup="updatePopupClass('')"
+        :tab="selectedTab"
+        @updateTab="updateTab"
+      ></home-mobile-filter-popup>
+      <v-row class="mobile_image_container">
+        <v-col
+          cols="12"
+          class="mobile_image"
+          style="
+            background-image: url('images/home3.jpg');
+            background-position: center;
+          "
+        >
+        </v-col>
+      </v-row>
+      <v-row no-gutters class="button_container">
+        <v-col cols="12" class="d-block mobile_title">
+          <p style="margin-top: 5px; margin-bottom: 5px; color: rgb(0 4 9)">
+            {{ $t("YouCanSearchForHouse") }}
+          </p>
+        </v-col>
+        <homeFilterMobile
+          @apply-class="updatePopupClass"
+          @change-tab="updateTab"
+        ></homeFilterMobile>
+      </v-row>
+    </div>
     <v-col cols="12">
       <OurServices style="overflow: visible; margin-top: 65px"></OurServices>
     </v-col>
@@ -37,8 +39,7 @@
     <v-col cols="12" id="articals">
       <Articals></Articals>
     </v-col>
-    <footerComponent></footerComponent>
-  </v-container>
+  </div>
 </template>
 <script>
 import { mapActions, mapGetters } from "vuex";
@@ -87,8 +88,8 @@ export default {
   z-index: 9999;
 }
 .mobile-container {
-  height: calc(100vh - 220px);
-  height: calc(100svh - 220px);
+  height: calc(100vh - 190px);
+  height: calc(100svh - 190px);
   padding: 0px;
 }
 .button_container {
