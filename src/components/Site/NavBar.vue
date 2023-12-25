@@ -124,7 +124,7 @@
       </v-toolbar-items>
       <v-spacer></v-spacer>
       <div class="d-flex flex-column-reverse align-center">
-        <v-toolbar-title style="font-size: 16px; line-height: 1">
+        <v-toolbar-title style="font-size: 14px; line-height: 1">
           <router-link
             to="/"
             style="cursor: pointer"
@@ -353,7 +353,7 @@ header.fixed {
     align-items: center;
   }
   a.logo-header.h6 {
-    font-size: 16px !important;
+    font-size: 14px !important;
     line-height: 1 !important;
   }
 }
