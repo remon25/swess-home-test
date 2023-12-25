@@ -383,9 +383,9 @@ export default {
     handleScroll() {
       const scrollY = document.body.scrollTop || window.pageYOffset;
       if (document.getElementById("AppPopup").offsetHeight > 0) {
-        this.isAdvanceFilterMdFixed = scrollY >= 211;
+        this.isAdvanceFilterMdFixed = scrollY >= 181;
       } else {
-        this.isAdvanceFilterMdFixed = scrollY >= 140;
+        this.isAdvanceFilterMdFixed = scrollY >= 110;
       }
     },
   },
