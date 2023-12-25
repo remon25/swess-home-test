@@ -1,5 +1,5 @@
 <template>
-  <div class="estates-main" style="background-color: #e9e9eb">
+  <div class="estates-main" style="background-color: #e9e9eb; margin-bottom: -100px">
     <!-- 
     <breadcrumbs :items="links"></breadcrumbs>
     -->
