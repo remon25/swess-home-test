@@ -46,7 +46,7 @@ export default {
 };
 
 document.addEventListener("contextmenu", (event) => event.preventDefault());
-indow.addEventListener('load', function() {
+window.addEventListener('load', function() {
     var lastTouchY = 0 ;
     var maybePreventPullToRefresh = false ;
 
