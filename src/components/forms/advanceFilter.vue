@@ -381,7 +381,7 @@ export default {
       }
     },
     handleScroll() {
-      const scrollY = window.scrollY || window.pageYOffset;
+      const scrollY = document.body.scrollTop || window.pageYOffset;
       if (document.getElementById("AppPopup").offsetHeight > 0) {
         this.isAdvanceFilterMdFixed = scrollY >= 211;
       } else {
@@ -397,12 +397,12 @@ export default {
     this.fetchEstateOfferTypes("estateOfferTypes");
     this.fetchInteriorStatuses("interiorStatuses");
     this.fetchOwnershipTypes("ownershipTypes");
-    window.addEventListener("scroll", this.handleScroll);
-    window.addEventListener("load", this.handleScroll);
+    document.body.addEventListener("scroll", this.handleScroll);
+    document.body.addEventListener("load", this.handleScroll);
   },
   beforeDestroy() {
     // Remove the scroll event listener to prevent memory leaks
-    window.removeEventListener("scroll", this.handleScroll);
+    document.body.removeEventListener("scroll", this.handleScroll);
   },
 };
 </script>
