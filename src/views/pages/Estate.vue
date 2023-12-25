@@ -967,7 +967,7 @@ export default {
       }
     },
     scrollToMap() {
-      document.getElementById("estate-map").scrollIntoView();
+      document.getElementById("estate-map").scrollIntoView({ behavior: "smooth"});
     },
     goBack() {
       if (this.$route.matched.length > 1) {
