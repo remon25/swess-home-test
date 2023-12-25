@@ -549,8 +549,8 @@
           style="column-gap: 0.4rem"
           @click="goBack" :disabled="isBackDisabled"
         >
-          <v-icon style="color: #282832">mdi-arrow-left</v-icon>
-          <h5 style="font-weight: 300; color: #0f3352">
+          <v-icon style="color: #000433">mdi-arrow-left</v-icon>
+          <h5 style="font-weight: 300; color: #123f65">
             {{ $t("BackToSearchResults") }}
           </h5>
         </div>
