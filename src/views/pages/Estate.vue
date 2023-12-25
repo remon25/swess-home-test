@@ -543,6 +543,35 @@
       </v-dialog>
     </div>
     <div class="estate-small-screen">
+      <div class="go-back d-flex align-center justify-space-between" style="direction: ltr;">
+        <div
+          class="d-flex align-center"
+          style="column-gap: 0.4rem"
+          @click="goBack" :disabled="isBackDisabled"
+        >
+          <v-icon style="color: #282832">mdi-arrow-left</v-icon>
+          <h5 style="font-weight: 300; color: #0f3352">
+            {{ $t("BackToSearchResults") }}
+          </h5>
+        </div>
+        <div class="share-save d-flex align-center justify-space-between">
+          <div @click="openShare" class="mx-2">
+            <v-icon class="d-text-primary">mdi-share-variant-outline</v-icon>
+          </div>
+          <div
+            class="line-separator"
+            style="width: 1px; height: 30px; background-color: #ccc"
+          ></div>
+          <div class="mx-2" @click="save(item.id)" style="cursor: pointer">
+            <v-icon v-if="is_saved" width="25.19" class="d-text-primary"
+              >mdi-bookmark</v-icon
+            >
+            <v-icon v-else width="25.19" class="d-text-primary"
+              >mdi-bookmark-outline</v-icon
+            >
+          </div>
+        </div>
+      </div>
       <div class="d-p-relative">
         <v-carousel
           hide-delimiters
@@ -887,6 +916,10 @@ export default {
       }
       return images;
     },
+    isBackDisabled() {
+      // Disable the button if there is no step to go back
+      return this.$route.matched.length <= 1;
+    }
   },
   methods: {
     updateMetaImage() {
@@ -932,6 +965,14 @@ export default {
     scrollToMap() {
       document.getElementById("estate-map").scrollIntoView();
     },
+    goBack() {
+      if (this.$route.matched.length > 1) {
+        this.$router.go(-1);
+      } else {
+        // Handle the case where there is no previous step in history
+        console.warn('No previous step in history');
+      }
+    },
   },
   mounted() {
     document.title = i18n.t("EstatePage");
@@ -967,6 +1008,10 @@ export default {
 }
 .all-estate-inf {
   padding: 0 20px;
+}
+
+.go-back {
+  padding: 15px 8px;
 }
 .info-one {
   width: 100%;
