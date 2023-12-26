@@ -74,7 +74,10 @@ url("assets/Droid\ Kufi/Droid.ttf") format("truetype");
 html{
   scroll-behavior: smooth;
 }
-
+body{
+  overscroll-behavior: none !important;
+  touch-action: pan-down !important;
+}
 .height-100per {
   height: 100%;
 }
