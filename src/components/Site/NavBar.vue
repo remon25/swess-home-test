@@ -118,6 +118,7 @@
             class="d-inline d-lg-none mx-5 my-10 toggler"
             @click.stop="sidebar = !sidebar"
             aria-label="menu button"
+            style="width: auto;"
           >
           </v-app-bar-nav-icon>
         </v-row>
@@ -191,7 +192,7 @@
           <v-btn
             href="/login"
             depressed
-            style="background-color: transparent; height: auto"
+            style="background-color: transparent; height: auto;min-width: auto;padding: 0"
           >
             <img width="25px" src="/icons/login-account.svg" alt="login" />
           </v-btn>
