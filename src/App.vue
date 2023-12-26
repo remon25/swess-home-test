@@ -76,7 +76,6 @@ html{
 }
 body{
   overscroll-behavior: none !important;
-  touch-action: pan-down !important;
 }
 .height-100per {
   height: 100%;
