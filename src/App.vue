@@ -46,18 +46,6 @@ export default {
 };
 
 document.addEventListener("contextmenu", (event) => event.preventDefault());
-window.addEventListener('touchmove', function(event) {
-if (event.touches.length > 1) {
-event.preventDefault();
-}
-}, { passive: false });
-
-// Restore normal touchmove behavior after pull-to-refresh completes
-window.addEventListener('touchend', function() {
-setTimeout(function() {
-window.scrollTo(0, 0);
-}, 0);
-});
 </script>
 <style>
 @font-face {
@@ -86,10 +74,7 @@ url("assets/Droid\ Kufi/Droid.ttf") format("truetype");
 html{
   scroll-behavior: smooth;
 }
-body{
-  overscroll-behavior: none !important;
-  touch-action: pan-down !important;
-}
+
 .height-100per {
   height: 100%;
 }
