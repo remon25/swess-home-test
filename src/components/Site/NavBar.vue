@@ -134,9 +134,8 @@
         </v-toolbar-title>
         <router-link
           to="/"
-          style="cursor: pointer;line-height: 1;"
+          style="cursor: pointer; line-height: 1"
           aria-label="go to home page"
-          
         >
           <img
             class="img-logo"
@@ -189,15 +188,15 @@
         </v-list-item>
 
         <v-list-item v-else style="padding: 0">
-          <v-btn href="/login" depressed  style="background-color: transparent;height: auto;">
-            <!-- <v-icon size="35px" style="color: #262637"
-              >account-arrow-left-outline</v-icon
-            > -->
-            <img width="38px" src="/icons/login-account.svg" alt="login">
+          <v-btn
+            href="/login"
+            depressed
+            style="background-color: transparent; height: auto"
+          >
+            <img width="25px" src="/icons/login-account.svg" alt="login" />
           </v-btn>
         </v-list-item>
       </div>
-    
     </v-app-bar>
 
     <!-- <v-system-bar color="deep-purple darken-3"></v-system-bar> -->
@@ -372,7 +371,6 @@ export default {
     padding-top: 4px;
   }
 }
-
 
 .polygon-right {
   margin-right: calc(50% - 10px);
