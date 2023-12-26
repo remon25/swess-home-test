@@ -73,6 +73,7 @@ url("assets/Droid\ Kufi/Droid.ttf") format("truetype");
 
 html{
   scroll-behavior: smooth;
+  overscroll-behavior: none !important;
 }
 body{
   overscroll-behavior: none !important;
