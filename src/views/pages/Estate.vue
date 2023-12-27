@@ -549,7 +549,7 @@
         <router-link
           :to="`/estates?location_id=${item.location_id}&estate_type_id=${item.estate_type.id}&estate_offer_type_id=${item.estate_offer_type.id}&price_domain_id=&is_simple=true`"
           class="d-flex align-center"
-          style="column-gap: 0.4rem"
+          style="column-gap: 0.4rem; text-decoration: none;"
         >
           <v-icon style="color: #000433">mdi-arrow-left</v-icon>
           <h5 style="font-weight: 300; color: #123f65">
