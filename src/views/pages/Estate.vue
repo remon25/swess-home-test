@@ -1190,14 +1190,14 @@ p.estate-details-title {
   display: flex;
   justify-content:center;
   align-items:center ;
-  column-gap: 2rem;
+  column-gap: 1rem;
   background-color: #0f4c81;
-  padding: 0 15px;
+  padding: 0 10px;
   z-index: 5;
 }
 .estate-fixed-call > div {
   flex: 1;
-  height: 70%;
+  height: 75%;
   display: flex;
   justify-content: center;
   align-items: center;
