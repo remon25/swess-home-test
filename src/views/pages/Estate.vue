@@ -1208,7 +1208,7 @@ p.estate-details-title {
 
 .estate-fixed-call > div button,.estate-fixed-call > div i{
   color: #262637 !important;
-  font-weight: 600;
+  font-weight: 400;
   text-decoration: none;
 }
 @media screen and (max-width: 960px) {
