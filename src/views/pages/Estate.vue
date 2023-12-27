@@ -839,6 +839,22 @@
           </div>
         </div>
       </div>
+      <div class="estate-fixed-call">
+        <div class="call-whatsap">
+          <a
+            :href="'https://wa.me/' + item.office.mobile"
+            style="text-decoration: none"
+            ><button>
+              <v-icon>mdi-whatsapp</v-icon> {{ $t("whatsapp") }}
+            </button></a
+          >
+        </div>
+        <div class="call-phone">
+          <a :href="'tel:' + item.office.mobile" style="text-decoration: none"
+            ><button><v-icon>mdi-phone</v-icon> {{ $t("call") }}</button></a
+          >
+        </div>
+      </div>
     </div>
   </div>
 </template>
@@ -967,7 +983,9 @@ export default {
       }
     },
     scrollToMap() {
-      document.getElementById("estate-map").scrollIntoView({ behavior: "smooth"});
+      document
+        .getElementById("estate-map")
+        .scrollIntoView({ behavior: "smooth" });
     },
     goBack() {
       if (this.$route.matched.length > 1) {
@@ -1161,6 +1179,37 @@ p.estate-details-title {
   font-weight: 600;
   text-decoration: none;
   border-radius: 15px;
+}
+.estate-fixed-call{
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  height: 70px;
+  display: flex;
+  justify-content:center;
+  align-items:center ;
+  column-gap: 2rem;
+  background-color: #0f4c81;
+  padding: 0 15px;
+  z-index: 5;
+}
+.estate-fixed-call > div {
+  flex: 1;
+  height: 70%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #fff;
+  color: #262637 !important;
+  border-radius: 8px;
+}
+
+.estate-fixed-call > div button,.estate-fixed-call > div i{
+  color: #262637 !important;
+  font-weight: 600;
+  text-decoration: none;
 }
 @media screen and (max-width: 960px) {
   .img {
