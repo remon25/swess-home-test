@@ -112,19 +112,19 @@
       height="100"
       class="d-bg-light navbar fixed d-md-block d-lg-none header-mobile"
     >
-      <v-toolbar-items>
+      <v-toolbar-items class="nav-mobile-container">
         <v-row class="toggler-container">
           <v-app-bar-nav-icon
             class="d-inline d-lg-none mx-5 my-10 toggler"
             @click.stop="sidebar = !sidebar"
             aria-label="menu button"
-            style="width: auto;"
+            style="width: auto;color: #000000;"
           >
           </v-app-bar-nav-icon>
         </v-row>
       </v-toolbar-items>
       <div class="d-flex flex-column-reverse align-center">
-        <v-toolbar-title style="font-size: 14px; line-height: 1">
+        <v-toolbar-title style="font-size: 10px; line-height: 1">
           <router-link
             to="/"
             style="cursor: pointer"
@@ -142,7 +142,7 @@
             class="img-logo"
             :src="appLogo"
             alt="Logo image"
-            style="height: 35px; width: 35px"
+            style="height: 32px; width: 30.08px; padding-top: 0;"
           />
         </router-link>
       </div>
@@ -194,7 +194,7 @@
             depressed
             style="background-color: transparent; height: auto;min-width: auto;padding: 0"
           >
-            <img width="25px" src="/icons/login-account.svg" alt="login" />
+            <img width="20px" src="/icons/login-account.svg" alt="login" />
           </v-btn>
         </v-list-item>
       </div>
@@ -395,10 +395,10 @@ header.header-mobile > div.v-toolbar__content {
     position: static !important;
     top: 0;
     z-index: 10;
-    height: 70px !important;
+    height: 50px !important;
   }
   header > div.v-toolbar__content {
-    height: 70px !important;
+    height: 50px !important;
   }
 
   button.toggler.my-10 {
@@ -408,9 +408,17 @@ header.header-mobile > div.v-toolbar__content {
     margin: 0 !important;
     align-items: center;
   }
-  a.logo-header.h6 {
-    font-size: 12px !important;
-    line-height: 1 !important;
+  .toggler-container .v-btn--icon.v-size--default .v-icon{
+    font-size: 20px !important;
+    height: auto !important;
+    width: auto !important;
   }
+  a.logo-header.h6 {
+    font-size: 10px !important;
+    line-height: 1 !important;
+    margin-top: 0 !important;
+    padding: 0 !important;
+  }
+
 }
 </style>
