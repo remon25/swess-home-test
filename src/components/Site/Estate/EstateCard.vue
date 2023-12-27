@@ -23,7 +23,7 @@
                 eager
               >
                 <router-link
-                target="_blank"
+                  target="_blank"
                   :to="'/estate/' + id"
                   style="text-decoration: none"
                 >

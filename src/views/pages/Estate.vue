@@ -546,17 +546,16 @@
         class="go-back d-flex align-center justify-space-between"
         style="direction: ltr"
       >
-        <div
+        <router-link
+          :to="`/estates?location_id=${item.location_id}&estate_type_id=${item.estate_type.id}&estate_offer_type_id=${item.estate_offer_type.id}&price_domain_id=&is_simple=true`"
           class="d-flex align-center"
           style="column-gap: 0.4rem"
-          @click="goBack"
-          :disabled="isBackDisabled"
         >
           <v-icon style="color: #000433">mdi-arrow-left</v-icon>
           <h5 style="font-weight: 300; color: #123f65">
             {{ $t("BackToSearchResults") }}
           </h5>
-        </div>
+        </router-link>
         <div class="share-save d-flex align-center justify-space-between">
           <div @click="openShare" class="mx-2">
             <v-icon class="d-text-primary">mdi-share-variant-outline</v-icon>
@@ -936,10 +935,6 @@ export default {
       }
       return images;
     },
-    isBackDisabled() {
-      // Disable the button if there is no step to go back
-      return this.$route.matched.length <= 1;
-    },
   },
   methods: {
     updateMetaImage() {
@@ -986,14 +981,6 @@ export default {
       document
         .getElementById("estate-map")
         .scrollIntoView({ behavior: "smooth" });
-    },
-    goBack() {
-      if (this.$route.matched.length > 1) {
-        this.$router.go(-1);
-      } else {
-        // Handle the case where there is no previous step in history
-        console.warn("No previous step in history");
-      }
     },
   },
   mounted() {
@@ -1180,7 +1167,7 @@ p.estate-details-title {
   text-decoration: none;
   border-radius: 15px;
 }
-.estate-fixed-call{
+.estate-fixed-call {
   position: fixed;
   left: 0;
   right: 0;
@@ -1188,8 +1175,8 @@ p.estate-details-title {
   width: 100%;
   height: 60px;
   display: flex;
-  justify-content:center;
-  align-items:center ;
+  justify-content: center;
+  align-items: center;
   column-gap: 1rem;
   background-color: #0f4c81;
   padding: 0 10px;
@@ -1206,7 +1193,8 @@ p.estate-details-title {
   border-radius: 8px;
 }
 
-.estate-fixed-call > div button,.estate-fixed-call > div i{
+.estate-fixed-call > div button,
+.estate-fixed-call > div i {
   color: #262637 !important;
   font-weight: 400;
   text-decoration: none;
