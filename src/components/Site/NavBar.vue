@@ -392,7 +392,7 @@ header.header-mobile > div.v-toolbar__content {
 }
 @media screen and (max-width: 800px) {
   header.fixed {
-    position: static !important;
+    position: fixed !important;
     top: 0;
     z-index: 10;
     height: 50px !important;
