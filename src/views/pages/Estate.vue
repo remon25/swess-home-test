@@ -747,17 +747,6 @@
                 }}</span>
               </p>
             </v-col>
-            <v-col class="estate-feature" cols="12" v-if="item.estate_type"
-              ><v-icon size="small">mdi-checkbox-blank-circle</v-icon>
-              <p>
-                {{ $t("EstateType") + " : " }}
-                <span>{{
-                  $i18n.locale == "ar"
-                    ? item.estate_type.name_ar.split("|")[1]
-                    : item.estate_type.name_en.split("|")[1]
-                }}</span>
-              </p>
-            </v-col>
             <v-col class="estate-feature" cols="12" v-if="item.floor"
               ><v-icon size="small">mdi-checkbox-blank-circle</v-icon>
               <p>
