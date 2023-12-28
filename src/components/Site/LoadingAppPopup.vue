@@ -1,6 +1,6 @@
 <template>
   <div id="Popup" class="div-popup">
-    <div id="AppPopup" class="App-Popup-dis">
+    <div id="AppPopup" class="App-Popup">
       <button
         class="close-icon"
         :class="$i18n.locale == 'ar' ? 'right-icon' : 'left-icon'"
@@ -30,14 +30,14 @@ export default {
     closePopup() {
       document.getElementById("Popup").style.display = "none";
     },
-    showPopup() {
-      window.addEventListener("load", function () {
-        var Popup = document.getElementById("AppPopup");
+    // showPopup() {
+    //   window.addEventListener("load", function () {
+    //     var Popup = document.getElementById("AppPopup");
 
-        if (Popup) Popup.classList.remove("App-Popup-dis");
-        if (Popup) Popup.classList.add("App-Popup");
-      });
-    },
+    //     if (Popup) Popup.classList.remove("App-Popup-dis");
+    //     if (Popup) Popup.classList.add("App-Popup");
+    //   });
+    // },
     getDownloadLink() {
       // Check if the user is on Android or iOS and return the appropriate download link
       const isAndroid = navigator.userAgent.toLowerCase().includes("android");
@@ -54,7 +54,7 @@ export default {
     },
   },
   beforeMount() {
-    this.showPopup();
+    // this.showPopup();
   },
 };
 </script>
