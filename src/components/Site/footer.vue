@@ -106,7 +106,7 @@
     </v-container>
 
 
-    <div style="height: 30px; display: block" class="d-bg-dark"></div>
+    <div style="height: 30px; display: block; color: #fff" class="d-bg-dark text-center">{{ $t("copyright") }}</div>
   </footer>
 </template>
 <script>
