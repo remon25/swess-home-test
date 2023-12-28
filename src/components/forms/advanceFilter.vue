@@ -382,7 +382,7 @@ export default {
     },
     handleScroll() {
       const scrollY = window.scrollY || window.pageYOffset;
-      if (document.getElementById("AppPopup").offsetHeight > 0) {
+      if (document.getElementById("AppPopup")) {
         this.isAdvanceFilterMdFixed = scrollY >= 161;
       } else {
         this.isAdvanceFilterMdFixed = scrollY >= 90;

@@ -48,7 +48,8 @@ const routes = [
     // route level code-splitting
     // this generates a separate chunk (about.[hash].js) for this route
     // which is lazy-loaded when the route is visited.
-    component: () => import(/* webpackChunkName: "about" */ '../views/pages/Estate.vue')
+    component: () => import(/* webpackChunkName: "about" */ '../views/pages/Estate.vue'),
+    
   },
   {
     path: '/login',
@@ -211,6 +212,24 @@ const routes = [
     // this generates a separate chunk (about.[hash].js) for this route
     // which is lazy-loaded when the route is visited.
 component: () => import(/* webpackChunkName: "about" */ '../views/pages/AdvancedSearch.vue')
+  },
+  {
+    path: '/estate-gallery/:id',
+    name: 'estate-gallery',
+    beforeEnter: async (to, from, next) => {
+      const Photoswipe = (await import('vue-pswipe')).Photoswipe;
+      const moment = await import('moment');
+      const metaInfo = (await import('vue-meta')).metaInfo;
+
+      Vue.prototype.$moment = moment;
+      Vue.component('Photoswipe', Photoswipe);
+      Vue.component('metaInfo', metaInfo);
+      next();
+    },
+    // route level code-splitting
+    // this generates a separate chunk (about.[hash].js) for this route
+    // which is lazy-loaded when the route is visited.
+    component: () => import(/* webpackChunkName: "about" */ '../views/pages/EstateGallery.vue')
   },
   {
     path: '*',

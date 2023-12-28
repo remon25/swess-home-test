@@ -5,10 +5,10 @@
       <img src="/icons/icons8-whatsapp.svg" class="my-float" />
     </a> -->
     <v-main class="height-100per">
-      <loading-app-popup></loading-app-popup>
+      <loading-app-popup v-if="showPopup"></loading-app-popup>
       <Navbar></Navbar>
       <router-view :style="routerViewStyle" />
-      <footerComponent></footerComponent>
+      <footerComponent v-if="showFooter"></footerComponent>
     </v-main>
   </v-app>
 </template>
@@ -22,6 +22,8 @@ export default {
   data() {
     return {
       routerViewStyle: {},
+      showPopup: false,
+      showFooter: true,
     };
   },
   created() {
@@ -35,6 +37,13 @@ export default {
     // Remove the event listener when the component is destroyed
     window.removeEventListener("resize", this.setRouterViewStyle);
   },
+  watch: {
+    // Watch for route changes
+    $route(to, from) {
+      // Update visibility based on the current route
+      this.updateVisibility();
+    },
+  },
   methods: {
     setRouterViewStyle() {
       // Set the style based on the window width
@@ -42,6 +51,15 @@ export default {
         marginTop: window.innerWidth <= 800 ? "20px" : "110px",
       };
     },
+    updateVisibility() {
+      const currentRoute = this.$route.name; // Adjust as needed based on your route configuration
+      this.showPopup = currentRoute == "home";
+      this.showFooter = currentRoute !== "estate-gallery";
+    },
+  },
+  created() {
+    // Set initial visibility based on the current route when the component is created
+    this.updateVisibility();
   },
 };
 
