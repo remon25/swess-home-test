@@ -541,13 +541,13 @@
         ></reportEstate>
       </v-dialog>
     </div>
-    <div class="estate-small-screen">
+    <div class="estate-small-screen">      
       <div
         class="go-back d-flex align-center justify-space-between"
         style="direction: ltr"
       >
-        <button
-          @click="$router.go(-1)"
+        <router-link
+          :to="`/estates?location_id=${item.location_id}&estate_type_id=${item.estate_type.id}&estate_offer_type_id=${item.estate_offer_type.id}&price_domain_id=&is_simple=true`"
           class="d-flex align-center"
           style="column-gap: 0.4rem; text-decoration: none"
         >
@@ -555,7 +555,7 @@
           <h5 style="font-weight: 300; color: #123f65">
             {{ $t("BackToSearchResults") }}
           </h5>
-        </button>
+        </router-link>
         <div class="share-save d-flex align-center justify-space-between">
           <div @click="openShare" class="mx-2">
             <v-icon class="d-text-primary">mdi-share-variant-outline</v-icon>
@@ -577,28 +577,28 @@
       <div class="d-p-relative">
         <router-link :to="`/estate-gallery/${item.id}`">
           <v-carousel
-            hide-delimiters
-            show-arrows="true"
-            style="height: 400px"
-            @change="currentindex = estateImages[$event].index"
+          hide-delimiters
+          show-arrows="true"
+          style="height: 400px"
+          @change="currentindex = estateImages[$event].index"
+        >
+          <!-- Dynamically populate the carousel with images from estate-large-screen -->
+          <v-carousel-item
+            v-for="(image, index) in estateImages"
+            :key="index"
+            eager
           >
-            <!-- Dynamically populate the carousel with images from estate-large-screen -->
-            <v-carousel-item
-              v-for="(image, index) in estateImages"
-              :key="index"
+            <v-img
+              :src="`${img_baseUrl}${image.url}`"
+              v-pswp="img_baseUrl + estateImages[0].url"
+              cover
+              style="width: 100%; height: calc(100svh - 100px)"
               eager
-            >
-              <v-img
-                :src="`${img_baseUrl}${image.url}`"
-                v-pswp="img_baseUrl + estateImages[0].url"
-                cover
-                style="width: 100%; height: calc(100svh - 100px)"
-                eager
-              />
-            </v-carousel-item>
-          </v-carousel>
+            />
+          </v-carousel-item>
+        </v-carousel>
         </router-link>
-
+       
         <div class="index-img">
           <p class="body1 d-text-light px-4">
             {{ currentindex + "/" + estateImages.length }}
@@ -859,6 +859,7 @@
       </div>
     </div>
     <router-view></router-view>
+
   </div>
 </template>
 
@@ -1014,6 +1015,8 @@ export default {
 * {
   font-family: "Droid", "Effra" !important;
 }
+
+
 
 .save {
   position: absolute;
