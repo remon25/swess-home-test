@@ -1,6 +1,7 @@
 <template>
   <div class="estate-main-class">
-    <div class="estate-small-screen">
+    <div v-if="!isLoad">
+      <div class="estate-small-screen">
       <div
         class="go-back d-flex align-center justify-space-between"
         :style="{
@@ -73,6 +74,25 @@
           >
         </div>
       </div>
+    </div>
+    </div>
+    <div v-else>
+      <v-container>
+          <v-row>
+            <v-col cols="12" md="12" lg="4">
+              <v-skeleton-loader type="image"></v-skeleton-loader>
+            </v-col>
+            
+            <v-col cols="12" md="12" lg="8">
+              <v-skeleton-loader type="image"></v-skeleton-loader>
+            </v-col>
+
+            <v-col cols="12" md="12" lg="8">
+              <v-skeleton-loader type="image"></v-skeleton-loader>
+            </v-col>
+
+          </v-row>
+        </v-container>
     </div>
   </div>
 </template>
