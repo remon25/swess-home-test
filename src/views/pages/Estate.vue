@@ -611,11 +611,26 @@
           <router-link :to="`/estate-gallery/${item.id}`">
             <v-img
               :src="`${img_baseUrl}${image.url}`"
+              lazy-src="/images/white.jpg"
               v-pswp="img_baseUrl + estateImages[0].url"
               cover
-              style="width: 100%; height: calc(100svh - 100px)"
+              style="width: 100%; height: 400px;"
               eager
-            />
+              
+            >
+            <template v-slot:placeholder>
+                      <v-row
+                        class="fill-height ma-0"
+                        align="center"
+                        justify="center"
+                      >
+                        <v-progress-circular
+                          indeterminate
+                          color="primary"
+                        ></v-progress-circular>
+                      </v-row>
+                    </template>
+          </v-img>
           </router-link>
           </v-carousel-item>
         </v-carousel>
@@ -826,7 +841,7 @@
               <p style="font-weight: bold; text-align: center">
                 {{ item.office.name }}
               </p>
-              <p style="font-size: 13.5px">
+              <p style="font-size: 13.5px; text-align: center">
                 {{ item.office.location.name }} -
                 {{ item.office.location.locations[0].name }}
               </p>
