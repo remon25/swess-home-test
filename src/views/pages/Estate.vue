@@ -542,7 +542,6 @@
       </v-dialog>
     </div>
     <div class="estate-small-screen">
-  
       <div v-if="isLoad">
         <v-container class="">
           <v-row>
@@ -564,325 +563,326 @@
       </div>
       <div v-else>
         <div
-        class="go-back d-flex align-center justify-space-between"
-        style="direction: ltr"
-      >
-        <button
-        @click="$router.go(-1)"
-          class="d-flex align-center"
-          style="column-gap: 0.4rem; text-decoration: none"
+          class="go-back d-flex align-center justify-space-between"
+          style="direction: ltr"
         >
-          <v-icon style="color: #000433">mdi-arrow-left</v-icon>
-          <h5 style="font-weight: 300; color: #123f65">
-            {{ $t("BackToSearchResults") }}
-          </h5>
-        </button>
-        <div class="share-save d-flex align-center justify-space-between">
-          <div @click="openShare" class="mx-2">
-            <v-icon class="d-text-primary">mdi-share-variant-outline</v-icon>
-          </div>
-          <div
-            class="line-separator"
-            style="width: 1px; height: 30px; background-color: #ccc"
-          ></div>
-          <div class="mx-2" @click="save(item.id)" style="cursor: pointer">
-            <v-icon v-if="is_saved" width="25.19" class="d-text-primary"
-              >mdi-bookmark</v-icon
-            >
-            <v-icon v-else width="25.19" class="d-text-primary"
-              >mdi-bookmark-outline</v-icon
-            >
+          <router-link
+            :to="`/estates?location_id=${item.location_id}&estate_type_id=${item.estate_type.id}&estate_offer_type_id=${item.estate_offer_type.id}&price_domain_id=&is_simple=true`"
+            class="d-flex align-center"
+            style="column-gap: 0.4rem; text-decoration: none"
+          >
+            <v-icon style="color: #000433">mdi-arrow-left</v-icon>
+            <h5 style="font-weight: 300; color: #123f65">
+              {{ $t("BackToSearchResults") }}
+            </h5>
+          </router-link>
+          <div class="share-save d-flex align-center justify-space-between">
+            <div @click="openShare" class="mx-2">
+              <v-icon class="d-text-primary">mdi-share-variant-outline</v-icon>
+            </div>
+            <div
+              class="line-separator"
+              style="width: 1px; height: 30px; background-color: #ccc"
+            ></div>
+            <div class="mx-2" @click="save(item.id)" style="cursor: pointer">
+              <v-icon v-if="is_saved" width="25.19" class="d-text-primary"
+                >mdi-bookmark</v-icon
+              >
+              <v-icon v-else width="25.19" class="d-text-primary"
+                >mdi-bookmark-outline</v-icon
+              >
+            </div>
           </div>
         </div>
-      </div>
-      <div class="d-p-relative">
+        <div class="d-p-relative">
           <v-carousel
-          hide-delimiters
-          :show-arrows="true"
-          style="height: 400px"
-          @change="currentindex = estateImages[$event].index"
-        >
-          <!-- Dynamically populate the carousel with images from estate-large-screen -->
-          <v-carousel-item
-            v-for="(image, index) in estateImages"
-            :key="index"
-            eager
+            hide-delimiters
+            :show-arrows="true"
+            style="height: 400px"
+            @change="currentindex = estateImages[$event].index"
           >
-          <router-link :to="`/estate-gallery/${item.id}`">
-            <v-img
-              :src="`${img_baseUrl}${image.url}`"
-              lazy-src="/images/white.jpg"
-              v-pswp="img_baseUrl + estateImages[0].url"
-              cover
-              style="width: 100%; height: 400px;"
+            <!-- Dynamically populate the carousel with images from estate-large-screen -->
+            <v-carousel-item
+              v-for="(image, index) in estateImages"
+              :key="index"
               eager
             >
-            <template v-slot:placeholder>
-                      <v-row
-                        class="fill-height ma-0"
-                        align="center"
-                        justify="center"
-                      >
-                        <v-progress-circular
-                          indeterminate
-                          color="primary"
-                        ></v-progress-circular>
-                      </v-row>
-                    </template>
-          </v-img>
-          </router-link>
-          </v-carousel-item>
-        </v-carousel>
-       
-        <div class="index-img">
-          <p class="body1 d-text-light px-4">
-            {{ currentindex + "/" + estateImages.length }}
-            <v-icon class="d-text-light" small
-              >mdi-image-multiple-outline</v-icon
-            >
-          </p>
-        </div>
-      </div>
-      <div class="all-estate-inf">
-        <div class="main-inf d-flex">
-          <div class="info-one">
-            <div class="estate-address d-flex align-center">
-              <div class="estate-address-text d-flex align-center">
-                <div class="address-one">
-                  <p style="margin-bottom: 0">
-                    {{
-                      item.location.name + "," + item.location.locations[0].name
-                    }}
-                  </p>
-                </div>
-              </div>
-              <div class="d-flex estate-address-map" @click="scrollToMap">
-                <v-icon>mdi-map-marker-outline</v-icon>
-                <h3 style="font-weight: 400 !important">{{ $t("map") }}</h3>
-              </div>
-            </div>
-
-            <div class="date-price-info">
-              <div>
-                <div class="price-info">
-                  <p style="text-transform: capitalize; margin-bottom: 0">
-                    {{ $t("price") }}
-                  </p>
-                  <p class="h5" style="color: #262637">
-                    {{
-                      item.price.replace(/(\d)(?=(\d{3})+(?!\d))/g, "$1,") +
-                      ($i18n.locale == "ar" ? " ل.س" : " SYP")
-                    }}
-                  </p>
-                </div>
-                <div class="date-info">
-                  <p class="subtitle0 pt-1">
-                    <v-icon
-                      class="d-text-primary"
-                      style="color: #424448 !important"
-                      >mdi-calendar-month</v-icon
+              <router-link :to="`/estate-gallery/${item.id}`">
+                <v-img
+                  :src="`${img_baseUrl}${image.url}`"
+                  lazy-src="/images/white.jpg"
+                  v-pswp="img_baseUrl + estateImages[0].url"
+                  cover
+                  style="width: 100%; height: 400px"
+                  eager
+                >
+                  <template v-slot:placeholder>
+                    <v-row
+                      class="fill-height ma-0"
+                      align="center"
+                      justify="center"
                     >
-                    <!-- {{ formatDate(item.created_at) }} -->
-                    <span style="color: #424448">{{
-                      formatDate(item.created_at)
-                    }}</span>
-                  </p>
+                      <v-progress-circular
+                        indeterminate
+                        color="primary"
+                      ></v-progress-circular>
+                    </v-row>
+                  </template>
+                </v-img>
+              </router-link>
+            </v-carousel-item>
+          </v-carousel>
+
+          <div class="index-img">
+            <p class="body1 d-text-light px-4">
+              {{ currentindex + "/" + estateImages.length }}
+              <v-icon class="d-text-light" small
+                >mdi-image-multiple-outline</v-icon
+              >
+            </p>
+          </div>
+        </div>
+        <div class="all-estate-inf">
+          <div class="main-inf d-flex">
+            <div class="info-one">
+              <div class="estate-address d-flex align-center">
+                <div class="estate-address-text d-flex align-center">
+                  <div class="address-one">
+                    <p style="margin-bottom: 0">
+                      {{
+                        item.location.name +
+                        "," +
+                        item.location.locations[0].name
+                      }}
+                    </p>
+                  </div>
+                </div>
+                <div class="d-flex estate-address-map" @click="scrollToMap">
+                  <v-icon>mdi-map-marker-outline</v-icon>
+                  <h3 style="font-weight: 400 !important">{{ $t("map") }}</h3>
                 </div>
               </div>
-              <div>
-                <div class="info-two">
-                  <router-link :to="'/office/' + item.office.id">
-                    <img
-                      width="75px"
-                      height="75px"
-                      :src="img_baseUrl + item.office.logo"
-                      v-pswp="img_baseUrl + item.office.logo"
-                    />
-                  </router-link>
+
+              <div class="date-price-info">
+                <div>
+                  <div class="price-info">
+                    <p style="text-transform: capitalize; margin-bottom: 0">
+                      {{ $t("price") }}
+                    </p>
+                    <p class="h5" style="color: #262637">
+                      {{
+                        item.price.replace(/(\d)(?=(\d{3})+(?!\d))/g, "$1,") +
+                        ($i18n.locale == "ar" ? " ل.س" : " SYP")
+                      }}
+                    </p>
+                  </div>
+                  <div class="date-info">
+                    <p class="subtitle0 pt-1">
+                      <v-icon
+                        class="d-text-primary"
+                        style="color: #424448 !important"
+                        >mdi-calendar-month</v-icon
+                      >
+                      <!-- {{ formatDate(item.created_at) }} -->
+                      <span style="color: #424448">{{
+                        formatDate(item.created_at)
+                      }}</span>
+                    </p>
+                  </div>
+                </div>
+                <div>
+                  <div class="info-two">
+                    <router-link :to="'/office/' + item.office.id">
+                      <img
+                        width="75px"
+                        height="75px"
+                        :src="img_baseUrl + item.office.logo"
+                        v-pswp="img_baseUrl + item.office.logo"
+                      />
+                    </router-link>
+                  </div>
                 </div>
               </div>
             </div>
           </div>
-        </div>
-        <div class="estate-details">
-          <div class="estate-details-detail estate-type">
-            <p class="estate-details-title">{{ $t("EstateType") }}</p>
-            <div
-              class="estate-details-inf d-flex align-start"
-              style="column-gap: 0.35rem"
+          <div class="estate-details">
+            <div class="estate-details-detail estate-type">
+              <p class="estate-details-title">{{ $t("EstateType") }}</p>
+              <div
+                class="estate-details-inf d-flex align-start"
+                style="column-gap: 0.35rem"
+              >
+                <v-icon>mdi-home-city-outline</v-icon>
+                <p>
+                  {{
+                    $i18n.locale == "ar"
+                      ? item.estate_type.name_ar.split("|")[1]
+                      : item.estate_type.name_en.split("|")[1]
+                  }}
+                </p>
+              </div>
+            </div>
+            <div class="estate-details-detail estate-type">
+              <p class="estate-details-title">{{ $t("internalstate") }}</p>
+              <div class="estate-details-inf d-flex align-start">
+                <v-icon>mdi-bed-double-outline</v-icon>
+                <p>
+                  {{
+                    $i18n.locale == "ar"
+                      ? item.interior_status.name_ar
+                      : item.interior_status.name_en
+                  }}
+                </p>
+              </div>
+            </div>
+            <div class="estate-details-detail estate-type">
+              <p class="estate-details-title">{{ $t("Space") }}</p>
+
+              <div class="estate-details-inf d-flex align-start">
+                <v-icon class="mx-2">mdi-ruler-square</v-icon>
+                <p style="display: inline-block">
+                  {{ item.area }}
+                  {{
+                    $i18n.locale == "ar"
+                      ? item.area_unit.name_ar
+                      : item.area_unit.name_en
+                  }}
+                </p>
+              </div>
+            </div>
+            <div class="estate-details-detail estate-type">
+              <p class="estate-details-title">{{ $t("OwnershipType") }}</p>
+
+              <div class="estate-details-inf d-flex align-start">
+                <v-icon class="mx-2">mdi-domain</v-icon>
+                <p>
+                  {{
+                    $i18n.locale == "ar"
+                      ? item.ownership_type.name_ar
+                      : item.ownership_type.name_en
+                  }}
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="estate-description">
+            <div class="estate-description-features">
+              <p class="h6">{{ $t("EstateFeatures") }}</p>
+              <v-col
+                class="estate-feature"
+                cols="12"
+                v-if="item.estate_offer_type"
+                ><v-icon size="small"> mdi-checkbox-blank-circle</v-icon>
+                <p>
+                  {{ $t("OfferType") + " : " }}
+
+                  <span>{{
+                    $i18n.locale == "ar"
+                      ? item.estate_offer_type.name_ar
+                      : item.estate_offer_type.name_en
+                  }}</span>
+                </p>
+              </v-col>
+              <v-col class="estate-feature" cols="12" v-if="item.floor"
+                ><v-icon size="small">mdi-checkbox-blank-circle</v-icon>
+                <p>
+                  {{ $t("floor") + " : " }} <span>{{ item.floor }}</span>
+                </p>
+              </v-col>
+            </div>
+            <p class="estate-description-title">{{ $t("Details") }}</p>
+            <p
+              class="estate-description-text"
+              style="direction: rtl; text-align: justify"
             >
-              <v-icon>mdi-home-city-outline</v-icon>
-              <p>
-                {{
-                  $i18n.locale == "ar"
-                    ? item.estate_type.name_ar.split("|")[1]
-                    : item.estate_type.name_en.split("|")[1]
-                }}
-              </p>
-            </div>
+              {{ item.description }}.
+            </p>
           </div>
-          <div class="estate-details-detail estate-type">
-            <p class="estate-details-title">{{ $t("internalstate") }}</p>
-            <div class="estate-details-inf d-flex align-start">
-              <v-icon>mdi-bed-double-outline</v-icon>
-              <p>
-                {{
-                  $i18n.locale == "ar"
-                    ? item.interior_status.name_ar
-                    : item.interior_status.name_en
-                }}
-              </p>
-            </div>
+          <div id="estate-map" style="width: 100%">
+            <p class="estate-map-title" style="padding-top: 19px">
+              {{ $t("Address") }}
+            </p>
+            <v-row v-if="item.nearby_places" style="gap: 1.2rem; margin: 0">
+              <div v-for="(place, i) in item.nearby_places.split('|')" :key="i">
+                <div class="estate-map-nearpy d-text-light pa-3">
+                  {{ place }}
+                </div>
+              </div>
+            </v-row>
+            <iframe
+              :src="
+                'https://maps.google.com/maps?q=' +
+                item.location.locations[0].latitude +
+                ',' +
+                item.location.locations[0].longitude +
+                '&hl=es&z=14&amp;output=embed'
+              "
+              width="100%"
+              height="325"
+              style="border: 0; margin-top: 20px"
+              allowfullscreen=""
+              loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade"
+            ></iframe>
           </div>
-          <div class="estate-details-detail estate-type">
-            <p class="estate-details-title">{{ $t("Space") }}</p>
+          <div class="estate-office">
+            <div class="estate-office-container">
+              <h3>{{ $t("real_estate_office") }}</h3>
 
-            <div class="estate-details-inf d-flex align-start">
-              <v-icon class="mx-2">mdi-ruler-square</v-icon>
-              <p style="display: inline-block">
-                {{ item.area }}
-                {{
-                  $i18n.locale == "ar"
-                    ? item.area_unit.name_ar
-                    : item.area_unit.name_en
-                }}
-              </p>
-            </div>
-          </div>
-          <div class="estate-details-detail estate-type">
-            <p class="estate-details-title">{{ $t("OwnershipType") }}</p>
+              <router-link :to="'/office/' + item.office.id">
+                <img
+                  width="115px"
+                  height="115px"
+                  :src="img_baseUrl + item.office.logo"
+                  v-pswp="img_baseUrl + item.office.logo"
+                />
+              </router-link>
+              <div class="estate-office-details">
+                <p style="font-weight: bold; text-align: center">
+                  {{ item.office.name }}
+                </p>
+                <p style="font-size: 13.5px; text-align: center">
+                  {{ item.office.location.name }} -
+                  {{ item.office.location.locations[0].name }}
+                </p>
+              </div>
+              <div class="estate-office-contact">
+                <a
+                  :href="'tel:' + item.office.mobile"
+                  style="text-decoration: none"
+                >
+                  <v-icon>mdi-phone</v-icon>
+                  {{ $t("call") }}
+                </a>
 
-            <div class="estate-details-inf d-flex align-start">
-              <v-icon class="mx-2">mdi-domain</v-icon>
-              <p>
-                {{
-                  $i18n.locale == "ar"
-                    ? item.ownership_type.name_ar
-                    : item.ownership_type.name_en
-                }}
-              </p>
-            </div>
-          </div>
-        </div>
-        <div class="estate-description">
-          <div class="estate-description-features">
-            <p class="h6">{{ $t("EstateFeatures") }}</p>
-            <v-col
-              class="estate-feature"
-              cols="12"
-              v-if="item.estate_offer_type"
-              ><v-icon size="small"> mdi-checkbox-blank-circle</v-icon>
-              <p>
-                {{ $t("OfferType") + " : " }}
-
-                <span>{{
-                  $i18n.locale == "ar"
-                    ? item.estate_offer_type.name_ar
-                    : item.estate_offer_type.name_en
-                }}</span>
-              </p>
-            </v-col>
-            <v-col class="estate-feature" cols="12" v-if="item.floor"
-              ><v-icon size="small">mdi-checkbox-blank-circle</v-icon>
-              <p>
-                {{ $t("floor") + " : " }} <span>{{ item.floor }}</span>
-              </p>
-            </v-col>
-          </div>
-          <p class="estate-description-title">{{ $t("Details") }}</p>
-          <p
-            class="estate-description-text"
-            style="direction: rtl; text-align: justify"
-          >
-            {{ item.description }}.
-          </p>
-        </div>
-        <div id="estate-map" style="width: 100%">
-          <p class="estate-map-title" style="padding-top: 19px">
-            {{ $t("Address") }}
-          </p>
-          <v-row v-if="item.nearby_places" style="gap: 1.2rem; margin: 0">
-            <div v-for="(place, i) in item.nearby_places.split('|')" :key="i">
-              <div class="estate-map-nearpy d-text-light pa-3">
-                {{ place }}
+                <a
+                  :href="'https://wa.me/' + item.office.mobile"
+                  style="text-decoration: none"
+                >
+                  <v-icon>mdi-whatsapp</v-icon>
+                  {{ $t("whatsapp") }}
+                </a>
               </div>
             </div>
-          </v-row>
-          <iframe
-            :src="
-              'https://maps.google.com/maps?q=' +
-              item.location.locations[0].latitude +
-              ',' +
-              item.location.locations[0].longitude +
-              '&hl=es&z=14&amp;output=embed'
-            "
-            width="100%"
-            height="325"
-            style="border: 0; margin-top: 20px"
-            allowfullscreen=""
-            loading="lazy"
-            referrerpolicy="no-referrer-when-downgrade"
-          ></iframe>
+          </div>
         </div>
-        <div class="estate-office">
-          <div class="estate-office-container">
-            <h3>{{ $t("real_estate_office") }}</h3>
-
-            <router-link :to="'/office/' + item.office.id">
-              <img
-                width="115px"
-                height="115px"
-                :src="img_baseUrl + item.office.logo"
-                v-pswp="img_baseUrl + item.office.logo"
-              />
-            </router-link>
-            <div class="estate-office-details">
-              <p style="font-weight: bold; text-align: center">
-                {{ item.office.name }}
-              </p>
-              <p style="font-size: 13.5px; text-align: center">
-                {{ item.office.location.name }} -
-                {{ item.office.location.locations[0].name }}
-              </p>
-            </div>
-            <div class="estate-office-contact">
-              <a
-                :href="'tel:' + item.office.mobile"
-                style="text-decoration: none"
-              >
-                <v-icon>mdi-phone</v-icon>
-                {{ $t("call") }}
-              </a>
-
-              <a
-                :href="'https://wa.me/' + item.office.mobile"
-                style="text-decoration: none"
-              >
-                <v-icon>mdi-whatsapp</v-icon>
-                {{ $t("whatsapp") }}
-              </a>
-            </div>
+        <div class="estate-fixed-call">
+          <div class="call-whatsap">
+            <a
+              :href="'https://wa.me/' + item.office.mobile"
+              style="text-decoration: none"
+              ><button>
+                <v-icon>mdi-whatsapp</v-icon> {{ $t("whatsapp") }}
+              </button></a
+            >
+          </div>
+          <div class="call-phone">
+            <a :href="'tel:' + item.office.mobile" style="text-decoration: none"
+              ><button><v-icon>mdi-phone</v-icon> {{ $t("call") }}</button></a
+            >
           </div>
         </div>
       </div>
-      <div class="estate-fixed-call">
-        <div class="call-whatsap">
-          <a
-            :href="'https://wa.me/' + item.office.mobile"
-            style="text-decoration: none"
-            ><button>
-              <v-icon>mdi-whatsapp</v-icon> {{ $t("whatsapp") }}
-            </button></a
-          >
-        </div>
-        <div class="call-phone">
-          <a :href="'tel:' + item.office.mobile" style="text-decoration: none"
-            ><button><v-icon>mdi-phone</v-icon> {{ $t("call") }}</button></a
-          >
-        </div>
-      </div>
-      </div>
-      
     </div>
   </div>
 </template>
@@ -1039,8 +1039,6 @@ export default {
 * {
   font-family: "Droid", "Effra" !important;
 }
-
-
 
 .save {
   position: absolute;
