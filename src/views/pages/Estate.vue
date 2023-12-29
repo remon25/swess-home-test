@@ -567,8 +567,8 @@
         class="go-back d-flex align-center justify-space-between"
         style="direction: ltr"
       >
-        <router-link
-          :to="`/estates?location_id=${item.location_id}&estate_type_id=${item.estate_type.id}&estate_offer_type_id=${item.estate_offer_type.id}&price_domain_id=&is_simple=true`"
+        <button
+        @click="$router.go(-1)"
           class="d-flex align-center"
           style="column-gap: 0.4rem; text-decoration: none"
         >
@@ -576,7 +576,7 @@
           <h5 style="font-weight: 300; color: #123f65">
             {{ $t("BackToSearchResults") }}
           </h5>
-        </router-link>
+        </button>
         <div class="share-save d-flex align-center justify-space-between">
           <div @click="openShare" class="mx-2">
             <v-icon class="d-text-primary">mdi-share-variant-outline</v-icon>
