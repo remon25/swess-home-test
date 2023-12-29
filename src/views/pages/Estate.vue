@@ -616,7 +616,6 @@
               cover
               style="width: 100%; height: 400px;"
               eager
-              
             >
             <template v-slot:placeholder>
                       <v-row
