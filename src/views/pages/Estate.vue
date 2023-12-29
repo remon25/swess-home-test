@@ -826,7 +826,7 @@
               <p style="font-weight: bold; text-align: center">
                 {{ item.office.name }}
               </p>
-              <p>
+              <p style="font-size: 13.5px">
                 {{ item.office.location.name }} -
                 {{ item.office.location.locations[0].name }}
               </p>

@@ -11,7 +11,7 @@
                 : item[0].office.contract_id == 2
                   ? 'contract-selver'
                   : 'contract-free'
-          ">
+          " >
 
             <Photoswipe>
               <img width="145px" height="145px" :src="img_baseUrl + item[0].office.logo"
@@ -20,7 +20,7 @@
 
           </v-card>
         </v-col>
-        <v-col cols="12" md="12" lg="9">
+        <v-col cols="12" md="12" lg="9" >
           <v-col cols="12">
             <p class="subtitle1 d-text-primary" style="padding-top: 19px">
               {{ item[0].office.name }}
@@ -85,9 +85,9 @@
                 referrerpolicy="no-referrer-when-downgrade"></iframe>
             </div>
           </v-col>
-          <v-col cols="12">
+          <v-col cols="12" style="padding: 5px;">
             <p class="subtitle1 d-text-primary">العقارات</p>
-            <v-col cols="12">
+            <v-col cols="12" >
               <div v-if="!(visibleItem.length == 0)">
                 <EstateCard class="my-10" v-for="(estate, i) in visibleItem" :key="i" :area="estate.area"
                   :area_unit="estate.area_unit" :ownership_type="estate.ownership_type"
