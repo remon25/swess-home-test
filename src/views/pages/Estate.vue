@@ -456,7 +456,7 @@
                   ></iframe>
                 </div>
 
-                <p
+                <!-- <p
                   v-if="!(visibleItem.length == 0)"
                   class="h4 d-text-primary mt-10"
                 >
@@ -493,7 +493,7 @@
                     next-icon="mdi-arrow-right"
                   >
                   </v-pagination>
-                </div>
+                </div> -->
               </div>
             </v-col>
           </v-row>
@@ -549,9 +549,6 @@
             <v-col cols="12" md="12" lg="4">
               <v-skeleton-loader type="image"></v-skeleton-loader>
             </v-col>
-            <v-col cols="12" md="12" lg="8">
-              <v-skeleton-loader type="image"></v-skeleton-loader>
-            </v-col>
             <v-col cols="12" md="12" lg="4">
               <v-skeleton-loader
                 type="list-item-avatar, article, actions"
@@ -599,10 +596,9 @@
         </div>
       </div>
       <div class="d-p-relative">
-        <router-link :to="`/estate-gallery/${item.id}`">
           <v-carousel
           hide-delimiters
-          show-arrows="true"
+          :show-arrows="true"
           style="height: 400px"
           @change="currentindex = estateImages[$event].index"
         >
@@ -612,6 +608,7 @@
             :key="index"
             eager
           >
+          <router-link :to="`/estate-gallery/${item.id}`">
             <v-img
               :src="`${img_baseUrl}${image.url}`"
               v-pswp="img_baseUrl + estateImages[0].url"
@@ -619,9 +616,9 @@
               style="width: 100%; height: calc(100svh - 100px)"
               eager
             />
+          </router-link>
           </v-carousel-item>
         </v-carousel>
-        </router-link>
        
         <div class="index-img">
           <p class="body1 d-text-light px-4">
@@ -930,14 +927,13 @@ export default {
       this.is_saved = this.$store.getters.getItem.is_saved;
       return this.$store.getters.getItem;
     },
-    visibleItem() {
-      return this.Estate.slice(
-        (this.page - 1) * this.perPage,
-        this.page * this.perPage
-      );
-    },
+    // visibleItem() {
+    //   return this.Estate.slice(
+    //     (this.page - 1) * this.perPage,
+    //     this.page * this.perPage
+    //   );
+    // },
     isLoad() {
-      document.getElementsByTagName('footer')[0].display = 'flex';
       return this.$store.getters.getLoadingItem;
     },
     estateImages() {
