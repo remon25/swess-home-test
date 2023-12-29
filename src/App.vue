@@ -21,7 +21,6 @@ export default {
 
   data() {
     return {
-      routerViewStyle: {},
       showPopup: false,
       showFooter: true,
     };
@@ -45,12 +44,7 @@ export default {
     },
   },
   methods: {
-    setRouterViewStyle() {
-      // Set the style based on the window width
-      this.routerViewStyle = {
-        marginTop: window.innerWidth <= 800 ? "20px" : "110px",
-      };
-    },
+    
     updateVisibility() {
       const currentRoute = this.$route.name; // Adjust as needed based on your route configuration
       this.showPopup = currentRoute == "home";
@@ -61,6 +55,13 @@ export default {
     // Set initial visibility based on the current route when the component is created
     this.updateVisibility();
   },
+  computed: {
+  routerViewStyle() {
+    return {
+      marginTop: window.innerWidth <= 800 ? "20px" : "110px",
+    };
+  },
+},
 };
 
 document.addEventListener("contextmenu", (event) => event.preventDefault());
@@ -74,14 +75,12 @@ document.addEventListener("contextmenu", (event) => event.preventDefault());
 }
 @font-face {
   font-family: "Effra";
-  src: local("Effra"),
-url("assets/Effra/Effra\ Medium.ttf") format("truetype");
+  src: local("Effra"), url("assets/Effra/Effra\ Medium.ttf") format("truetype");
   font-display: swap;
 }
 @font-face {
   font-family: "Droid";
-  src: local("Effra"),
-url("assets/Droid\ Kufi/Droid.ttf") format("truetype");
+  src: local("Effra"), url("assets/Droid\ Kufi/Droid.ttf") format("truetype");
   font-display: swap;
 }
 
@@ -89,23 +88,20 @@ url("assets/Droid\ Kufi/Droid.ttf") format("truetype");
   font-family: "Almarai", Helvetica, Arial;
 }
 
-html{
+html {
   scroll-behavior: smooth;
   overscroll-behavior: none !important;
 }
-body{
+body {
   overscroll-behavior: none !important;
 }
 .height-100per {
   height: 100%;
 }
-#search-medium span{
-  font-family: "Droid","Effra" !important;
-
-
-
+#search-medium span {
+  font-family: "Droid", "Effra" !important;
 }
-.v-input  .v-label{
+.v-input .v-label {
   height: 22px !important;
 }
 </style>

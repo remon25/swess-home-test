@@ -541,8 +541,32 @@
         ></reportEstate>
       </v-dialog>
     </div>
-    <div class="estate-small-screen">      
-      <div
+    <div class="estate-small-screen">
+  
+      <div v-if="isLoad">
+        <v-container class="">
+          <v-row>
+            <v-col cols="12" md="12" lg="4">
+              <v-skeleton-loader type="image"></v-skeleton-loader>
+            </v-col>
+            <v-col cols="12" md="12" lg="8">
+              <v-skeleton-loader type="image"></v-skeleton-loader>
+            </v-col>
+            <v-col cols="12" md="12" lg="4">
+              <v-skeleton-loader
+                type="list-item-avatar, article, actions"
+              ></v-skeleton-loader>
+            </v-col>
+            <v-col cols="12" md="12" lg="8">
+              <v-skeleton-loader
+                type=" divider, list-item-three-line, card-heading, image, actions"
+              ></v-skeleton-loader>
+            </v-col>
+          </v-row>
+        </v-container>
+      </div>
+      <div v-else>
+        <div
         class="go-back d-flex align-center justify-space-between"
         style="direction: ltr"
       >
@@ -846,9 +870,9 @@
           >
         </div>
       </div>
+      </div>
+      
     </div>
-    <router-view></router-view>
-
   </div>
 </template>
 
@@ -913,6 +937,7 @@ export default {
       );
     },
     isLoad() {
+      document.getElementsByTagName('footer')[0].display = 'flex';
       return this.$store.getters.getLoadingItem;
     },
     estateImages() {
