@@ -12,7 +12,7 @@
           cols="12"
           class="mobile_image"
           style="
-            background-image: url('images/home3.jpg');
+            background-image: url('images/home3.webp');
             background-position: center;
           "
         >
