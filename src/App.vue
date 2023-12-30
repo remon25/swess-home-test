@@ -65,6 +65,12 @@ export default {
 };
 
 document.addEventListener("contextmenu", (event) => event.preventDefault());
+document.addEventListener('touchmove', function (e) {
+      // Prevent the default behavior only if the scroll is at the edge
+      if ((window.innerHeight + window.scrollY) >= document.body.offsetHeight) {
+        e.preventDefault();
+      }
+    }, { passive: false });
 </script>
 <style>
 @font-face {
@@ -88,13 +94,13 @@ document.addEventListener("contextmenu", (event) => event.preventDefault());
   font-family: "Almarai", Helvetica, Arial;
 }
 
-html {
-  scroll-behavior: smooth;
+html,body {
   overscroll-behavior: none !important;
 }
-body {
-  overscroll-behavior: none !important;
-}
+body, html {
+      height: 100%;
+      margin: 0;
+    }
 .height-100per {
   height: 100%;
 }
