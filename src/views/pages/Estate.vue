@@ -610,7 +610,7 @@
               <router-link :to="`/estate-gallery/${item.id}`">
                 <v-img
                   :src="`${img_baseUrl}${image.url}`"
-                  lazy-src="/images/white.jpg"
+                  lazy-src="/images/white.webp"
                   v-pswp="img_baseUrl + estateImages[0].url"
                   cover
                   style="width: 100%; height: 400px"
@@ -955,7 +955,9 @@ export default {
       if (this.item.images.data.length > 0) {
         images = this.item.images.data.filter((x) => x.type != "floor_plan");
       }
+
       return images;
+
     },
     floorImages() {
       let images = [];
