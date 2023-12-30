@@ -66,11 +66,26 @@ export default {
 
 document.addEventListener("contextmenu", (event) => event.preventDefault());
 document.addEventListener('touchmove', function (e) {
-      // Prevent the default behavior only if the scroll is at the edge
-      if ((window.innerHeight + window.scrollY) >= document.body.offsetHeight) {
-        e.preventDefault();
-      }
-    }, { passive: false });
+  e.preventDefault();
+});
+
+// Uses body because vanilla JavaScript events are called off of the element they are
+// added to, so bubbling would not work if we used document instead.
+document.body.addEventListener('touchstart', function (e) {
+  if (e.currentTarget.scrollTop === 0) {
+    e.currentTarget.scrollTop = 1;
+  } else if (
+    e.currentTarget.scrollHeight ===
+    e.currentTarget.scrollTop + e.currentTarget.offsetHeight
+  ) {
+    e.currentTarget.scrollTop -= 1;
+  }
+});
+
+// Prevents preventDefault from being called on document if it sees a scrollable div
+document.body.addEventListener('touchmove', function (e) {
+  e.stopPropagation();
+});
 </script>
 <style>
 @font-face {
