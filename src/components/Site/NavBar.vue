@@ -194,7 +194,7 @@
             depressed
             style="background-color: transparent; height: auto;min-width: auto;padding: 0"
           >
-            <img width="20px" src="/icons/login-account.svg" alt="login" />
+            <img width="20px" height="20px" src="/icons/login-account.svg" alt="login" />
           </v-btn>
         </v-list-item>
       </div>

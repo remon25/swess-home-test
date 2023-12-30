@@ -698,6 +698,7 @@
                         width="75px"
                         height="75px"
                         :src="img_baseUrl + item.office.logo"
+                        alt="office"
                         v-pswp="img_baseUrl + item.office.logo"
                       />
                     </router-link>
@@ -835,6 +836,7 @@
                   width="115px"
                   height="115px"
                   :src="img_baseUrl + item.office.logo"
+                  alt="office"
                   v-pswp="img_baseUrl + item.office.logo"
                 />
               </router-link>
@@ -970,12 +972,12 @@ export default {
     },
   },
   methods: {
-  //   preloadImages() {
-  //   this.estateImages.forEach((image) => {
-  //     const img = new Image();
-  //     img.src = `${img_baseUrl}${image.url}`;
-  //   });
-  // },
+    preloadImages() {
+    this.estateImages.forEach((image) => {
+      const img = new Image();
+      img.src = `${img_baseUrl}${image.url}`;
+    });
+  },
     updateMetaImage() {
       this.img_url_meta = img_baseUrl + this.item.images.data[0].url;
     },
@@ -1024,7 +1026,7 @@ export default {
   },
   mounted() {
     document.title = i18n.t("EstatePage");
-    // this.preloadImages();
+    this.preloadImages();
     this.$store.dispatch(
       "fetchItem",
       "estate?estate_id=" + this.$route.params.id
