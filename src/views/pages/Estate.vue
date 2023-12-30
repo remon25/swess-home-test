@@ -598,13 +598,14 @@
           <v-carousel
             hide-delimiters
             :show-arrows="true"
-            style="height: 400px"
+            style="height: unset"
             @change="currentindex = estateImages[$event].index"
           >
             <!-- Dynamically populate the carousel with images from estate-large-screen -->
             <v-carousel-item
               v-for="(image, index) in estateImages"
               :key="index"
+              style="height: 400px"
               eager
             >
               <router-link :to="`/estate-gallery/${item.id}`">
@@ -1020,6 +1021,20 @@ export default {
         .getElementById("estate-map")
         .scrollIntoView({ behavior: "smooth" });
     },
+    touchStartHandler(e) {
+      if (e.currentTarget.scrollTop === 0) {
+        e.currentTarget.scrollTop = 1;
+      } else if (
+        e.currentTarget.scrollHeight ===
+        e.currentTarget.scrollTop + e.currentTarget.offsetHeight
+      ) {
+        e.currentTarget.scrollTop -= 1;
+      }
+    },
+
+    touchMoveHandler(e) {
+      e.stopPropagation();
+    },
   },
   mounted() {
     document.title = i18n.t("EstatePage");
@@ -1036,6 +1051,15 @@ export default {
       api: "getEstateSimilarEstates?estate_id=" + this.$route.params.id,
     });
     */
+
+    // Add event listeners when the component is mounted
+    document.body.addEventListener('touchstart', this.touchStartHandler);
+    document.body.addEventListener('touchmove', this.touchMoveHandler);
+  },
+  beforeDestroy() {
+    // Remove event listeners when the component is destroyed
+    document.body.removeEventListener('touchstart', this.touchStartHandler);
+    document.body.removeEventListener('touchmove', this.touchMoveHandler);
   },
   updated() {
     this.updateMetaImage();
