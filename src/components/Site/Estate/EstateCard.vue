@@ -13,11 +13,10 @@
               class="img-card"
               hide-delimiters
               show-arrows-on-hover
-              height="365"
               @change="currentindex = images.data[$event].index"
             >
               <v-carousel-item
-                style=""
+                style="height: 250px;"
                 v-for="(item, i) in images.data"
                 :key="i"
                 eager
@@ -29,7 +28,7 @@
                   <v-img
                     :src="`${img_baseUrl}${item.url}`"
                     lazy-src="/images/white.jpg"
-                    height="100%"
+                    height="250px"
                     eager
                   >
                     <template v-slot:placeholder>
@@ -387,7 +386,9 @@ export default {
 .cols {
   padding: 0px 0px 12px 0px !important;
 }
-
+.img-card.v-carousel{
+  height: unset !important;
+}
 .title-price {
   margin-top: 60px;
 }
