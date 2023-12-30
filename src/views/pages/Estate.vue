@@ -1021,20 +1021,6 @@ export default {
         .getElementById("estate-map")
         .scrollIntoView({ behavior: "smooth" });
     },
-    touchStartHandler(e) {
-      if (e.currentTarget.scrollTop === 0) {
-        e.currentTarget.scrollTop = 1;
-      } else if (
-        e.currentTarget.scrollHeight ===
-        e.currentTarget.scrollTop + e.currentTarget.offsetHeight
-      ) {
-        e.currentTarget.scrollTop -= 1;
-      }
-    },
-
-    touchMoveHandler(e) {
-      e.stopPropagation();
-    },
   },
   mounted() {
     document.title = i18n.t("EstatePage");
@@ -1051,15 +1037,6 @@ export default {
       api: "getEstateSimilarEstates?estate_id=" + this.$route.params.id,
     });
     */
-
-    // Add event listeners when the component is mounted
-    document.body.addEventListener('touchstart', this.touchStartHandler);
-    document.body.addEventListener('touchmove', this.touchMoveHandler);
-  },
-  beforeDestroy() {
-    // Remove event listeners when the component is destroyed
-    document.body.removeEventListener('touchstart', this.touchStartHandler);
-    document.body.removeEventListener('touchmove', this.touchMoveHandler);
   },
   updated() {
     this.updateMetaImage();
