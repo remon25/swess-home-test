@@ -952,9 +952,10 @@ export default {
     },
     estateImages() {
       let images = [];
-      if (this.item.images.data.length > 0) {
+      if (this.item && this.item.images && this.item.images.data) {
         images = this.item.images.data.filter((x) => x.type != "floor_plan");
       }
+      images.sort((a, b) => a.index - b.index);
 
       return images;
 
@@ -968,6 +969,12 @@ export default {
     },
   },
   methods: {
+    preloadImages() {
+    this.estateImages.forEach((image) => {
+      const img = new Image();
+      img.src = `${img_baseUrl}${image.url}`;
+    });
+  },
     updateMetaImage() {
       this.img_url_meta = img_baseUrl + this.item.images.data[0].url;
     },
@@ -1016,6 +1023,7 @@ export default {
   },
   mounted() {
     document.title = i18n.t("EstatePage");
+    this.preloadImages();
     this.$store.dispatch(
       "fetchItem",
       "estate?estate_id=" + this.$route.params.id
