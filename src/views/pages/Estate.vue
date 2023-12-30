@@ -609,7 +609,7 @@
               eager
             >
               <router-link :to="`/estate-gallery/${item.id}`">
-                <v-img
+                <img
                   :src="`${img_baseUrl}${image.url}`"
                   lazy-src="/images/white.webp"
                   v-pswp="img_baseUrl + estateImages[0].url"
@@ -629,7 +629,7 @@
                       ></v-progress-circular>
                     </v-row>
                   </template>
-                </v-img>
+                </img>
               </router-link>
             </v-carousel-item>
           </v-carousel>
