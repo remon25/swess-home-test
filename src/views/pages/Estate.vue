@@ -610,9 +610,8 @@
             >
               <router-link :to="`/estate-gallery/${item.id}`">
                 <v-img
-                  :src="`${img_baseUrl}${image.url}`"
+                  :src="`/images/home3.webp`"
                   lazy-src="/images/white.webp"
-                  v-pswp="img_baseUrl + estateImages[0].url"
                   cover
                   style="width: 100%; height: 400px"
                   eager
