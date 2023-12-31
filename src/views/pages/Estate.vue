@@ -610,8 +610,9 @@
             >
               <router-link :to="`/estate-gallery/${item.id}`">
                 <v-img
-                  :src="`/images/home3.webp`"
+                  :src="`${img_baseUrl}${image.url}`"
                   lazy-src="/images/white.webp"
+                  v-pswp="img_baseUrl + estateImages[0].url"
                   cover
                   style="width: 100%; height: 400px"
                   eager
@@ -810,7 +811,21 @@
                 </div>
               </div>
             </v-row>
-            
+            <iframe
+              :src="
+                'https://maps.google.com/maps?q=' +
+                item.location.locations[0].latitude +
+                ',' +
+                item.location.locations[0].longitude +
+                '&hl=es&z=14&amp;output=embed'
+              "
+              width="100%"
+              height="325"
+              style="border: 0; margin-top: 20px"
+              allowfullscreen=""
+              loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade"
+            ></iframe>
           </div>
           <div class="estate-office">
             <div class="estate-office-container">
