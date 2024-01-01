@@ -497,7 +497,7 @@ export default {
   .save {
     margin-bottom: 16px;
     width: calc(100% / 3);
-    padding: 10px;
+    padding: 10px 5px;
     border-radius: 10px;
     display: flex;
     justify-content: center;
@@ -512,7 +512,7 @@ export default {
   }
   .call {
     width: calc(100% / 3);
-    padding: 10px;
+    padding: 10px 5px;
     border-radius: 10px;
     display: flex;
     justify-content: center;
