@@ -224,6 +224,32 @@
           <h3>{{ item[0].office.location.name }}, {{ item[0].office.location.locations[0].name }}</h3>
         </div>
       </div>
+      <div class="office-address d-flex flex-column align-center">
+        <div class="office-address-title d-flex align-center">
+          <div class="office-address-title-holder d-flex">
+            <img style="width: 20px; height: auto" src="/images/location.svg"/>
+          <h3>{{ $t("Address") }}</h3>
+          </div>
+          
+        </div>
+        <div style="width: 80%; height: 280px">
+                  <iframe
+                    :src="
+                      'https://maps.google.com/maps?q=' +
+                      item[0].office.location.locations[0].latitude +
+                      ',' +
+                      item[0].office.location.locations[0].longitude +
+                      '&hl=es&z=14&amp;output=embed'
+                    "
+                    width="100%"
+                    height="280"
+                    style="border: 0"
+                    allowfullscreen=""
+                    loading="lazy"
+                    referrerpolicy="no-referrer-when-downgrade"
+                  ></iframe>
+                </div>
+      </div>
       <div class="estate-fixed-call">
           <div class="call-whatsap">
             <a
@@ -450,6 +476,7 @@ export default {
   text-align: center;
 
 }
+
 .office-header h1{
   font-size: 21px !important;
   margin-bottom: 5px;
@@ -457,6 +484,24 @@ export default {
 .office-header h3{
 font-size: 14px !important;
 font-weight: 400 !important;
+}
+
+.office-address{
+  margin-top: 50px;
+  row-gap:1.8rem;
+}
+.office-address-title{
+  width: 100%;
+  justify-content: center;
+  column-gap: 0.5rem;
+  padding: 0 75px;
+
+}
+.office-address-title-holder{
+  border: 1px solid #9a9ab1;
+  column-gap: 0.5rem;
+    padding: 10px 20px;
+    border-radius: 6px;
 }
 .estate-fixed-call {
   position: fixed;
