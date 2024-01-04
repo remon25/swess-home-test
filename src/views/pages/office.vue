@@ -210,8 +210,8 @@
       </div>
     </div>
     <div v-else class="office-small-screen">
-
-      <div class="office-header d-flex align-center justify-space-between">
+      <div v-if="!isLoad">
+        <div class="office-header d-flex align-center justify-space-between">
         <div class="office-header-logo">
           <img
                     width="80px"
@@ -240,6 +240,55 @@
             >
           </div>
       </div>
+      </div>
+      <div v-if="isLoad">
+        <v-row v-if="isLoad">
+            <v-col cols="12" md="8" sm="12">
+              <v-container>
+                <v-row class="mt-15">
+                  <v-col cols="7" md="7">
+                    <v-skeleton-loader
+                      min-height="200"
+                      type="image"
+                    ></v-skeleton-loader>
+                  </v-col>
+                  <v-col cols="5" md="5">
+                    <v-skeleton-loader
+                      type=" article, paragraph"
+                    ></v-skeleton-loader>
+                  </v-col>
+                </v-row>
+                <v-row class="mt-15">
+                  <v-col cols="7" md="7">
+                    <v-skeleton-loader
+                      min-height="200"
+                      type="image"
+                    ></v-skeleton-loader>
+                  </v-col>
+                  <v-col cols="5" md="5">
+                    <v-skeleton-loader
+                      type=" article, paragraph"
+                    ></v-skeleton-loader>
+                  </v-col>
+                </v-row>
+                <v-row class="mt-15">
+                  <v-col cols="7" md="7">
+                    <v-skeleton-loader
+                      min-height="200"
+                      type="image"
+                    ></v-skeleton-loader>
+                  </v-col>
+                  <v-col cols="5" md="5">
+                    <v-skeleton-loader
+                      type=" article, paragraph"
+                    ></v-skeleton-loader>
+                  </v-col>
+                </v-row>
+              </v-container>
+            </v-col>
+          </v-row>
+      </div>
+
     </div>
   </div>
 </template>
