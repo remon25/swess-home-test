@@ -4,7 +4,6 @@
 </template>
 
 
-
 <script>
 import HomeDesktop from "./HomeDesktop.vue";
 import HomeMobile from "./HomeMobile.vue";

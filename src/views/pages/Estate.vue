@@ -1,6 +1,6 @@
 <template>
   <div class="estate-main-class">
-    <div class="estate-large-screen">
+    <div v-if="!isSmallViewport" class="estate-large-screen">
       <!--
     <div class="mt-5 d-bg-light-dark-2">
       <breadcrumbs :items="items"> </breadcrumbs>
@@ -541,7 +541,7 @@
         ></reportEstate>
       </v-dialog>
     </div>
-    <div class="estate-small-screen">
+    <div v-else class="estate-small-screen">
       <div v-if="isLoad">
         <v-container class="">
           <v-row>
@@ -920,6 +920,7 @@ export default {
     dialog_share: false,
     model: 0,
     id: 0,
+    viewportSize: "",
     img_selected: [],
     items: [
       {
@@ -969,6 +970,12 @@ export default {
         images = this.item.images.data.filter((x) => x.type == "floor_plan");
       }
       return images;
+    },
+    isSmallViewport() {
+      return this.viewportSize === "small";
+    },
+    isMediumViewport() {
+      return this.viewportSize === "medium";
     },
   },
   methods: {
@@ -1023,6 +1030,10 @@ export default {
         .getElementById("estate-map")
         .scrollIntoView({ behavior: "smooth" });
     },
+    updateViewportSize() {
+      const mediaQuery = window.matchMedia("(max-width: 990px)");
+      this.viewportSize = mediaQuery.matches ? "small" : "medium";
+    },
   },
   mounted() {
     document.title = i18n.t("EstatePage");
@@ -1031,6 +1042,8 @@ export default {
       "fetchItem",
       "estate?estate_id=" + this.$route.params.id
     );
+    this.updateViewportSize();
+    window.addEventListener("resize", this.updateViewportSize);
     /*this.$store.dispatch('SimilarEstates',{
       api:"getEstateSimilarEstates?estate_id=" + this.$route.params.id
     })*/
@@ -1039,6 +1052,10 @@ export default {
       api: "getEstateSimilarEstates?estate_id=" + this.$route.params.id,
     });
     */
+    
+  },
+  beforeUnmount() {
+    window.removeEventListener("resize", this.updateViewportSize);
   },
   updated() {
     this.updateMetaImage();
@@ -1306,18 +1323,18 @@ p.estate-details-title {
 }
 
 @media screen and (min-width: 990px) {
-  .estate-small-screen {
+  /* .estate-small-screen {
     display: none !important;
-  }
+  } */
 }
 
 @media screen and (max-width: 990px) {
   .estate-main-class {
     margin-top: 0 !important;
   }
-  .estate-large-screen {
+  /* .estate-large-screen {
     display: none !important;
-  }
+  } */
 }
 
 @media screen and (min-width: 800px) {

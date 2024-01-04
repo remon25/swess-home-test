@@ -292,6 +292,7 @@
 </template>
 <script>
 import { img_baseUrl } from "@/plugins/axios";
+import moment from "moment";
 
 export default {
   props: {
@@ -353,7 +354,7 @@ export default {
       this.dialog_form = true;
     },
     formatDate(date) {
-      return this.$moment.default(date).format("DD.MM.YYYY");
+      return moment(date).format("DD.MM.YYYY");
     },
     save(id) {
       var isAuth = localStorage.getItem("isAuthenticate");

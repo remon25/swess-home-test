@@ -21,6 +21,7 @@
     "vue-fb-customer-chat": "^0.2.1",
     "vue-i18n": "^8.26.3",
     "vue-i18n-bridge": "^9.2.0-beta.10",
+    "vue-lazyload": "^3.0.0",
     "vue-meta": "^2.4.0",
     "vue-moment": "^4.1.0",
     "vue-pswipe": "^0.15.3",
