@@ -25,7 +25,7 @@
             style="column-gap: 0.4rem; text-decoration: none"
           >
             <v-icon style="color: #000433">mdi-arrow-left</v-icon>
-            <h5 style="font-weight: 300; font-size: 25px; color: #123f65">
+            <h5 style="font-weight: 300; font-size: 20px; color: #123f65">
               {{ $t("Back") }}
             </h5>
           </button>
@@ -349,6 +349,28 @@ export default {
   color: #262637 !important;
   font-weight: 400;
   text-decoration: none;
+}
+@media screen and (max-width: 460px) {
+  .office-header-logo img {
+    width: 70px !important;
+  }
+  .office-header h1 {
+    font-size: 17px !important;
+  }
+  .office-header h3 {
+    font-size: 13px !important;
+  }
+}
+@media screen and (max-width: 360px) {
+  .office-header-logo img {
+    width: 65px !important;
+  }
+  .office-header h1 {
+    font-size: 13px !important;
+  }
+  .office-header h3 {
+    font-size: 12px !important;
+  }
 }
 </style>
   
