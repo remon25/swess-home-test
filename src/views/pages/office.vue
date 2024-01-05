@@ -250,7 +250,7 @@
               height="280"
               style="border: 0"
               allowfullscreen=""
-              loading="lazy"
+              eager
               referrerpolicy="no-referrer-when-downgrade"
             ></iframe>
           </div>
@@ -277,6 +277,42 @@
               <v-icon>mdi-chevron-left</v-icon>
               <v-icon>mdi-chevron-right</v-icon>
             </div>
+          </div>
+        </div>
+        <div class="office-footer">
+          <div class="office-footer-logo">
+            <img
+              width="50px"
+              height="auto"
+              :src="img_baseUrl + item[0].office.logo"
+            />
+          </div>
+          <div class="office-footer-title">
+            <h4>{{ item[0].office.name }}</h4>
+          </div>
+          <div class="office-footer-address">
+            <h4>
+              {{ item[0].office.location.name }} -
+              {{ item[0].office.location.locations[0].name }}
+            </h4>
+          </div>
+          <div class="office-footer-contact d-flex">
+            <a
+              style="text-decoration: none"
+              :href="'https://wa.me/' + item[0].office.mobile"
+            >
+              <div class="office-footer-whatsapp">
+                <v-icon>mdi-whatsapp</v-icon>
+              </div></a
+            >
+
+            <div class="office-footer-inbetween"></div>
+            <a
+              :href="'tel:' + item[0].office.mobile"
+              style="text-decoration: none"
+            >
+              <div class="office-footer-phone"><v-icon>mdi-phone</v-icon></div>
+            </a>
           </div>
         </div>
         <div class="estate-fixed-call">
@@ -540,7 +576,8 @@ export default {
   border: 1px solid #ccc;
   padding: 5px;
 }
-.estates-count .estates-sale,.estates-count .estates-rent{
+.estates-count .estates-sale,
+.estates-count .estates-rent {
   flex: 1;
   display: flex;
   justify-content: center;
@@ -566,17 +603,42 @@ export default {
   display: flex;
   justify-content: center;
 }
-html[dir="ltr"] .show-estates i:nth-child(1){
+html[dir="ltr"] .show-estates i:nth-child(1) {
   display: none;
 }
-html[dir="ltr"] .show-estates i:nth-child(2){
+html[dir="ltr"] .show-estates i:nth-child(2) {
   display: block;
 }
-html[dir="rtl"] .show-estates i:nth-child(1){
+html[dir="rtl"] .show-estates i:nth-child(1) {
   display: block;
 }
-html[dir="rtl"] .show-estates i:nth-child(2){
+html[dir="rtl"] .show-estates i:nth-child(2) {
   display: none;
+}
+.office-footer {
+  margin-top: 30px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  row-gap: 0.5rem;
+}
+.office-footer-logo {
+  border: 2px solid #ccc;
+  border-radius: 4px;
+  line-height: 0 !important;
+}
+.office-footer h4 {
+  font-size: 11px;
+}
+.office-footer-contact {
+  column-gap: 0.35rem;
+}
+.office-footer-contact i {
+  color: #0f4c81 !important;
+}
+.office-footer-inbetween {
+  width: 1.5px;
+  background-color: #cccc;
 }
 .estate-fixed-call {
   position: fixed;
