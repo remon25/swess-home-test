@@ -259,13 +259,14 @@
           <div class="estates-count d-flex">
             <div class="estates-rent">
               <h3 class="d-inline">{{ $t("NumberofEstateforrent") }}</h3>
-              :
+              <span style="padding: 0 3px;">:</span>
+
               <span>{{ item[0].office.numOfEstatesForRent }}</span>
             </div>
             <div class="in-between"></div>
             <div class="estates-sale">
               <h3 class="d-inline">{{ $t("NumberofEstateforsale") }}</h3>
-              :
+              <span style="padding: 0 3px;">:</span>
               <span>{{ item[0].office.numOfEstatesForSell }}</span>
             </div>
           </div>
@@ -555,7 +556,7 @@ export default {
 
 .office-address {
   margin-top: 30px;
-  row-gap: 1.8rem;
+  row-gap: .8rem;
 }
 .office-address-title {
   width: 100%;
@@ -586,6 +587,9 @@ export default {
   justify-content: center;
 }
 .estates-count h3 {
+  font-size: 15px;
+}
+.estates-count span {
   font-size: 15px;
 }
 .in-between {
@@ -701,7 +705,7 @@ html[dir="rtl"] .show-estates i:nth-child(2) {
     font-size: 12px;
   }
   .estates-count span {
-    font-size: 13px;
+    font-size: 12px;
   }
 }
 </style>
