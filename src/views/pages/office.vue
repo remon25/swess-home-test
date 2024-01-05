@@ -237,7 +237,7 @@
               <h3>{{ $t("Address") }}</h3>
             </div>
           </div>
-          <div style="width: 80%; height: 280px">
+          <div style="width: 80%; height: 250px">
             <iframe
               :src="
                 'https://maps.google.com/maps?q=' +
@@ -247,7 +247,7 @@
                 '&hl=es&z=14&amp;output=embed'
               "
               width="100%"
-              height="280"
+              height="250"
               style="border: 0"
               allowfullscreen=""
               eager
@@ -269,15 +269,17 @@
               <span>{{ item[0].office.numOfEstatesForSell }}</span>
             </div>
           </div>
-          <div class="show-estates d-flex">
-            <div>
-              <h3>{{ $t("viewProperties") }}</h3>
+          <router-link style="text-decoration: none;color: #000;" :to="`/office-estates/${item[0].office.id}`">
+            <div class="show-estates d-flex">
+              <div>
+                <h3>{{ $t("viewProperties") }}</h3>
+              </div>
+              <div>
+                <v-icon>mdi-chevron-left</v-icon>
+                <v-icon>mdi-chevron-right</v-icon>
+              </div>
             </div>
-            <div>
-              <v-icon>mdi-chevron-left</v-icon>
-              <v-icon>mdi-chevron-right</v-icon>
-            </div>
-          </div>
+          </router-link>
         </div>
         <div class="office-footer">
           <div class="office-footer-logo">
@@ -552,7 +554,7 @@ export default {
 }
 
 .office-address {
-  margin-top: 50px;
+  margin-top: 30px;
   row-gap: 1.8rem;
 }
 .office-address-title {
@@ -575,7 +577,7 @@ export default {
   column-gap: 0.5rem;
   margin-top: 30px;
   border: 1px solid #ccc;
-  padding: 5px;
+  padding: 8px 5px;
 }
 .estates-count .estates-sale,
 .estates-count .estates-rent {
@@ -694,7 +696,8 @@ html[dir="rtl"] .show-estates i:nth-child(2) {
   .office-header h3 {
     font-size: 12px !important;
   }
-  .estates-count,.estates-count h3 {
+  .estates-count,
+  .estates-count h3 {
     font-size: 12px;
   }
   .estates-count span {

@@ -232,6 +232,20 @@ component: () => import(/* webpackChunkName: "about" */ '../views/pages/Advanced
     component: () => import(/* webpackChunkName: "about" */ '../views/pages/EstateGallery.vue')
   },
   {
+    path: '/office-estates/:id',
+    name: 'office-estates',
+    beforeEnter: async (to, from, next) => {
+      const metaInfo = (await import('vue-meta')).metaInfo;
+      Vue.component('metaInfo', metaInfo);
+
+      next();
+    },
+    // route level code-splitting
+    // this generates a separate chunk (about.[hash].js) for this route
+    // which is lazy-loaded when the route is visited.
+    component: () => import(/* webpackChunkName: "about" */ '../views/pages/officeEstates.vue')
+  },
+  {
     path: '*',
     name: '*',
     // route level code-splitting
