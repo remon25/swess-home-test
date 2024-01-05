@@ -212,45 +212,74 @@
     <div v-else class="office-small-screen">
       <div v-if="!isLoad">
         <div class="office-header d-flex align-center justify-space-between">
-        <div class="office-header-logo">
-          <img
-                    width="80px"
-                    height="auto"
-                    :src="img_baseUrl + item[0].office.logo"
-                  />
-        </div>
-        <div class="office-header-title">
-          <h1>{{ item[0].office.name }}</h1>
-          <h3>{{ item[0].office.location.name }}, {{ item[0].office.location.locations[0].name }}</h3>
-        </div>
-      </div>
-      <div class="office-address d-flex flex-column align-center">
-        <div class="office-address-title d-flex align-center">
-          <div class="office-address-title-holder d-flex">
-            <img style="width: 20px; height: auto" src="/images/location.svg"/>
-          <h3>{{ $t("Address") }}</h3>
+          <div class="office-header-logo">
+            <img
+              width="80px"
+              height="auto"
+              :src="img_baseUrl + item[0].office.logo"
+            />
           </div>
-          
+          <div class="office-header-title">
+            <h1>{{ item[0].office.name }}</h1>
+            <h3>
+              {{ item[0].office.location.name }} -
+              {{ item[0].office.location.locations[0].name }}
+            </h3>
+          </div>
         </div>
-        <div style="width: 80%; height: 280px">
-                  <iframe
-                    :src="
-                      'https://maps.google.com/maps?q=' +
-                      item[0].office.location.locations[0].latitude +
-                      ',' +
-                      item[0].office.location.locations[0].longitude +
-                      '&hl=es&z=14&amp;output=embed'
-                    "
-                    width="100%"
-                    height="280"
-                    style="border: 0"
-                    allowfullscreen=""
-                    loading="lazy"
-                    referrerpolicy="no-referrer-when-downgrade"
-                  ></iframe>
-                </div>
-      </div>
-      <div class="estate-fixed-call">
+        <div class="office-address d-flex flex-column align-center">
+          <div class="office-address-title d-flex align-center">
+            <div class="office-address-title-holder d-flex">
+              <img
+                style="width: 20px; height: auto"
+                src="/images/location.svg"
+              />
+              <h3>{{ $t("Address") }}</h3>
+            </div>
+          </div>
+          <div style="width: 80%; height: 280px">
+            <iframe
+              :src="
+                'https://maps.google.com/maps?q=' +
+                item[0].office.location.locations[0].latitude +
+                ',' +
+                item[0].office.location.locations[0].longitude +
+                '&hl=es&z=14&amp;output=embed'
+              "
+              width="100%"
+              height="280"
+              style="border: 0"
+              allowfullscreen=""
+              loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade"
+            ></iframe>
+          </div>
+        </div>
+        <div class="office-estates">
+          <div class="estates-count d-flex">
+            <div class="estates-rent">
+              <h3 class="d-inline">{{ $t("NumberofEstateforrent") }}</h3>
+              :
+              <span>{{ item[0].office.numOfEstatesForRent }}</span>
+            </div>
+            <div class="in-between"></div>
+            <div class="estates-sale">
+              <h3 class="d-inline">{{ $t("NumberofEstateforsale") }}</h3>
+              :
+              <span>{{ item[0].office.numOfEstatesForSell }}</span>
+            </div>
+          </div>
+          <div class="show-estates d-flex">
+            <div>
+              <h3>{{ $t("viewProperties") }}</h3>
+            </div>
+            <div>
+              <v-icon>mdi-chevron-left</v-icon>
+              <v-icon>mdi-chevron-right</v-icon>
+            </div>
+          </div>
+        </div>
+        <div class="estate-fixed-call">
           <div class="call-whatsap">
             <a
               :href="'https://wa.me/' + item[0].office.mobile"
@@ -261,60 +290,61 @@
             >
           </div>
           <div class="call-phone">
-            <a :href="'tel:' + item[0].office.mobile" style="text-decoration: none"
+            <a
+              :href="'tel:' + item[0].office.mobile"
+              style="text-decoration: none"
               ><button><v-icon>mdi-phone</v-icon> {{ $t("call") }}</button></a
             >
           </div>
-      </div>
+        </div>
       </div>
       <div v-if="isLoad">
         <v-row v-if="isLoad">
-            <v-col cols="12" md="8" sm="12">
-              <v-container>
-                <v-row class="mt-15">
-                  <v-col cols="7" md="7">
-                    <v-skeleton-loader
-                      min-height="200"
-                      type="image"
-                    ></v-skeleton-loader>
-                  </v-col>
-                  <v-col cols="5" md="5">
-                    <v-skeleton-loader
-                      type=" article, paragraph"
-                    ></v-skeleton-loader>
-                  </v-col>
-                </v-row>
-                <v-row class="mt-15">
-                  <v-col cols="7" md="7">
-                    <v-skeleton-loader
-                      min-height="200"
-                      type="image"
-                    ></v-skeleton-loader>
-                  </v-col>
-                  <v-col cols="5" md="5">
-                    <v-skeleton-loader
-                      type=" article, paragraph"
-                    ></v-skeleton-loader>
-                  </v-col>
-                </v-row>
-                <v-row class="mt-15">
-                  <v-col cols="7" md="7">
-                    <v-skeleton-loader
-                      min-height="200"
-                      type="image"
-                    ></v-skeleton-loader>
-                  </v-col>
-                  <v-col cols="5" md="5">
-                    <v-skeleton-loader
-                      type=" article, paragraph"
-                    ></v-skeleton-loader>
-                  </v-col>
-                </v-row>
-              </v-container>
-            </v-col>
-          </v-row>
+          <v-col cols="12" md="8" sm="12">
+            <v-container>
+              <v-row class="mt-15">
+                <v-col cols="7" md="7">
+                  <v-skeleton-loader
+                    min-height="200"
+                    type="image"
+                  ></v-skeleton-loader>
+                </v-col>
+                <v-col cols="5" md="5">
+                  <v-skeleton-loader
+                    type=" article, paragraph"
+                  ></v-skeleton-loader>
+                </v-col>
+              </v-row>
+              <v-row class="mt-15">
+                <v-col cols="7" md="7">
+                  <v-skeleton-loader
+                    min-height="200"
+                    type="image"
+                  ></v-skeleton-loader>
+                </v-col>
+                <v-col cols="5" md="5">
+                  <v-skeleton-loader
+                    type=" article, paragraph"
+                  ></v-skeleton-loader>
+                </v-col>
+              </v-row>
+              <v-row class="mt-15">
+                <v-col cols="7" md="7">
+                  <v-skeleton-loader
+                    min-height="200"
+                    type="image"
+                  ></v-skeleton-loader>
+                </v-col>
+                <v-col cols="5" md="5">
+                  <v-skeleton-loader
+                    type=" article, paragraph"
+                  ></v-skeleton-loader>
+                </v-col>
+              </v-row>
+            </v-container>
+          </v-col>
+        </v-row>
       </div>
-
     </div>
   </div>
 </template>
@@ -465,43 +495,88 @@ export default {
 .office-small-screen {
   margin-top: -20px;
 }
-.office-small-screen *{
+.office-small-screen * {
   font-family: "Droid", "Effra" !important;
-
 }
-.office-header{
-  background-color: #3F4756;
-  padding: .833em 6.25% .75em;
+.office-header {
+  background-color: #3f4756;
+  padding: 0.833em 6.25% 0.75em;
   color: #fff;
   text-align: center;
-
 }
 
-.office-header h1{
+.office-header h1 {
   font-size: 21px !important;
   margin-bottom: 5px;
 }
-.office-header h3{
-font-size: 14px !important;
-font-weight: 400 !important;
+.office-header h3 {
+  font-size: 14px !important;
+  font-weight: 400 !important;
 }
 
-.office-address{
+.office-address {
   margin-top: 50px;
-  row-gap:1.8rem;
+  row-gap: 1.8rem;
 }
-.office-address-title{
+.office-address-title {
   width: 100%;
   justify-content: center;
   column-gap: 0.5rem;
   padding: 0 75px;
-
 }
-.office-address-title-holder{
-  border: 1px solid #9a9ab1;
+.office-address-title-holder {
   column-gap: 0.5rem;
-    padding: 10px 20px;
-    border-radius: 6px;
+  padding: 10px 20px;
+  border-radius: 6px;
+}
+
+.office-estates {
+  padding: 0 10px;
+}
+.estates-count {
+  justify-content: center;
+  column-gap: 0.5rem;
+  margin-top: 30px;
+  border: 1px solid #ccc;
+  padding: 5px;
+}
+.estates-count .estates-sale,.estates-count .estates-rent{
+  flex: 1;
+  display: flex;
+  justify-content: center;
+}
+.estates-count h3 {
+  font-size: 15px;
+}
+.in-between {
+  width: 1px;
+  height: auto;
+  background-color: #ccc;
+}
+.show-estates {
+  margin-top: 10px;
+  border: 1px solid #ccc;
+  padding: 5px;
+}
+.show-estates h3 {
+  font-size: 15px;
+}
+.show-estates div:nth-child(1) {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+}
+html[dir="ltr"] .show-estates i:nth-child(1){
+  display: none;
+}
+html[dir="ltr"] .show-estates i:nth-child(2){
+  display: block;
+}
+html[dir="rtl"] .show-estates i:nth-child(1){
+  display: block;
+}
+html[dir="rtl"] .show-estates i:nth-child(2){
+  display: none;
 }
 .estate-fixed-call {
   position: fixed;
@@ -536,27 +611,31 @@ font-weight: 400 !important;
 }
 
 @media screen and (max-width: 460px) {
-   .office-header-logo img{
+  .office-header-logo img {
     width: 70px !important;
-   }
-  .office-header h1{
+  }
+  .office-header h1 {
     font-size: 17px !important;
   }
-  .office-header h3{
+  .office-header h3 {
     font-size: 13px !important;
   }
-  
 }
 @media screen and (max-width: 360px) {
-   .office-header-logo img{
+  .office-header-logo img {
     width: 65px !important;
-   }
-  .office-header h1{
+  }
+  .office-header h1 {
     font-size: 13px !important;
   }
-  .office-header h3{
+  .office-header h3 {
     font-size: 12px !important;
   }
-  
+  .estates-count h3 {
+    font-size: 12px;
+  }
+  .estates-count span {
+    font-size: 13px;
+  }
 }
 </style>
