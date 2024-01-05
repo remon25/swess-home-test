@@ -530,6 +530,7 @@ export default {
 /* small screen*/
 .office-small-screen {
   margin-top: -20px;
+  margin-bottom: -50px;
 }
 .office-small-screen * {
   font-family: "Droid", "Effra" !important;
@@ -693,7 +694,7 @@ html[dir="rtl"] .show-estates i:nth-child(2) {
   .office-header h3 {
     font-size: 12px !important;
   }
-  .estates-count h3 {
+  .estates-count,.estates-count h3 {
     font-size: 12px;
   }
   .estates-count span {
