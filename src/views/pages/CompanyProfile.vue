@@ -11,7 +11,6 @@
         '/images/profile/5.webp',
         '/images/profile/6.webp',
         '/images/profile/7.webp',
-        '/images/profile/1.webp',
       ]"
       v-slot="flipbook"
       ref="flipbook"
