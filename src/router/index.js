@@ -246,6 +246,12 @@ component: () => import(/* webpackChunkName: "about" */ '../views/pages/Advanced
     component: () => import(/* webpackChunkName: "about" */ '../views/pages/officeEstates.vue')
   },
   {
+    path: '/company-profile/',
+    name: 'company-profile',
+
+    component: () => import(/* webpackChunkName: "about" */ '../views/pages/CompanyProfile.vue')
+  },
+  {
     path: '*',
     name: '*',
     // route level code-splitting

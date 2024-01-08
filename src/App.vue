@@ -6,7 +6,7 @@
     </a> -->
     <v-main class="height-100per">
       <loading-app-popup v-if="showPopup"></loading-app-popup>
-      <Navbar></Navbar>
+      <Navbar  v-if="showNavbar"></Navbar>
       <router-view :style="routerViewStyle" />
       <footerComponent v-if="showFooter"></footerComponent>
     </v-main>
@@ -23,6 +23,7 @@ export default {
     return {
       showPopup: false,
       showFooter: true,
+      showNavbar: true,
     };
   },
   created() {
@@ -49,6 +50,8 @@ export default {
       const currentRoute = this.$route.name; // Adjust as needed based on your route configuration
       this.showPopup = currentRoute == "home";
       this.showFooter = currentRoute !== "estate-gallery";
+      this.showFooter = currentRoute !== "company-profile";
+      this.showNavbar = currentRoute !== "company-profile";
     },
   },
   created() {

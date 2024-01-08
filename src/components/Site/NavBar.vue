@@ -46,7 +46,7 @@
           >
             {{ $t("login") }}
             <img
-              alt="login"
+              alt="Swess Home Login Icon - Access your account"
               src="/icons/login.svg"
               class="pr-2"
               width="25px"
@@ -102,7 +102,7 @@
         <img
           class="img-logo"
           :src="appLogo"
-          alt="Logo image"
+          alt="Swess Home Logo , your trusted online platform for housing solutions"
           style="height: 50px; width: 47px"
         />
       </router-link>
@@ -141,7 +141,7 @@
           <img
             class="img-logo"
             :src="appLogo"
-            alt="Logo image"
+            alt="Swess Home Logo , your trusted online platform for housing solutions"
             style="height: 32px; width: 30.08px; padding-top: 0;"
           />
         </router-link>
@@ -219,7 +219,7 @@
             <img
               class="img-logo"
               :src="appLogo"
-              alt="Logo image"
+              alt="Swess Home Logo"
               style="height: 50px; width: 47px"
             />
           </router-link>

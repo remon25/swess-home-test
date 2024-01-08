@@ -23,7 +23,6 @@
         </v-col>
         <v-col cols="12" md="6" class="mt-10 d-border-radius" style="
               background-image: url('images/home.webp');
-              height: 500px;
               background-size: cover;
               height: 599px;
             ">
