@@ -248,6 +248,12 @@ component: () => import(/* webpackChunkName: "about" */ '../views/pages/Advanced
   {
     path: '/company-profile/',
     name: 'company-profile',
+    beforeEnter: async (to, from, next) => {
+      const metaInfo = (await import('vue-meta')).metaInfo;
+      Vue.component('metaInfo', metaInfo);
+
+      next();
+    },
 
     component: () => import(/* webpackChunkName: "about" */ '../views/pages/CompanyProfile.vue')
   },

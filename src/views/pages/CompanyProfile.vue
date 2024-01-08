@@ -61,12 +61,24 @@
   
   <script>
 import Flipbook from "flipbook-vue/vue2";
+import i18n from "@/i18n";
+
 
 export default {
   name: "app",
   components: {
     Flipbook,
   },
+  metaInfo: {
+    title:i18n.t("CompanyProfile"),
+    meta: [
+      {
+        property: 'og:image',
+        content: '/images/profile/1.webp',
+      },
+    ],
+  },
+
   data() {
     return {};
   },
@@ -130,7 +142,7 @@ export default {
 }
 .flipbook {
   width: 90vw;
-  height: 90vh;
+  height: 93vh;
   display: flex;
   flex-direction:column ;
   row-gap: 20px;
