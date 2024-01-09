@@ -70,14 +70,34 @@ export default {
     Flipbook,
   },
   metaInfo: {
-    title:i18n.t("CompanyProfile"),
-    meta: [
-      {
-        property: 'og:image',
-        content: '/images/profile/1.webp',
-      },
-    ],
-  },
+  title: i18n.t("CompanyProfile"),
+  meta: [
+    {
+      property: 'og:image',
+      content: '/images/profile/1.webp',
+    },
+    {
+      name: 'twitter:card',
+      content: 'summary_large_image',
+    },
+    {
+      name: 'twitter:title',
+      content: i18n.t("Swesshome CompanyProfile"),
+    },
+    {
+      name: 'twitter:image',
+      content: '/images/profile/1.webp',
+    },
+    {
+      property: 'og:site_name',
+      content: '/', 
+    },
+    {
+      property: 'og:title',
+      content: i18n.t("CompanyProfile"),
+    },
+  ],
+},
 
   data() {
     return {};
@@ -141,7 +161,7 @@ export default {
   pointer-events: none;
 }
 .flipbook {
-  width: 90vw;
+  width: 95vw;
   height: 93vh;
   display: flex;
   flex-direction:column ;
